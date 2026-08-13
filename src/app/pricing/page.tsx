@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "First letter free. $2 to download. $5 and we mail it certified. $10/mo for unlimited. No retainers, no lawyers, no bullshit.",
+    "First letter free. $2 to download. $8 and we mail it certified. $10/mo for unlimited. No retainers, no lawyers.",
 };
 
 const CHECK = (
@@ -104,7 +104,7 @@ export default function PricingPage() {
               We print, stamp, and send it for you.
             </p>
             <div className="mt-6">
-              <span className="text-5xl font-bold tracking-tight">$5</span>
+              <span className="text-5xl font-bold tracking-tight">$8</span>
               <span className="ml-2 text-sm text-slate-500">per letter</span>
             </div>
             <Link
@@ -128,7 +128,7 @@ export default function PricingPage() {
               </li>
             </ul>
             <p className="mt-6 text-center text-xs text-slate-500">
-              Certified mail alone costs $4.85 at the post office
+              Certified mail + printing costs $12+ at the post office
             </p>
           </div>
 
@@ -229,7 +229,7 @@ export default function PricingPage() {
               },
               {
                 q: "How does the certified mail option work?",
-                a: "Choose the $5 'Mail It' option and enter the recipient's address. We print your letter, put it in a professional envelope, and send it via USPS Certified Mail. You get a tracking number and proof of delivery — which is evidence in court.",
+                a: "Choose the $8 'Mail It' option and enter the recipient's address. We print your letter, put it in a professional envelope, and send it via USPS Certified Mail. You get a tracking number and proof of delivery — which is evidence in court.",
               },
               {
                 q: "When does Unlimited make sense?",
