@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal-650: #0d9488;
+  --font-display: system-ui, -apple-system, sans-serif;
+}
