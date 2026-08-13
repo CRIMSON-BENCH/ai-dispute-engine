@@ -1,234 +1,974 @@
-// ---------------------------------------------------------------------------
-// cities.ts – US city list, dispute categories, and slug helpers
-// ---------------------------------------------------------------------------
+// ============================================================================
+// cities.ts — Location data and dispute type mappings for local SEO pages
+// ============================================================================
 
-export interface City {
+export interface Location {
   slug: string;
   name: string;
   state: string;
   stateAbbr: string;
-  stateCode: string;
-}
-
-export interface DisputeCategory {
-  id: string;
-  label: string;
-  opponentLabel: string;
+  type: "city" | "county";
 }
 
 // ---------------------------------------------------------------------------
-// 82 Major US Cities
+// Dispute types for local pages
 // ---------------------------------------------------------------------------
 
-export const CITIES: City[] = [
-  // California (12)
-  { slug: "los-angeles-ca", name: "Los Angeles", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "san-francisco-ca", name: "San Francisco", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "san-diego-ca", name: "San Diego", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "san-jose-ca", name: "San Jose", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "sacramento-ca", name: "Sacramento", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "oakland-ca", name: "Oakland", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "long-beach-ca", name: "Long Beach", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "fresno-ca", name: "Fresno", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "irvine-ca", name: "Irvine", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "anaheim-ca", name: "Anaheim", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "riverside-ca", name: "Riverside", state: "California", stateAbbr: "CA", stateCode: "CA" },
-  { slug: "bakersfield-ca", name: "Bakersfield", state: "California", stateAbbr: "CA", stateCode: "CA" },
-
-  // Texas (8)
-  { slug: "houston-tx", name: "Houston", state: "Texas", stateAbbr: "TX", stateCode: "TX" },
-  { slug: "austin-tx", name: "Austin", state: "Texas", stateAbbr: "TX", stateCode: "TX" },
-  { slug: "dallas-tx", name: "Dallas", state: "Texas", stateAbbr: "TX", stateCode: "TX" },
-  { slug: "san-antonio-tx", name: "San Antonio", state: "Texas", stateAbbr: "TX", stateCode: "TX" },
-  { slug: "fort-worth-tx", name: "Fort Worth", state: "Texas", stateAbbr: "TX", stateCode: "TX" },
-  { slug: "el-paso-tx", name: "El Paso", state: "Texas", stateAbbr: "TX", stateCode: "TX" },
-  { slug: "plano-tx", name: "Plano", state: "Texas", stateAbbr: "TX", stateCode: "TX" },
-  { slug: "arlington-tx", name: "Arlington", state: "Texas", stateAbbr: "TX", stateCode: "TX" },
-
-  // Florida (6)
-  { slug: "miami-fl", name: "Miami", state: "Florida", stateAbbr: "FL", stateCode: "FL" },
-  { slug: "orlando-fl", name: "Orlando", state: "Florida", stateAbbr: "FL", stateCode: "FL" },
-  { slug: "tampa-fl", name: "Tampa", state: "Florida", stateAbbr: "FL", stateCode: "FL" },
-  { slug: "jacksonville-fl", name: "Jacksonville", state: "Florida", stateAbbr: "FL", stateCode: "FL" },
-  { slug: "fort-lauderdale-fl", name: "Fort Lauderdale", state: "Florida", stateAbbr: "FL", stateCode: "FL" },
-  { slug: "st-petersburg-fl", name: "St. Petersburg", state: "Florida", stateAbbr: "FL", stateCode: "FL" },
-
-  // New York (4)
-  { slug: "new-york-city-ny", name: "New York City", state: "New York", stateAbbr: "NY", stateCode: "NY" },
-  { slug: "brooklyn-ny", name: "Brooklyn", state: "New York", stateAbbr: "NY", stateCode: "NY" },
-  { slug: "buffalo-ny", name: "Buffalo", state: "New York", stateAbbr: "NY", stateCode: "NY" },
-  { slug: "rochester-ny", name: "Rochester", state: "New York", stateAbbr: "NY", stateCode: "NY" },
-
-  // Arizona (4)
-  { slug: "phoenix-az", name: "Phoenix", state: "Arizona", stateAbbr: "AZ", stateCode: "AZ" },
-  { slug: "tucson-az", name: "Tucson", state: "Arizona", stateAbbr: "AZ", stateCode: "AZ" },
-  { slug: "mesa-az", name: "Mesa", state: "Arizona", stateAbbr: "AZ", stateCode: "AZ" },
-  { slug: "scottsdale-az", name: "Scottsdale", state: "Arizona", stateAbbr: "AZ", stateCode: "AZ" },
-
-  // Washington (3)
-  { slug: "seattle-wa", name: "Seattle", state: "Washington", stateAbbr: "WA", stateCode: "WA" },
-  { slug: "spokane-wa", name: "Spokane", state: "Washington", stateAbbr: "WA", stateCode: "WA" },
-  { slug: "tacoma-wa", name: "Tacoma", state: "Washington", stateAbbr: "WA", stateCode: "WA" },
-
-  // Colorado (3)
-  { slug: "denver-co", name: "Denver", state: "Colorado", stateAbbr: "CO", stateCode: "CO" },
-  { slug: "colorado-springs-co", name: "Colorado Springs", state: "Colorado", stateAbbr: "CO", stateCode: "CO" },
-  { slug: "aurora-co", name: "Aurora", state: "Colorado", stateAbbr: "CO", stateCode: "CO" },
-
-  // Illinois (2)
-  { slug: "chicago-il", name: "Chicago", state: "Illinois", stateAbbr: "IL", stateCode: "IL" },
-  { slug: "naperville-il", name: "Naperville", state: "Illinois", stateAbbr: "IL", stateCode: "IL" },
-
-  // Georgia (3)
-  { slug: "atlanta-ga", name: "Atlanta", state: "Georgia", stateAbbr: "GA", stateCode: "GA" },
-  { slug: "savannah-ga", name: "Savannah", state: "Georgia", stateAbbr: "GA", stateCode: "GA" },
-  { slug: "augusta-ga", name: "Augusta", state: "Georgia", stateAbbr: "GA", stateCode: "GA" },
-
-  // North Carolina (3)
-  { slug: "charlotte-nc", name: "Charlotte", state: "North Carolina", stateAbbr: "NC", stateCode: "NC" },
-  { slug: "raleigh-nc", name: "Raleigh", state: "North Carolina", stateAbbr: "NC", stateCode: "NC" },
-  { slug: "durham-nc", name: "Durham", state: "North Carolina", stateAbbr: "NC", stateCode: "NC" },
-
-  // Massachusetts (2)
-  { slug: "boston-ma", name: "Boston", state: "Massachusetts", stateAbbr: "MA", stateCode: "MA" },
-  { slug: "cambridge-ma", name: "Cambridge", state: "Massachusetts", stateAbbr: "MA", stateCode: "MA" },
-
-  // Nevada (2)
-  { slug: "las-vegas-nv", name: "Las Vegas", state: "Nevada", stateAbbr: "NV", stateCode: "NV" },
-  { slug: "reno-nv", name: "Reno", state: "Nevada", stateAbbr: "NV", stateCode: "NV" },
-
-  // Oregon (2)
-  { slug: "portland-or", name: "Portland", state: "Oregon", stateAbbr: "OR", stateCode: "OR" },
-  { slug: "eugene-or", name: "Eugene", state: "Oregon", stateAbbr: "OR", stateCode: "OR" },
-
-  // Pennsylvania (3)
-  { slug: "philadelphia-pa", name: "Philadelphia", state: "Pennsylvania", stateAbbr: "PA", stateCode: "PA" },
-  { slug: "pittsburgh-pa", name: "Pittsburgh", state: "Pennsylvania", stateAbbr: "PA", stateCode: "PA" },
-  { slug: "harrisburg-pa", name: "Harrisburg", state: "Pennsylvania", stateAbbr: "PA", stateCode: "PA" },
-
-  // Ohio (3)
-  { slug: "columbus-oh", name: "Columbus", state: "Ohio", stateAbbr: "OH", stateCode: "OH" },
-  { slug: "cleveland-oh", name: "Cleveland", state: "Ohio", stateAbbr: "OH", stateCode: "OH" },
-  { slug: "cincinnati-oh", name: "Cincinnati", state: "Ohio", stateAbbr: "OH", stateCode: "OH" },
-
-  // Michigan (2)
-  { slug: "detroit-mi", name: "Detroit", state: "Michigan", stateAbbr: "MI", stateCode: "MI" },
-  { slug: "grand-rapids-mi", name: "Grand Rapids", state: "Michigan", stateAbbr: "MI", stateCode: "MI" },
-
-  // Minnesota (2)
-  { slug: "minneapolis-mn", name: "Minneapolis", state: "Minnesota", stateAbbr: "MN", stateCode: "MN" },
-  { slug: "st-paul-mn", name: "St. Paul", state: "Minnesota", stateAbbr: "MN", stateCode: "MN" },
-
-  // Utah (2)
-  { slug: "salt-lake-city-ut", name: "Salt Lake City", state: "Utah", stateAbbr: "UT", stateCode: "UT" },
-  { slug: "provo-ut", name: "Provo", state: "Utah", stateAbbr: "UT", stateCode: "UT" },
-
-  // Missouri (2)
-  { slug: "kansas-city-mo", name: "Kansas City", state: "Missouri", stateAbbr: "MO", stateCode: "MO" },
-  { slug: "st-louis-mo", name: "St. Louis", state: "Missouri", stateAbbr: "MO", stateCode: "MO" },
-
-  // Tennessee (2)
-  { slug: "nashville-tn", name: "Nashville", state: "Tennessee", stateAbbr: "TN", stateCode: "TN" },
-  { slug: "memphis-tn", name: "Memphis", state: "Tennessee", stateAbbr: "TN", stateCode: "TN" },
-
-  // DC (1)
-  { slug: "washington-dc", name: "Washington", state: "District of Columbia", stateAbbr: "DC", stateCode: "DC" },
-
-  // Maryland (1)
-  { slug: "baltimore-md", name: "Baltimore", state: "Maryland", stateAbbr: "MD", stateCode: "MD" },
-
-  // Virginia (2)
-  { slug: "richmond-va", name: "Richmond", state: "Virginia", stateAbbr: "VA", stateCode: "VA" },
-  { slug: "virginia-beach-va", name: "Virginia Beach", state: "Virginia", stateAbbr: "VA", stateCode: "VA" },
-
-  // Indiana (1)
-  { slug: "indianapolis-in", name: "Indianapolis", state: "Indiana", stateAbbr: "IN", stateCode: "IN" },
-
-  // Wisconsin (1)
-  { slug: "milwaukee-wi", name: "Milwaukee", state: "Wisconsin", stateAbbr: "WI", stateCode: "WI" },
-
-  // Oklahoma (1)
-  { slug: "oklahoma-city-ok", name: "Oklahoma City", state: "Oklahoma", stateAbbr: "OK", stateCode: "OK" },
-
-  // Kentucky (1)
-  { slug: "louisville-ky", name: "Louisville", state: "Kentucky", stateAbbr: "KY", stateCode: "KY" },
-
-  // Louisiana (1)
-  { slug: "new-orleans-la", name: "New Orleans", state: "Louisiana", stateAbbr: "LA", stateCode: "LA" },
-
-  // Alabama (1)
-  { slug: "birmingham-al", name: "Birmingham", state: "Alabama", stateAbbr: "AL", stateCode: "AL" },
-
-  // South Carolina (1)
-  { slug: "charleston-sc", name: "Charleston", state: "South Carolina", stateAbbr: "SC", stateCode: "SC" },
-
-  // Connecticut (1)
-  { slug: "hartford-ct", name: "Hartford", state: "Connecticut", stateAbbr: "CT", stateCode: "CT" },
+export const LOCAL_DISPUTE_TYPES: Array<{ slug: string; name: string }> = [
+  { slug: "security-deposit", name: "Security Deposit Dispute" },
+  { slug: "credit-report", name: "Credit Report Error" },
+  { slug: "dmca-takedown", name: "DMCA Takedown" },
+  { slug: "medical-denial", name: "Medical Claim Denial" },
+  { slug: "parking-ticket", name: "Parking Ticket Dispute" },
+  { slug: "debt-validation", name: "Debt Validation" },
+  { slug: "subscription-refund", name: "Subscription Refund" },
+  { slug: "lease-break", name: "Lease Break" },
+  { slug: "hoa-fine", name: "HOA Fine Dispute" },
+  { slug: "wage-theft", name: "Wage Theft Claim" },
+  { slug: "chargeback-dispute", name: "Chargeback Dispute" },
+  { slug: "foia-request", name: "FOIA Request" },
+  { slug: "general-demand-letter", name: "Demand Letter" },
+  { slug: "irs-abatement", name: "IRS Penalty Abatement" },
+  { slug: "property-tax-appeal", name: "Property Tax Appeal" },
+  { slug: "data-broker-takedown", name: "Data Broker Removal" },
+  { slug: "ada-accommodation", name: "ADA Accommodation" },
+  { slug: "denied-warranty", name: "Warranty Claim" },
+  { slug: "small-claims-demand", name: "Small Claims Demand" },
+  { slug: "airbnb-host-dispute", name: "Airbnb Dispute" },
 ];
 
 // ---------------------------------------------------------------------------
-// Local Dispute Categories
+// City data — state abbr => [full state name, city1, city2, ...]
 // ---------------------------------------------------------------------------
 
-export const LOCAL_DISPUTE_CATEGORIES: DisputeCategory[] = [
-  { id: "landlord", label: "Security Deposit Dispute", opponentLabel: "a landlord" },
-  { id: "hoa", label: "HOA Fine Dispute", opponentLabel: "an HOA" },
-  { id: "medical", label: "Medical Billing Dispute", opponentLabel: "a hospital or insurance company" },
-  { id: "employer", label: "Employment Dispute", opponentLabel: "an employer" },
-  { id: "collector", label: "Debt Collection Dispute", opponentLabel: "a debt collector" },
-  { id: "government", label: "Government Agency Dispute", opponentLabel: "a government agency" },
-  { id: "insurance", label: "Insurance Claim Dispute", opponentLabel: "an insurance company" },
-  { id: "contractor", label: "Contractor Dispute", opponentLabel: "a contractor or service provider" },
-];
+const CITY_DATA: Record<string, [string, ...string[]]> = {
+  AL: [
+    "Alabama",
+    "Birmingham",
+    "Montgomery",
+    "Huntsville",
+    "Mobile",
+    "Tuscaloosa",
+    "Hoover",
+    "Dothan",
+    "Decatur",
+    "Auburn",
+  ],
+  AK: [
+    "Alaska",
+    "Anchorage",
+    "Fairbanks",
+    "Juneau",
+    "Wasilla",
+  ],
+  AZ: [
+    "Arizona",
+    "Phoenix",
+    "Tucson",
+    "Mesa",
+    "Chandler",
+    "Scottsdale",
+    "Glendale",
+    "Gilbert",
+    "Tempe",
+    "Peoria",
+    "Surprise",
+    "Yuma",
+    "Goodyear",
+  ],
+  AR: [
+    "Arkansas",
+    "Little Rock",
+    "Fort Smith",
+    "Fayetteville",
+    "Springdale",
+    "Jonesboro",
+    "Conway",
+    "Rogers",
+  ],
+  CA: [
+    "California",
+    "Los Angeles",
+    "San Francisco",
+    "San Diego",
+    "San Jose",
+    "Fresno",
+    "Sacramento",
+    "Long Beach",
+    "Oakland",
+    "Bakersfield",
+    "Anaheim",
+    "Santa Ana",
+    "Riverside",
+    "Stockton",
+    "Irvine",
+    "Chula Vista",
+    "Fremont",
+    "San Bernardino",
+    "Modesto",
+    "Moreno Valley",
+    "Fontana",
+    "Glendale",
+    "Huntington Beach",
+    "Santa Clarita",
+    "Garden Grove",
+    "Oceanside",
+    "Rancho Cucamonga",
+    "Ontario",
+    "Santa Rosa",
+    "Elk Grove",
+    "Corona",
+    "Roseville",
+    "Palmdale",
+    "Salinas",
+    "Pomona",
+    "Hayward",
+    "Escondido",
+    "Sunnyvale",
+    "Torrance",
+    "Pasadena",
+    "Fullerton",
+    "Thousand Oaks",
+    "Visalia",
+    "Concord",
+    "Simi Valley",
+    "Santa Maria",
+    "Berkeley",
+    "El Monte",
+    "Downey",
+    "Costa Mesa",
+    "Inglewood",
+    "Carlsbad",
+    "Temecula",
+    "Murrieta",
+    "Clovis",
+    "Daly City",
+    "San Mateo",
+    "Victorville",
+    "El Cajon",
+    "Menifee",
+  ],
+  CO: [
+    "Colorado",
+    "Denver",
+    "Colorado Springs",
+    "Aurora",
+    "Fort Collins",
+    "Lakewood",
+    "Thornton",
+    "Arvada",
+    "Westminster",
+    "Pueblo",
+    "Centennial",
+    "Boulder",
+    "Greeley",
+    "Longmont",
+  ],
+  CT: [
+    "Connecticut",
+    "Bridgeport",
+    "New Haven",
+    "Stamford",
+    "Hartford",
+    "Waterbury",
+    "Norwalk",
+    "Danbury",
+    "New Britain",
+    "Bristol",
+    "Meriden",
+  ],
+  DE: [
+    "Delaware",
+    "Wilmington",
+    "Dover",
+    "Newark",
+    "Middletown",
+  ],
+  DC: [
+    "District of Columbia",
+    "Washington",
+  ],
+  FL: [
+    "Florida",
+    "Jacksonville",
+    "Miami",
+    "Tampa",
+    "Orlando",
+    "St. Petersburg",
+    "Hialeah",
+    "Port St. Lucie",
+    "Cape Coral",
+    "Tallahassee",
+    "Fort Lauderdale",
+    "Pembroke Pines",
+    "Hollywood",
+    "Gainesville",
+    "Miramar",
+    "Coral Springs",
+    "Palm Bay",
+    "Clearwater",
+    "Lakeland",
+    "Pompano Beach",
+    "West Palm Beach",
+    "Davie",
+    "Miami Gardens",
+    "Sunrise",
+    "Plantation",
+    "Boca Raton",
+    "Deltona",
+    "Palm Coast",
+    "Melbourne",
+    "Largo",
+    "Deerfield Beach",
+    "Boynton Beach",
+    "Kissimmee",
+    "Homestead",
+    "Sarasota",
+    "Fort Myers",
+  ],
+  GA: [
+    "Georgia",
+    "Atlanta",
+    "Augusta",
+    "Columbus",
+    "Savannah",
+    "Athens",
+    "Sandy Springs",
+    "Roswell",
+    "Macon",
+    "Johns Creek",
+    "Albany",
+    "Warner Robins",
+    "Alpharetta",
+    "Marietta",
+    "Valdosta",
+    "Smyrna",
+    "Stonecrest",
+    "Brookhaven",
+  ],
+  HI: [
+    "Hawaii",
+    "Honolulu",
+    "Pearl City",
+    "Hilo",
+    "Kailua",
+    "Kapolei",
+  ],
+  ID: [
+    "Idaho",
+    "Boise",
+    "Meridian",
+    "Nampa",
+    "Idaho Falls",
+    "Pocatello",
+    "Caldwell",
+    "Coeur d'Alene",
+  ],
+  IL: [
+    "Illinois",
+    "Chicago",
+    "Aurora",
+    "Joliet",
+    "Naperville",
+    "Rockford",
+    "Springfield",
+    "Elgin",
+    "Peoria",
+    "Champaign",
+    "Waukegan",
+    "Cicero",
+    "Bloomington",
+    "Arlington Heights",
+    "Evanston",
+    "Schaumburg",
+    "Bolingbrook",
+    "Decatur",
+  ],
+  IN: [
+    "Indiana",
+    "Indianapolis",
+    "Fort Wayne",
+    "Evansville",
+    "South Bend",
+    "Carmel",
+    "Fishers",
+    "Bloomington",
+    "Hammond",
+    "Gary",
+    "Lafayette",
+    "Muncie",
+    "Terre Haute",
+  ],
+  IA: [
+    "Iowa",
+    "Des Moines",
+    "Cedar Rapids",
+    "Davenport",
+    "Sioux City",
+    "Iowa City",
+    "Waterloo",
+    "Ames",
+    "Council Bluffs",
+  ],
+  KS: [
+    "Kansas",
+    "Wichita",
+    "Overland Park",
+    "Kansas City",
+    "Olathe",
+    "Topeka",
+    "Lawrence",
+    "Shawnee",
+    "Manhattan",
+  ],
+  KY: [
+    "Kentucky",
+    "Louisville",
+    "Lexington",
+    "Bowling Green",
+    "Owensboro",
+    "Covington",
+    "Richmond",
+    "Georgetown",
+    "Florence",
+  ],
+  LA: [
+    "Louisiana",
+    "New Orleans",
+    "Baton Rouge",
+    "Shreveport",
+    "Metairie",
+    "Lafayette",
+    "Lake Charles",
+    "Kenner",
+    "Bossier City",
+    "Monroe",
+  ],
+  ME: [
+    "Maine",
+    "Portland",
+    "Lewiston",
+    "Bangor",
+    "South Portland",
+    "Auburn",
+  ],
+  MD: [
+    "Maryland",
+    "Baltimore",
+    "Columbia",
+    "Germantown",
+    "Silver Spring",
+    "Waldorf",
+    "Frederick",
+    "Ellicott City",
+    "Glen Burnie",
+    "Rockville",
+    "Bowie",
+    "Hagerstown",
+  ],
+  MA: [
+    "Massachusetts",
+    "Boston",
+    "Worcester",
+    "Springfield",
+    "Cambridge",
+    "Lowell",
+    "Brockton",
+    "New Bedford",
+    "Quincy",
+    "Lynn",
+    "Fall River",
+    "Newton",
+    "Lawrence",
+    "Somerville",
+  ],
+  MI: [
+    "Michigan",
+    "Detroit",
+    "Grand Rapids",
+    "Warren",
+    "Sterling Heights",
+    "Ann Arbor",
+    "Lansing",
+    "Flint",
+    "Dearborn",
+    "Livonia",
+    "Clinton Township",
+    "Troy",
+    "Canton",
+    "Westland",
+    "Farmington Hills",
+    "Kalamazoo",
+  ],
+  MN: [
+    "Minnesota",
+    "Minneapolis",
+    "St. Paul",
+    "Rochester",
+    "Bloomington",
+    "Duluth",
+    "Brooklyn Park",
+    "Plymouth",
+    "Maple Grove",
+    "Woodbury",
+    "St. Cloud",
+    "Eagan",
+    "Eden Prairie",
+  ],
+  MS: [
+    "Mississippi",
+    "Jackson",
+    "Gulfport",
+    "Southaven",
+    "Hattiesburg",
+    "Biloxi",
+    "Olive Branch",
+    "Tupelo",
+  ],
+  MO: [
+    "Missouri",
+    "Kansas City",
+    "St. Louis",
+    "Springfield",
+    "Columbia",
+    "Independence",
+    "Lee's Summit",
+    "O'Fallon",
+    "St. Joseph",
+    "St. Charles",
+    "Blue Springs",
+    "Joplin",
+  ],
+  MT: [
+    "Montana",
+    "Billings",
+    "Missoula",
+    "Great Falls",
+    "Bozeman",
+    "Helena",
+  ],
+  NE: [
+    "Nebraska",
+    "Omaha",
+    "Lincoln",
+    "Bellevue",
+    "Grand Island",
+    "Kearney",
+  ],
+  NV: [
+    "Nevada",
+    "Las Vegas",
+    "Henderson",
+    "Reno",
+    "North Las Vegas",
+    "Sparks",
+    "Carson City",
+  ],
+  NH: [
+    "New Hampshire",
+    "Manchester",
+    "Nashua",
+    "Concord",
+    "Dover",
+  ],
+  NJ: [
+    "New Jersey",
+    "Newark",
+    "Jersey City",
+    "Paterson",
+    "Elizabeth",
+    "Lakewood",
+    "Edison",
+    "Woodbridge",
+    "Toms River",
+    "Trenton",
+    "Clifton",
+    "Camden",
+    "Passaic",
+    "Union City",
+    "Bayonne",
+    "East Orange",
+    "Vineland",
+    "New Brunswick",
+    "Hoboken",
+    "Perth Amboy",
+  ],
+  NM: [
+    "New Mexico",
+    "Albuquerque",
+    "Las Cruces",
+    "Rio Rancho",
+    "Santa Fe",
+    "Roswell",
+    "Farmington",
+  ],
+  NY: [
+    "New York",
+    "New York City",
+    "Buffalo",
+    "Rochester",
+    "Yonkers",
+    "Syracuse",
+    "Albany",
+    "New Rochelle",
+    "Mount Vernon",
+    "Schenectady",
+    "Utica",
+    "White Plains",
+    "Hempstead",
+    "Troy",
+    "Niagara Falls",
+    "Binghamton",
+  ],
+  NC: [
+    "North Carolina",
+    "Charlotte",
+    "Raleigh",
+    "Greensboro",
+    "Durham",
+    "Winston-Salem",
+    "Fayetteville",
+    "Cary",
+    "Wilmington",
+    "High Point",
+    "Asheville",
+    "Concord",
+    "Gastonia",
+    "Jacksonville",
+    "Chapel Hill",
+    "Huntersville",
+  ],
+  ND: [
+    "North Dakota",
+    "Fargo",
+    "Bismarck",
+    "Grand Forks",
+    "Minot",
+  ],
+  OH: [
+    "Ohio",
+    "Columbus",
+    "Cleveland",
+    "Cincinnati",
+    "Toledo",
+    "Akron",
+    "Dayton",
+    "Parma",
+    "Canton",
+    "Youngstown",
+    "Lorain",
+    "Hamilton",
+    "Springfield",
+    "Kettering",
+    "Elyria",
+    "Lakewood",
+    "Cuyahoga Falls",
+    "Middletown",
+    "Newark",
+    "Mansfield",
+    "Mentor",
+    "Dublin",
+  ],
+  OK: [
+    "Oklahoma",
+    "Oklahoma City",
+    "Tulsa",
+    "Norman",
+    "Broken Arrow",
+    "Edmond",
+    "Lawton",
+    "Moore",
+    "Midwest City",
+    "Stillwater",
+    "Enid",
+  ],
+  OR: [
+    "Oregon",
+    "Portland",
+    "Salem",
+    "Eugene",
+    "Gresham",
+    "Hillsboro",
+    "Beaverton",
+    "Bend",
+    "Medford",
+    "Springfield",
+    "Corvallis",
+    "Albany",
+  ],
+  PA: [
+    "Pennsylvania",
+    "Philadelphia",
+    "Pittsburgh",
+    "Allentown",
+    "Reading",
+    "Scranton",
+    "Bethlehem",
+    "Lancaster",
+    "Harrisburg",
+    "Erie",
+    "York",
+    "Wilkes-Barre",
+    "Chester",
+    "State College",
+    "Norristown",
+  ],
+  RI: [
+    "Rhode Island",
+    "Providence",
+    "Warwick",
+    "Cranston",
+    "Pawtucket",
+    "East Providence",
+    "Woonsocket",
+  ],
+  SC: [
+    "South Carolina",
+    "Charleston",
+    "Columbia",
+    "North Charleston",
+    "Mount Pleasant",
+    "Rock Hill",
+    "Greenville",
+    "Summerville",
+    "Spartanburg",
+    "Goose Creek",
+    "Hilton Head Island",
+  ],
+  SD: [
+    "South Dakota",
+    "Sioux Falls",
+    "Rapid City",
+    "Aberdeen",
+    "Brookings",
+  ],
+  TN: [
+    "Tennessee",
+    "Nashville",
+    "Memphis",
+    "Knoxville",
+    "Chattanooga",
+    "Clarksville",
+    "Murfreesboro",
+    "Franklin",
+    "Jackson",
+    "Johnson City",
+    "Bartlett",
+    "Hendersonville",
+    "Kingsport",
+    "Collierville",
+    "Smyrna",
+  ],
+  TX: [
+    "Texas",
+    "Houston",
+    "San Antonio",
+    "Dallas",
+    "Austin",
+    "Fort Worth",
+    "El Paso",
+    "Arlington",
+    "Corpus Christi",
+    "Plano",
+    "Laredo",
+    "Lubbock",
+    "Garland",
+    "Irving",
+    "Amarillo",
+    "Grand Prairie",
+    "Brownsville",
+    "McKinney",
+    "Frisco",
+    "Pasadena",
+    "Killeen",
+    "McAllen",
+    "Midland",
+    "Beaumont",
+    "Denton",
+    "Waco",
+    "Round Rock",
+    "Mesquite",
+    "Carrollton",
+    "Lewisville",
+    "Abilene",
+    "Richardson",
+    "Odessa",
+    "Allen",
+    "Sugar Land",
+    "Tyler",
+    "League City",
+    "Edinburg",
+    "Pharr",
+    "College Station",
+    "San Marcos",
+    "Flower Mound",
+    "Temple",
+    "New Braunfels",
+    "Missouri City",
+    "Conroe",
+    "Cedar Park",
+    "Harlingen",
+    "Pearland",
+    "Pflugerville",
+  ],
+  UT: [
+    "Utah",
+    "Salt Lake City",
+    "West Valley City",
+    "Provo",
+    "West Jordan",
+    "Orem",
+    "Sandy",
+    "Ogden",
+    "St. George",
+    "Layton",
+    "Lehi",
+  ],
+  VT: [
+    "Vermont",
+    "Burlington",
+    "South Burlington",
+    "Rutland",
+    "Barre",
+  ],
+  VA: [
+    "Virginia",
+    "Virginia Beach",
+    "Norfolk",
+    "Chesapeake",
+    "Richmond",
+    "Newport News",
+    "Alexandria",
+    "Hampton",
+    "Roanoke",
+    "Portsmouth",
+    "Suffolk",
+    "Lynchburg",
+    "Charlottesville",
+    "Manassas",
+    "Fredericksburg",
+  ],
+  WA: [
+    "Washington",
+    "Seattle",
+    "Spokane",
+    "Tacoma",
+    "Vancouver",
+    "Bellevue",
+    "Kent",
+    "Everett",
+    "Renton",
+    "Federal Way",
+    "Spokane Valley",
+    "Kirkland",
+    "Auburn",
+    "Bellingham",
+    "Redmond",
+    "Lakewood",
+  ],
+  WV: [
+    "West Virginia",
+    "Charleston",
+    "Huntington",
+    "Morgantown",
+    "Parkersburg",
+    "Wheeling",
+  ],
+  WI: [
+    "Wisconsin",
+    "Milwaukee",
+    "Madison",
+    "Green Bay",
+    "Kenosha",
+    "Racine",
+    "Appleton",
+    "Waukesha",
+    "Oshkosh",
+    "Eau Claire",
+    "Janesville",
+    "West Allis",
+    "La Crosse",
+    "Sheboygan",
+  ],
+  WY: [
+    "Wyoming",
+    "Cheyenne",
+    "Casper",
+    "Laramie",
+    "Gillette",
+  ],
+};
 
 // ---------------------------------------------------------------------------
-// Helper Functions
+// County data — state abbr => county names (without "County" suffix)
 // ---------------------------------------------------------------------------
 
-/** Look up a city by its URL slug (e.g. "los-angeles-ca"). */
-export function getCityBySlug(slug: string): City | undefined {
-  return CITIES.find((c) => c.slug === slug);
+const COUNTY_DATA: Record<string, string[]> = {
+  AL: ["Jefferson", "Madison", "Mobile"],
+  AR: ["Pulaski", "Benton", "Washington"],
+  AZ: ["Maricopa", "Pima", "Pinal"],
+  CA: ["Los Angeles", "San Diego", "Orange", "Riverside", "San Bernardino"],
+  CO: ["El Paso", "Denver", "Arapahoe"],
+  CT: ["Fairfield", "Hartford", "New Haven"],
+  FL: ["Miami-Dade", "Broward", "Palm Beach", "Hillsborough", "Orange"],
+  GA: ["Fulton", "Gwinnett", "Cobb", "DeKalb"],
+  HI: ["Honolulu"],
+  IL: ["Cook", "DuPage", "Lake", "Will"],
+  IN: ["Marion", "Lake", "Allen"],
+  IA: ["Polk", "Linn", "Scott"],
+  KS: ["Johnson", "Sedgwick", "Shawnee"],
+  KY: ["Jefferson", "Fayette", "Kenton"],
+  LA: ["East Baton Rouge", "Jefferson", "Orleans"],
+  MD: ["Montgomery", "Prince George's", "Baltimore"],
+  MA: ["Middlesex", "Worcester", "Suffolk", "Essex", "Norfolk"],
+  MI: ["Wayne", "Oakland", "Macomb", "Kent"],
+  MN: ["Hennepin", "Ramsey", "Dakota"],
+  MO: ["St. Louis", "Jackson", "St. Charles"],
+  MS: ["Hinds", "Harrison", "DeSoto"],
+  NE: ["Douglas", "Lancaster"],
+  NV: ["Clark", "Washoe"],
+  NJ: ["Bergen", "Middlesex", "Essex", "Hudson"],
+  NM: ["Bernalillo", "Dona Ana"],
+  NY: ["Kings", "Queens", "New York", "Suffolk", "Nassau", "Erie"],
+  NC: ["Mecklenburg", "Wake", "Guilford", "Forsyth"],
+  OH: ["Franklin", "Cuyahoga", "Hamilton", "Summit"],
+  OK: ["Oklahoma", "Tulsa", "Cleveland"],
+  OR: ["Multnomah", "Washington", "Clackamas"],
+  PA: ["Philadelphia", "Allegheny", "Montgomery", "Bucks", "Delaware"],
+  SC: ["Greenville", "Richland", "Charleston"],
+  TN: ["Shelby", "Davidson", "Knox", "Hamilton"],
+  TX: ["Harris", "Dallas", "Tarrant", "Bexar", "Travis", "El Paso"],
+  UT: ["Salt Lake", "Utah", "Davis"],
+  VA: ["Fairfax", "Prince William", "Loudoun"],
+  WA: ["King", "Pierce", "Snohomish"],
+  WI: ["Milwaukee", "Dane", "Waukesha"],
+};
+
+// ---------------------------------------------------------------------------
+// Utility: slugify a string
+// ---------------------------------------------------------------------------
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
-/** Build a local-page slug like "landlord-los-angeles-ca". */
-export function getLocalPageSlug(category: string, city: City): string {
-  return `${category}-${city.slug}`;
+// ---------------------------------------------------------------------------
+// Build location arrays (cached on first call)
+// ---------------------------------------------------------------------------
+
+let _allLocations: Location[] | null = null;
+let _locationBySlug: Map<string, Location> | null = null;
+
+function buildLocations(): Location[] {
+  const locations: Location[] = [];
+
+  // Cities
+  for (const [stateAbbr, data] of Object.entries(CITY_DATA)) {
+    const [stateName, ...cities] = data;
+    for (const city of cities) {
+      const slug = `${slugify(city)}-${stateAbbr.toLowerCase()}`;
+      locations.push({
+        slug,
+        name: city,
+        state: stateName,
+        stateAbbr,
+        type: "city",
+      });
+    }
+  }
+
+  // Counties
+  for (const [stateAbbr, counties] of Object.entries(COUNTY_DATA)) {
+    const stateEntry = CITY_DATA[stateAbbr];
+    const stateName = stateEntry ? stateEntry[0] : stateAbbr;
+    for (const county of counties) {
+      const slug = `${slugify(county)}-county-${stateAbbr.toLowerCase()}`;
+      locations.push({
+        slug,
+        name: `${county} County`,
+        state: stateName,
+        stateAbbr,
+        type: "county",
+      });
+    }
+  }
+
+  return locations;
+}
+
+function ensureBuilt(): void {
+  if (_allLocations === null) {
+    _allLocations = buildLocations();
+    _locationBySlug = new Map(_allLocations.map((loc) => [loc.slug, loc]));
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Public API
+// ---------------------------------------------------------------------------
+
+/**
+ * Returns all locations (cities + counties).
+ */
+export function getAllLocations(): Location[] {
+  ensureBuilt();
+  return _allLocations!;
 }
 
 /**
- * Parse a combined local-page slug back into its parts.
- * Returns `{ categoryId, citySlug }` or `null` if no match is found.
+ * Look up a single location by its slug.
+ */
+export function getLocationBySlug(slug: string): Location | undefined {
+  ensureBuilt();
+  return _locationBySlug!.get(slug);
+}
+
+/**
+ * Returns every combination of dispute-type slug + location slug,
+ * joined by a hyphen: "security-deposit-los-angeles-ca"
+ */
+export function getAllLocalPageSlugs(): string[] {
+  ensureBuilt();
+  const slugs: string[] = [];
+  for (const dispute of LOCAL_DISPUTE_TYPES) {
+    for (const loc of _allLocations!) {
+      slugs.push(`${dispute.slug}-${loc.slug}`);
+    }
+  }
+  return slugs;
+}
+
+/**
+ * Parse a combined local-page slug back into its dispute type and location.
+ *
+ * Strategy: try each dispute-type slug as a prefix (longest first to avoid
+ * prefix collisions like "small-claims-demand" vs "small-claims"). If the
+ * remainder (after removing the dispute slug and the joining hyphen) matches
+ * a known location slug, return both.
  */
 export function parseLocalPageSlug(
   slug: string
-): { categoryId: string; citySlug: string } | null {
-  // Try each category prefix; longest-match-first isn't necessary because none
-  // of the category ids are prefixes of each other, but we sort by length
-  // descending for safety.
-  const sorted = [...LOCAL_DISPUTE_CATEGORIES].sort(
-    (a, b) => b.id.length - a.id.length
+): { disputeType: (typeof LOCAL_DISPUTE_TYPES)[number]; location: Location } | null {
+  ensureBuilt();
+
+  // Sort dispute types by slug length descending so longer prefixes match first
+  const sorted = [...LOCAL_DISPUTE_TYPES].sort(
+    (a, b) => b.slug.length - a.slug.length
   );
 
-  for (const cat of sorted) {
-    const prefix = `${cat.id}-`;
+  for (const dispute of sorted) {
+    const prefix = dispute.slug + "-";
     if (slug.startsWith(prefix)) {
-      const citySlug = slug.slice(prefix.length);
-      if (getCityBySlug(citySlug)) {
-        return { categoryId: cat.id, citySlug };
+      const locationSlug = slug.slice(prefix.length);
+      const location = _locationBySlug!.get(locationSlug);
+      if (location) {
+        return { disputeType: dispute, location };
       }
     }
   }
 
   return null;
-}
-
-/** Generate every category + city slug combination. */
-export function getAllLocalPageSlugs(): string[] {
-  const slugs: string[] = [];
-  for (const cat of LOCAL_DISPUTE_CATEGORIES) {
-    for (const city of CITIES) {
-      slugs.push(getLocalPageSlug(cat.id, city));
-    }
-  }
-  return slugs;
 }
