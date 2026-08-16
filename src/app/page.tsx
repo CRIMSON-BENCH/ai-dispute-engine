@@ -8,8 +8,10 @@ const FEATURED_SLUGS = [
   "credit-report",
   "dmca-takedown",
   "medical-denial",
-  "parking-ticket",
-  "debt-validation",
+  "lemon-law",
+  "car-accident-demand",
+  "wrongful-termination",
+  "insurance-denial",
 ];
 
 const TESTIMONIALS = DISPUTES.filter((d) => d.testimonial).slice(0, 4);
@@ -18,7 +20,7 @@ const STEPS = [
   {
     number: "1",
     title: "Pick your fight",
-    description: "Choose a dispute type or describe your situation. We have 20+ templates covering landlords, credit bureaus, insurers, HOAs, and more.",
+    description: "Choose from 38 dispute types covering landlords, credit bureaus, insurers, employers, HOAs, and more.",
   },
   {
     number: "2",
@@ -244,6 +246,42 @@ export default function HomePage() {
                   />
                 )
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Tools & Add-ons */}
+      <section className="bg-white dark:bg-slate-950">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              More than just letters
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+              Free tools and premium add-ons to help you win your dispute from start to finish.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <Link href="/tools/settlement-calculator" className="group rounded-2xl border border-slate-200 p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:hover:border-teal-500">
+              <span className="text-2xl">🧮</span>
+              <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Settlement Calculator</h3>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Free — estimate what your case is worth</p>
+            </Link>
+            <Link href="/tools/escalation" className="group rounded-2xl border border-slate-200 p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:hover:border-teal-500">
+              <span className="text-2xl">📈</span>
+              <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Escalation Pack</h3>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">$5 — FTC, CFPB, &amp; State AG complaints</p>
+            </Link>
+            <Link href="/tools/small-claims-kit" className="group rounded-2xl border border-slate-200 p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:hover:border-teal-500">
+              <span className="text-2xl">⚖️</span>
+              <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Small Claims Kit</h3>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">$15 — file in court without a lawyer</p>
+            </Link>
+            <Link href="/business" className="group rounded-2xl border border-slate-200 p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:hover:border-teal-500">
+              <span className="text-2xl">🏢</span>
+              <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Business Plan</h3>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">$49/mo — unlimited letters for your team</p>
+            </Link>
           </div>
         </div>
       </section>

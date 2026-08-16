@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "First letter free. $2 to download. $8 and we mail it certified. $10/mo for unlimited. No retainers, no lawyers.",
+    "First letter free. $2 to download. $8 certified mail. $10/mo unlimited. Plus escalation packs, notarized letters, process serving, and more.",
 };
 
 const CHECK = (
@@ -211,6 +211,83 @@ export default function PricingPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+
+        {/* Add-ons & Premium */}
+        <div className="mt-20">
+          <h2 className="text-center text-2xl font-bold">Add-ons &amp; Premium Services</h2>
+          <p className="mx-auto mt-2 max-w-xl text-center text-sm text-slate-500 dark:text-slate-400">
+            Level up your dispute with tools that give you an edge.
+          </p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Response Letter */}
+            <Link href="/tools/response-letter" className="group rounded-2xl border border-slate-200 bg-white p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Response Letter</h3>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-bold dark:bg-slate-800">$2</span>
+              </div>
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">They wrote back? Paste their reply and get a point-by-point rebuttal.</p>
+            </Link>
+
+            {/* Escalation Pack */}
+            <Link href="/tools/escalation" className="group rounded-2xl border border-slate-200 bg-white p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Escalation Pack</h3>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-bold dark:bg-slate-800">$5</span>
+              </div>
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">FTC + CFPB + State AG complaint letters. Three letters, one price.</p>
+            </Link>
+
+            {/* Evidence Toolkit */}
+            <Link href="/tools/evidence-toolkit" className="group rounded-2xl border border-slate-200 bg-white p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Evidence Toolkit</h3>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-bold dark:bg-slate-800">$3</span>
+              </div>
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Timeline builder, expense tracker, and document checklist for your case.</p>
+            </Link>
+
+            {/* Notarized Letter */}
+            <Link href="/tools/notarized-letter" className="group rounded-2xl border border-slate-200 bg-white p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Notarized Letter</h3>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-bold dark:bg-slate-800">$15</span>
+              </div>
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Online notarization in minutes. Adds legal weight and court credibility.</p>
+            </Link>
+
+            {/* Small Claims Kit */}
+            <Link href="/tools/small-claims-kit" className="group rounded-2xl border border-slate-200 bg-white p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Small Claims Kit</h3>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-bold dark:bg-slate-800">$15</span>
+              </div>
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">State-specific filing guide, complaint template, and court prep checklist.</p>
+            </Link>
+
+            {/* Process Serving */}
+            <Link href="/tools/process-serving" className="group rounded-2xl border border-slate-200 bg-white p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Process Serving</h3>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-bold dark:bg-slate-800">$50</span>
+              </div>
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Licensed server delivers your documents in person. Proof of service included.</p>
+            </Link>
+          </div>
+
+          {/* Business Plan CTA */}
+          <div className="mt-10 rounded-2xl border-2 border-teal-600 bg-teal-50 p-8 text-center dark:bg-teal-950/30">
+            <h3 className="text-lg font-bold">Sending more than a few letters?</h3>
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+              Our Business Plan gives your team unlimited letters for $49/month. Property managers, HR teams, and small businesses save thousands.
+            </p>
+            <Link
+              href="/business"
+              className="mt-4 inline-flex items-center rounded-lg bg-teal-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal-500"
+            >
+              See Business Plan →
+            </Link>
           </div>
         </div>
 
