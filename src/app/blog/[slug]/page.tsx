@@ -231,6 +231,32 @@ export default async function BlogPostPage({
           </div>
         )}
 
+        {/* Tool CTAs */}
+        <div className="mt-12 rounded-2xl bg-slate-950 p-6 text-white sm:p-8 dark:border dark:border-slate-700 dark:bg-slate-900">
+          <h2 className="text-lg font-bold">Tools to strengthen your case</h2>
+          <p className="mt-1 text-sm text-slate-400">Everything you need from first letter to final resolution.</p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/disputes" className="rounded-lg bg-teal-600 px-4 py-3 text-center text-sm font-semibold transition hover:bg-teal-500">
+              Demand Letter — Free/$2
+            </Link>
+            <Link href="/tools/evidence-organizer" className="rounded-lg border border-slate-600 px-4 py-3 text-center text-sm font-semibold transition hover:bg-slate-800">
+              Evidence Organizer — $5/mo
+            </Link>
+            <Link href="/tools/dispute-strength-score" className="rounded-lg border border-slate-600 px-4 py-3 text-center text-sm font-semibold transition hover:bg-slate-800">
+              Case Strength Score — $3
+            </Link>
+            <Link href="/tools/full-fight" className="rounded-lg border border-amber-500 px-4 py-3 text-center text-sm font-semibold text-amber-400 transition hover:bg-amber-500/10">
+              Full Fight Bundle — $25
+            </Link>
+            <Link href="/tools/small-claims-course" className="rounded-lg border border-slate-600 px-4 py-3 text-center text-sm font-semibold transition hover:bg-slate-800">
+              Small Claims Course — $19
+            </Link>
+            <Link href="/tools/attorney-review" className="rounded-lg border border-slate-600 px-4 py-3 text-center text-sm font-semibold transition hover:bg-slate-800">
+              Attorney Review — $65
+            </Link>
+          </div>
+        </div>
+
         {/* Back link */}
         <div className="mt-8">
           <Link

@@ -145,6 +145,25 @@ export default async function GlossaryTermPage({
           </Link>
         </div>
 
+        {/* Related tools */}
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          <Link href="/tools/dispute-strength-score" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-800">
+            <p className="text-sm font-semibold text-slate-900 group-hover:text-teal-600 dark:text-white dark:group-hover:text-teal-400">Case Strength Score</p>
+            <p className="mt-1 text-xs text-slate-500">AI rates your case 1-100</p>
+            <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$3 &rarr;</p>
+          </Link>
+          <Link href="/tools/statute-lookup" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-800">
+            <p className="text-sm font-semibold text-slate-900 group-hover:text-teal-600 dark:text-white dark:group-hover:text-teal-400">Statute Lookup</p>
+            <p className="mt-1 text-xs text-slate-500">Check your filing deadline</p>
+            <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$1 &rarr;</p>
+          </Link>
+          <Link href="/tools/know-your-rights-guide" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-800">
+            <p className="text-sm font-semibold text-slate-900 group-hover:text-teal-600 dark:text-white dark:group-hover:text-teal-400">Know Your Rights Guide</p>
+            <p className="mt-1 text-xs text-slate-500">State-specific legal guide</p>
+            <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$5 &rarr;</p>
+          </Link>
+        </div>
+
         {/* Back link */}
         <div className="mt-8">
           <Link

@@ -406,8 +406,45 @@ export default async function StateGuidePage({
           </div>
         </section>
 
+        {/* Tool CTAs */}
+        <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+          <h2 className="mb-4 text-lg font-bold">Ready to take action in {state.name}?</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/disputes" className="rounded-xl border border-slate-200 bg-white p-4 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:hover:border-teal-700">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">Generate Demand Letter</p>
+              <p className="mt-1 text-xs text-slate-500">AI-powered, cites {state.name} statutes</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$2 &rarr;</p>
+            </Link>
+            <Link href="/tools/small-claims-kit" className="rounded-xl border border-slate-200 bg-white p-4 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:hover:border-teal-700">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">Small Claims Kit</p>
+              <p className="mt-1 text-xs text-slate-500">Pre-filled {state.name} court forms</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$15 &rarr;</p>
+            </Link>
+            <Link href="/tools/court-filing" className="rounded-xl border border-slate-200 bg-white p-4 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:hover:border-teal-700">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">Court Filing Kit</p>
+              <p className="mt-1 text-xs text-slate-500">Complete filing prep for {state.name}</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$50 &rarr;</p>
+            </Link>
+            <Link href="/tools/statute-lookup" className="rounded-xl border border-slate-200 bg-white p-4 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:hover:border-teal-700">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">Statute Lookup</p>
+              <p className="mt-1 text-xs text-slate-500">Filing deadlines for {state.name}</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$1 &rarr;</p>
+            </Link>
+            <Link href="/tools/lawyer-network" className="rounded-xl border border-slate-200 bg-white p-4 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:hover:border-teal-700">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">Find a Lawyer</p>
+              <p className="mt-1 text-xs text-slate-500">Vetted attorneys in {state.name}</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">Free &rarr;</p>
+            </Link>
+            <Link href="/tools/full-fight" className="rounded-xl border border-amber-200 bg-amber-50 p-4 transition hover:border-amber-300 hover:shadow-sm dark:border-amber-800 dark:bg-amber-900/20 dark:hover:border-amber-700">
+              <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">Full Fight Bundle</p>
+              <p className="mt-1 text-xs text-slate-500">6 letters + pressure campaign</p>
+              <p className="mt-2 text-xs font-semibold text-amber-600 dark:text-amber-400">$25 &rarr;</p>
+            </Link>
+          </div>
+        </section>
+
         {/* Disclaimer */}
-        <div className="border-t border-slate-200 pt-6 dark:border-slate-800">
+        <div className="mt-8 border-t border-slate-200 pt-6 dark:border-slate-800">
           <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-500">
             <strong>Disclaimer:</strong> AI Dispute Engine is not a law firm and
             does not provide legal advice. This information is for educational

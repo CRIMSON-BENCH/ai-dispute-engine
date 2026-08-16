@@ -267,6 +267,33 @@ export default async function ComparisonPage({
           </p>
         </div>
 
+        {/* Popular tools */}
+        <div className="mt-12">
+          <h2 className="mb-4 text-lg font-bold">Our most popular tools</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <Link href="/disputes" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-700">
+              <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Demand Letter</p>
+              <p className="mt-1 text-xs text-slate-500">AI-generated, state-specific.</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">Free / $2 &rarr;</p>
+            </Link>
+            <Link href="/tools/full-fight" className="group rounded-xl border border-amber-300 bg-amber-50/50 p-4 transition hover:border-amber-400 dark:border-amber-700 dark:bg-amber-950/20">
+              <p className="text-sm font-semibold text-amber-700 dark:text-amber-400">Full Fight Bundle</p>
+              <p className="mt-1 text-xs text-slate-500">4 letters + escalation pack.</p>
+              <p className="mt-2 text-xs font-bold text-amber-600 dark:text-amber-400">$25 &rarr;</p>
+            </Link>
+            <Link href="/tools/court-filing" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-700">
+              <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Court Filing Kit</p>
+              <p className="mt-1 text-xs text-slate-500">State forms + filing guide.</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$50 &rarr;</p>
+            </Link>
+            <Link href="/tools/attorney-review" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-700">
+              <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Attorney Review</p>
+              <p className="mt-1 text-xs text-slate-500">Lawyer-reviewed letter.</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$65 &rarr;</p>
+            </Link>
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="mt-12 text-center">
           <Link

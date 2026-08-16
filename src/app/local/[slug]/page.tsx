@@ -764,6 +764,43 @@ export default async function LocalPage({
             </section>
           )}
 
+          {/* Monetization tools */}
+          <section className="mt-12">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Make your case even stronger</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <Link href="/tools/follow-up-letter" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-700">
+                <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Follow-Up Letter</p>
+                <p className="mt-1 text-xs text-slate-500">Send a second notice if they ignore you.</p>
+                <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$2 &rarr;</p>
+              </Link>
+              <Link href="/tools/evidence-toolkit" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-700">
+                <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Evidence Toolkit</p>
+                <p className="mt-1 text-xs text-slate-500">Organize your proof before sending.</p>
+                <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$3 &rarr;</p>
+              </Link>
+              <Link href="/tools/full-fight" className="group rounded-xl border border-amber-300 bg-amber-50/50 p-4 transition hover:border-amber-400 dark:border-amber-700 dark:bg-amber-950/20 dark:hover:border-amber-600">
+                <p className="text-sm font-semibold text-amber-700 dark:text-amber-400">Full Fight Bundle</p>
+                <p className="mt-1 text-xs text-slate-500">4 letters + escalation pack.</p>
+                <p className="mt-2 text-xs font-bold text-amber-600 dark:text-amber-400">$25 &rarr;</p>
+              </Link>
+              <Link href="/tools/certified-mail" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-700">
+                <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Certified Mail</p>
+                <p className="mt-1 text-xs text-slate-500">We print and mail it for you.</p>
+                <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$8 &rarr;</p>
+              </Link>
+              <Link href="/tools/dispute-strength-score" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-700">
+                <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Case Strength Score</p>
+                <p className="mt-1 text-xs text-slate-500">AI rates your case 1-100.</p>
+                <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$3 &rarr;</p>
+              </Link>
+              <Link href="/tools/attorney-review" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-700">
+                <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Attorney Review</p>
+                <p className="mt-1 text-xs text-slate-500">Real lawyer reviews your letter.</p>
+                <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$65 &rarr;</p>
+              </Link>
+            </div>
+          </section>
+
           <section className="mt-16 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 sm:p-10 text-center dark:from-slate-900 dark:to-slate-950 dark:ring-1 dark:ring-slate-800">
             <h2 className="text-2xl font-bold text-white">
               Ready to fight back in {location.name}?
@@ -786,6 +823,17 @@ export default async function LocalPage({
               No signup required. No credit card. Attorney-reviewed templates.
             </p>
           </section>
+
+          {/* Disclaimer */}
+          <div className="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800">
+            <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-500">
+              <strong>Disclaimer:</strong> AI Dispute Engine is not a law firm and
+              does not provide legal advice. This information is for educational
+              purposes only and does not create an attorney-client relationship.
+              For legal advice specific to your situation, consult a licensed
+              attorney in your jurisdiction.
+            </p>
+          </div>
 
         </div>
       </article>

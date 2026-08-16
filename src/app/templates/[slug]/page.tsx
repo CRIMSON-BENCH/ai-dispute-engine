@@ -181,6 +181,18 @@ export default async function TemplatePreviewPage({
           </div>
         )}
 
+        {/* Upsell tools */}
+        <div className="mt-10 grid gap-3 sm:grid-cols-2">
+          <Link href="/tools/evidence-toolkit" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-800">
+            <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Evidence Toolkit — $3</p>
+            <p className="mt-1 text-xs text-slate-500">Organize your evidence before sending your letter.</p>
+          </Link>
+          <Link href="/tools/attorney-review" className="group rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 dark:border-slate-800 dark:hover:border-teal-800">
+            <p className="text-sm font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Attorney Review — $65</p>
+            <p className="mt-1 text-xs text-slate-500">Have a real lawyer review your letter before you send it.</p>
+          </Link>
+        </div>
+
         {/* Back link */}
         <div className="mt-8">
           <Link

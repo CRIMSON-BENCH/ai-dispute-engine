@@ -4,1202 +4,1279 @@ export interface GlossaryTerm {
   shortDef: string;
   longDef: string;
   relatedTerms: string[];
-  relatedDisputes: string[];
   category: string;
 }
 
-export const GLOSSARY_TERMS: GlossaryTerm[] = [
-  // ---------------------------------------------------------------------
-  // Court Procedures
-  // ---------------------------------------------------------------------
+export const GLOSSARY: GlossaryTerm[] = [
   {
-    term: "Small Claims Court",
-    slug: "small-claims-court",
-    shortDef: "A simplified court division designed to resolve low-dollar disputes quickly and without requiring a lawyer.",
-    longDef: `Small claims court is a special division of the civil court system built for disputes involving relatively small amounts of money, typically ranging from $2,500 to $25,000 depending on the state. The process is designed to be accessible to people without legal training: filing fees are low, procedural rules are relaxed, and in many states attorneys are not even allowed to represent parties.\n\nMost small claims cases are resolved in a single hearing rather than through a long, drawn-out litigation process. A judge (or sometimes a magistrate) hears both sides, reviews any documents or evidence presented, and issues a decision, often the same day. There is usually no jury.\n\nBecause small claims court is designed for self-represented litigants, it is frequently the next step after a demand letter goes unanswered or is rejected. Filing a claim shows the other party you are serious and creates a binding court judgment if you win, which can then be enforced through collection tools like wage garnishment or bank levies.`,
-    relatedTerms: ["filing-fee", "demand-letter", "default-judgment", "jurisdiction"],
-    relatedDisputes: ["security-deposit", "auto-repair", "small-business", "contractor-dispute"],
-    category: "Court Procedures",
+    term: "Demand Letter",
+    slug: "demand-letter",
+    shortDef: "A formal written notice sent to another party requesting payment, action, or resolution of a dispute before filing a lawsuit.",
+    longDef: `A demand letter is a formal document, typically sent via certified mail, that outlines a legal grievance and requests a specific remedy, usually payment of money owed or correction of a wrong. It serves as both a communication tool and a critical piece of evidence showing you attempted to resolve the dispute before turning to the courts.
+
+Demand letters should include a clear statement of the facts, the legal basis for your claim, the specific amount or action you are requesting, and a reasonable deadline for the recipient to respond. Many courts, particularly small claims courts, look favorably on plaintiffs who can show they made a good-faith effort to resolve the matter before filing suit.
+
+Sending a demand letter is often the most cost-effective first step in any dispute because it frequently leads to settlement without the expense and delay of litigation. Even when it does not result in immediate resolution, it creates a documented record that strengthens your position if you later need to go to court.`,
+    relatedTerms: ["certified-mail", "statute-of-limitations", "settlement", "cause-of-action"],
+    category: "Legal Process",
   },
   {
-    term: "Filing Fee",
-    slug: "filing-fee",
-    shortDef: "The court cost required to open a lawsuit or small claims case, usually ranging from $30 to $200.",
-    longDef: `A filing fee is the payment a court requires before it will accept and process a new case. In small claims court, filing fees are intentionally kept low, often between $30 and $100, though they can scale up with the dollar amount being claimed. Larger civil cases filed in regular trial courts typically carry higher fees.\n\nMost jurisdictions allow the winning party to recover filing fees as part of the judgment, meaning the losing side ultimately reimburses the cost. Courts also offer fee waivers for people who cannot afford the cost, usually through a form documenting income and household size.\n\nBefore filing a case, it's worth checking whether a demand letter can resolve the dispute first. Many businesses and individuals settle once they receive a clear, well-documented demand, saving both sides the time and expense of the filing fee and court process altogether.`,
-    relatedTerms: ["small-claims-court", "demand-letter", "jurisdiction"],
-    relatedDisputes: ["security-deposit", "small-business", "unpaid-invoice"],
-    category: "Court Procedures",
+    term: "Certified Mail",
+    slug: "certified-mail",
+    shortDef: "A postal service option that provides the sender with proof that a letter was mailed and delivered or attempted.",
+    longDef: `Certified mail is a service offered by the United States Postal Service and similar carriers that provides the sender with a mailing receipt and a record of delivery, including the date and the signature of the person who accepted the item. It is commonly used to send demand letters, legal notices, and other documents where proof of delivery may become important.
+
+When you send a letter via certified mail with return receipt requested, you receive a green card back showing the recipient's signature, or a notation that delivery was attempted. This creates an official record that the recipient was notified, which can be critical if the dispute later goes to court and the other party claims they never received your communication.
+
+Certified mail does not by itself constitute legal service of process in most jurisdictions, but it is widely accepted as adequate notice for demand letters, contract cancellation notices, and many types of statutory notifications required before filing certain claims.`,
+    relatedTerms: ["demand-letter", "service-of-process", "proof-of-service", "cease-and-desist"],
+    category: "Legal Process",
+  },
+  {
+    term: "Statute of Limitations",
+    slug: "statute-of-limitations",
+    shortDef: "The legally mandated deadline by which a lawsuit must be filed, after which the claim is generally barred forever.",
+    longDef: `A statute of limitations sets the maximum time period after an event during which a lawsuit can be filed. These deadlines vary widely depending on the type of claim, such as contract disputes, personal injury, fraud, or property damage, and the state where the claim arose, ranging anywhere from one year to over ten years.
+
+Once the statute of limitations expires, a defendant can raise it as an absolute defense and the court will dismiss the case regardless of its underlying merits, no matter how clearly the defendant was at fault. The clock generally starts running from the date of the injury or breach, though some claims use a discovery rule that starts the clock when the harm was or should have been discovered.
+
+Because missing this deadline can permanently destroy an otherwise valid claim, it is one of the first things to check when considering a demand letter or lawsuit. Sending a demand letter does not, by itself, pause or extend the statute of limitations in most states, so time-sensitive claims should not wait on a response before also preparing to file if necessary.`,
+    relatedTerms: ["cause-of-action", "complaint", "demand-letter", "filing-fee"],
+    category: "Legal Process",
+  },
+  {
+    term: "Negligence",
+    slug: "negligence",
+    shortDef: "The failure to exercise a reasonable standard of care that results in harm or damage to another person or their property.",
+    longDef: `Negligence is a legal theory that holds a person or entity liable when they fail to exercise the level of care that a reasonably prudent person would use in similar circumstances, and that failure causes harm to another. To win a negligence claim, a plaintiff must generally prove four elements: the defendant owed them a duty of care, the defendant breached that duty, the breach actually caused the plaintiff's injury, and the plaintiff suffered measurable damages as a result.
+
+Negligence is the foundation of most personal injury claims, including car accidents, slip-and-fall incidents, medical malpractice, and product liability cases. Unlike intentional wrongdoing, negligence does not require proof that the defendant meant to cause harm, only that they failed to act with reasonable care.
+
+In many states, a plaintiff's own negligence can reduce or bar their recovery. Under comparative negligence rules, a plaintiff's damages are reduced by their percentage of fault. Under contributory negligence rules, which a small number of states still follow, any fault on the plaintiff's part can bar recovery entirely.`,
+    relatedTerms: ["liability", "damages", "compensatory-damages", "preponderance-of-evidence"],
+    category: "Legal Process",
+  },
+  {
+    term: "Liability",
+    slug: "liability",
+    shortDef: "Legal responsibility for one's actions or omissions, particularly when they cause harm or loss to another party.",
+    longDef: `Liability is the state of being legally responsible for something, most commonly for causing harm, damage, or financial loss to another party. When a court finds a person or entity liable, it means they are legally obligated to compensate the injured party, usually through money damages. Liability can arise from negligence, breach of contract, intentional wrongdoing, or strict liability imposed by statute regardless of fault.
+
+There are different forms of liability. Joint and several liability means multiple parties can each be held responsible for the full amount of damages. Vicarious liability holds one party responsible for the actions of another, such as an employer being liable for the acts of its employees performed in the scope of their employment. Strict liability applies in certain situations, such as defective products or abnormally dangerous activities, where fault does not need to be proven.
+
+Understanding who bears liability is central to any demand letter or lawsuit. Your demand should clearly identify why the recipient is legally liable, whether through their own actions, their role as an employer, their contractual obligations, or a statute that imposes responsibility.`,
+    relatedTerms: ["negligence", "damages", "indemnification", "cause-of-action"],
+    category: "Legal Process",
   },
   {
     term: "Service of Process",
     slug: "service-of-process",
     shortDef: "The formal legal procedure of delivering court documents to a defendant to notify them of a lawsuit.",
-    longDef: `Service of process is the constitutionally required step of formally notifying a defendant that a lawsuit has been filed against them. Courts cannot proceed with a case, let alone enter a judgment, unless the defendant has been properly served with the summons and complaint. This requirement exists to protect due process rights: no one should lose a case in secret.\n\nAcceptable methods of service vary by jurisdiction but commonly include personal delivery by a sheriff or process server, certified mail with return receipt, or in some cases publication in a newspaper when a defendant cannot be located. Each state has specific rules about who can serve papers and how proof of service must be documented.\n\nIf a case proceeds to court, plaintiffs should keep careful records of how and when the defendant was served, since improper service is one of the most common reasons a judgment gets challenged or thrown out later.`,
-    relatedTerms: ["summons", "complaint", "default-judgment"],
-    relatedDisputes: ["small-business", "unpaid-invoice", "debt-collection"],
-    category: "Court Procedures",
+    longDef: `Service of process is the constitutionally required step of formally notifying a defendant that a lawsuit has been filed against them. Courts cannot proceed with a case, let alone enter a judgment, unless the defendant has been properly served with the summons and complaint. This requirement exists to protect due process rights so that no one loses a case without knowing about it.
+
+Acceptable methods of service vary by jurisdiction but commonly include personal delivery by a sheriff or process server, certified mail with return receipt, or in some cases publication in a newspaper when a defendant cannot be located. Each state has specific rules about who can serve papers and how proof of service must be documented.
+
+If a case proceeds to court, plaintiffs should keep careful records of how and when the defendant was served, since improper service is one of the most common reasons a judgment gets challenged or thrown out later. Many small claims courts have their own simplified service rules, but they still require that the defendant receive actual notice.`,
+    relatedTerms: ["proof-of-service", "complaint", "default-judgment", "certified-mail"],
+    category: "Legal Process",
   },
   {
-    term: "Summons",
-    slug: "summons",
-    shortDef: "An official court document notifying a defendant that a lawsuit has been filed and they must respond.",
-    longDef: `A summons is the official notice issued by a court clerk informing a defendant that a legal action has been started against them. It states the names of the parties, the court where the case was filed, and the deadline by which the defendant must file a response or appear in court.\n\nThe summons is almost always delivered together with a copy of the complaint, which lays out the specific claims and the relief the plaintiff is seeking. Ignoring a summons does not make a case go away; it typically results in a default judgment being entered automatically against the non-responding party.\n\nFor someone considering a demand letter before litigation, understanding the summons process is useful context: it shows the other party exactly what happens if the dispute is not resolved voluntarily, which can add persuasive weight to a well-written demand.`,
-    relatedTerms: ["service-of-process", "complaint", "default-judgment"],
-    relatedDisputes: ["small-business", "debt-collection", "unpaid-invoice"],
-    category: "Court Procedures",
+    term: "Proof of Service",
+    slug: "proof-of-service",
+    shortDef: "A document filed with the court verifying that legal papers were properly delivered to the opposing party.",
+    longDef: `Proof of service is a sworn statement or affidavit filed with the court demonstrating that legal documents, such as a summons and complaint, were properly delivered to the opposing party in compliance with the applicable rules. Without proof of service, a court generally cannot proceed with a case or enter a judgment because there is no evidence the defendant was notified.
+
+The proof of service typically includes the name of the person served, the date and time of service, the method used, the address where service occurred, and the identity of the person who performed the service. In many jurisdictions, the person who serves the documents must be someone other than a party to the case, such as a process server, sheriff, or any adult not involved in the lawsuit.
+
+Failing to properly document service, or relying on a method not authorized by the applicable rules, can result in delays, dismissed cases, or overturned judgments. Courts take service requirements seriously because they are a fundamental component of due process, ensuring everyone has a fair opportunity to respond before a judgment is entered against them.`,
+    relatedTerms: ["service-of-process", "affidavit", "default-judgment", "complaint"],
+    category: "Legal Process",
   },
   {
-    term: "Complaint",
-    slug: "complaint",
-    shortDef: "The formal written document that starts a lawsuit by laying out the plaintiff's claims and requested relief.",
-    longDef: `In litigation, a complaint is the initial pleading a plaintiff files with the court to formally begin a lawsuit. It identifies the parties, describes the factual background of the dispute, states the specific legal claims (called "causes of action") being brought, and requests a specific remedy, whether that's money damages, an order to do or stop doing something, or both.\n\nA complaint must generally state enough facts to show the plaintiff has a plausible legal claim; vague or conclusory allegations can be dismissed by the court before the case even proceeds. In small claims court, the "complaint" is often just a simple form describing the dispute in a few sentences.\n\nMany of the same elements found in a formal court complaint, a clear statement of facts, the legal basis for the claim, and the specific remedy sought, are also present in a well-drafted demand letter. Writing a demand letter with this structure in mind often makes it more persuasive and easier to convert into a court filing if necessary.`,
-    relatedTerms: ["summons", "plaintiff", "defendant", "demand-letter"],
-    relatedDisputes: ["small-business", "personal-injury", "contractor-dispute"],
-    category: "Court Procedures",
+    term: "Arbitration",
+    slug: "arbitration",
+    shortDef: "A private dispute resolution process where an independent arbitrator, rather than a judge, hears both sides and issues a binding decision.",
+    longDef: `Arbitration is a form of alternative dispute resolution in which the parties submit their disagreement to one or more neutral arbitrators who hear evidence and arguments and then render a decision. In binding arbitration, the arbitrator's decision is final and enforceable in court, with very limited grounds for appeal. Non-binding arbitration allows either party to reject the decision and proceed to court.
+
+Many consumer contracts, employment agreements, and service contracts include mandatory arbitration clauses requiring disputes to be resolved through arbitration rather than in court. These clauses are generally enforceable under the Federal Arbitration Act, though some states impose limits, particularly where the clause is buried in fine print or paired with a class action waiver that effectively eliminates a consumer's ability to pursue small-value claims.
+
+Arbitration can be faster and less formal than court, but it also has drawbacks, including limited discovery, restricted appeal rights, and costs that can exceed small claims court filing fees. Understanding whether your dispute is subject to a mandatory arbitration clause is an important early step before deciding whether to send a demand letter, file a small claims case, or pursue arbitration.`,
+    relatedTerms: ["mediation", "arbitration-clause", "class-action-waiver", "settlement"],
+    category: "Legal Process",
   },
   {
-    term: "Jurisdiction",
-    slug: "jurisdiction",
-    shortDef: "A court's legal authority to hear a particular case based on geography, subject matter, or dollar amount.",
-    longDef: `Jurisdiction refers to a court's authority to hear and decide a case. There are two main types: personal jurisdiction, which asks whether the court has authority over the specific parties involved (usually based on where they live or do business), and subject-matter jurisdiction, which asks whether the court is authorized to hear that type of case at all.\n\nSmall claims courts, for example, only have subject-matter jurisdiction over disputes below a certain dollar threshold set by state law. Filing in the wrong court, or against a defendant with no connection to that state, can result in a case being dismissed regardless of its merits.\n\nBefore sending a demand letter or filing a claim, it's worth confirming which court would actually have jurisdiction over your dispute. This usually depends on where the defendant lives, where the underlying incident occurred, or where a contract was signed or performed.`,
-    relatedTerms: ["venue", "small-claims-court", "complaint"],
-    relatedDisputes: ["small-business", "personal-injury", "landlord-tenant"],
-    category: "Court Procedures",
+    term: "Mediation",
+    slug: "mediation",
+    shortDef: "A voluntary dispute resolution process where a neutral mediator helps both parties negotiate a mutually acceptable agreement.",
+    longDef: `Mediation is a form of alternative dispute resolution in which a trained, neutral third party, the mediator, facilitates a conversation between the disputing parties to help them reach a voluntary agreement. Unlike arbitration, the mediator does not decide the case or impose a solution. Instead, the mediator helps both sides communicate, identify their interests, and explore potential compromises.
+
+Mediation can be agreed to voluntarily or ordered by a court as a prerequisite to trial. It is widely used in family law, employment disputes, landlord-tenant conflicts, business disagreements, and personal injury cases. Because the process is collaborative rather than adversarial, it often preserves relationships better than litigation and can result in creative solutions that a court could not order.
+
+If mediation is successful, the parties typically sign a written settlement agreement that becomes a binding contract. If it fails, neither side's statements during the mediation can generally be used against them in court, which encourages open and honest negotiation without fear of legal consequences.`,
+    relatedTerms: ["arbitration", "settlement", "settlement-agreement", "demand-letter"],
+    category: "Legal Process",
   },
   {
-    term: "Venue",
-    slug: "venue",
-    shortDef: "The specific geographic court location where a case should properly be filed and heard.",
-    longDef: `Venue determines which specific courthouse, out of all the courts that might have jurisdiction, is the appropriate place to file a case. While jurisdiction asks whether a court has the power to hear a type of dispute, venue asks which location makes the most practical sense, usually tied to where the defendant resides, where a business operates, or where the events giving rise to the dispute took place.\n\nVenue rules exist largely for fairness and convenience, ensuring that defendants are not forced to litigate in a location with no real connection to the case. Many contracts include a venue clause specifying in advance where any disputes must be filed, which courts generally enforce unless it would be unreasonable.\n\nGetting venue wrong can lead to a case being transferred or dismissed, so it's worth double-checking local court rules, especially for small claims filings, before submitting paperwork.`,
-    relatedTerms: ["jurisdiction", "small-claims-court", "complaint"],
-    relatedDisputes: ["small-business", "landlord-tenant", "contractor-dispute"],
-    category: "Court Procedures",
+    term: "Settlement",
+    slug: "settlement",
+    shortDef: "An agreement between disputing parties to resolve their dispute without a full trial, usually involving a payment or other concession.",
+    longDef: `A settlement is an agreement reached between parties to a dispute that resolves the matter without proceeding to a full trial or hearing. Settlements can occur at any stage, from before a lawsuit is even filed all the way through trial. The vast majority of civil cases, some estimates suggest over 90 percent, settle before reaching a verdict.
+
+Settlements typically involve a payment of money in exchange for the claimant releasing their claims, though they can also include non-monetary terms such as an agreement to perform certain actions, an apology, a change in business practices, or a confidentiality clause. Once both parties sign a settlement agreement, it becomes a binding contract enforceable in court.
+
+A well-crafted demand letter is one of the most effective tools for initiating settlement negotiations because it clearly communicates the basis for the claim, the supporting evidence, and the specific amount or action being requested, giving the other party a clear picture of what they face if the dispute is not resolved.`,
+    relatedTerms: ["settlement-agreement", "demand-letter", "mediation", "mutual-release"],
+    category: "Legal Process",
+  },
+  {
+    term: "Settlement Agreement",
+    slug: "settlement-agreement",
+    shortDef: "A legally binding written contract that memorializes the terms both parties agreed to in order to resolve a dispute.",
+    longDef: `A settlement agreement is the formal written document that captures the terms under which the parties have agreed to resolve their dispute. It typically includes the amount to be paid, the timeline for payment, any non-monetary obligations, a release of claims by one or both parties, and often a confidentiality clause preventing either side from discussing the terms.
+
+Once signed, a settlement agreement is an enforceable contract, meaning that if either party fails to comply with its terms, the other can go to court to enforce it, potentially recovering additional damages for breach of the settlement itself. Some settlement agreements are filed with the court and entered as a consent judgment, giving them the added weight of a court order.
+
+Before signing a settlement agreement, it is important to read every provision carefully, particularly the scope of the release, which defines exactly which claims you are giving up. A broad release that covers all claims arising from the dispute may prevent you from pursuing related issues you had not fully considered at the time of settlement.`,
+    relatedTerms: ["settlement", "release-of-claims", "mutual-release", "mediation"],
+    category: "Legal Process",
+  },
+  {
+    term: "Cease and Desist",
+    slug: "cease-and-desist",
+    shortDef: "A formal letter or legal order demanding that a party stop engaging in specific unlawful or harmful activity.",
+    longDef: `A cease and desist letter is a formal communication demanding that the recipient immediately stop a specific activity that the sender believes is illegal, infringing, or harmful. Unlike a demand letter that typically requests monetary compensation, a cease and desist focuses primarily on stopping ongoing conduct, such as trademark infringement, copyright violations, harassment, defamation, or breach of a non-compete agreement.
+
+Cease and desist letters can be sent by attorneys or by individuals acting on their own behalf. While the letter itself does not carry the force of law, it puts the recipient on formal notice that their conduct has been identified and that legal action may follow if they do not comply. This notice can become important evidence later because it eliminates any claim that the recipient did not know their conduct was objectionable.
+
+A cease and desist order, as distinguished from a letter, is an actual directive issued by a court or government agency that carries legal consequences for non-compliance, including contempt of court charges or administrative penalties. The letter is often a precursor to seeking such an order if the recipient fails to comply.`,
+    relatedTerms: ["demand-letter", "injunction", "restraining-order", "certified-mail"],
+    category: "Legal Process",
+  },
+  {
+    term: "Affidavit",
+    slug: "affidavit",
+    shortDef: "A written statement of facts made under oath and signed before a notary public, used as evidence in legal proceedings.",
+    longDef: `An affidavit is a sworn, written statement of fact signed by the person making it, called the affiant, in the presence of a notary public or other authorized officer. Because the affiant swears under penalty of perjury that the contents are true, an affidavit carries significant legal weight and can be used as evidence in court proceedings, administrative hearings, and various legal transactions.
+
+Affidavits are used in many contexts, including supporting motions in court, establishing facts for insurance claims, providing witness statements when someone cannot appear in person, verifying service of process, and documenting events for a demand letter or complaint. They are particularly useful when a witness's in-person testimony is not practical or when written documentation of specific facts needs to be preserved.
+
+An affidavit must be based on personal knowledge, meaning the affiant can only swear to facts they directly observed or experienced, not hearsay or speculation. Making false statements in an affidavit constitutes perjury, which is a criminal offense that can result in fines and imprisonment.`,
+    relatedTerms: ["notarization", "evidence", "proof-of-service", "deposition"],
+    category: "Legal Process",
+  },
+  {
+    term: "Notarization",
+    slug: "notarization",
+    shortDef: "The process of having a notary public officially verify the identity of a document signer and witness their signature.",
+    longDef: `Notarization is the act of having a notary public, a state-commissioned official, verify the identity of the person signing a document, confirm that they are signing voluntarily and understand what they are signing, and then affix an official seal and signature to the document. This process does not verify the truthfulness of the document's contents but does authenticate the identity of the signer.
+
+Notarization is required for many types of legal documents, including affidavits, deeds, powers of attorney, certain contracts, and various court filings. Some demand letters and settlement agreements may also be notarized to add an additional layer of formality and credibility, though notarization is not typically required for these documents.
+
+Notary services are widely available at banks, shipping stores, law offices, and through mobile notary services that come to you. Many states now also allow remote online notarization, where the process is completed via video call. Fees are typically modest, often regulated by state law, and usually range from a few dollars to around twenty-five dollars per signature.`,
+    relatedTerms: ["affidavit", "proof-of-service", "settlement-agreement", "certified-mail"],
+    category: "Legal Process",
+  },
+  {
+    term: "Lien",
+    slug: "lien",
+    shortDef: "A legal claim placed against property that secures payment of a debt and must be resolved before the property can be sold free and clear.",
+    longDef: `A lien is a legal right or interest that a creditor has in a debtor's property, serving as security for a debt or obligation. Common types include mortgage liens securing home loans, mechanic's liens securing payment for construction or repair work, tax liens for unpaid taxes, and judgment liens attached to property after a court awards damages. The lien gives the creditor a claim against the property that must generally be satisfied before the property can be sold or transferred with clear title.
+
+Liens can be voluntary, like a mortgage the owner agreed to when purchasing a home, or involuntary, like a lien filed by an unpaid contractor or a judgment creditor. An involuntary lien can significantly affect a property owner's ability to sell or refinance, making lien disputes a serious matter that often requires prompt legal action to resolve.
+
+If you believe a lien has been improperly placed against your property, most states provide a formal process to challenge and remove it, often involving a written demand to the lien holder followed by a court motion if the lien holder refuses to release it. Contractors and suppliers also have strict deadlines for filing liens, and missing those deadlines can void the lien entirely.`,
+    relatedTerms: ["garnishment", "judgment", "judgment-creditor", "default-judgment"],
+    category: "Legal Process",
+  },
+  {
+    term: "Garnishment",
+    slug: "garnishment",
+    shortDef: "A court-ordered process allowing a creditor to collect a debt directly from a debtor's wages or bank account.",
+    longDef: `Garnishment is a legal collection tool that allows a creditor holding a court judgment to seize a portion of the debtor's wages, bank account funds, or other property directly, without needing further cooperation from the debtor. Federal law caps wage garnishment for most debts at the lesser of 25 percent of disposable earnings or the amount by which weekly earnings exceed 30 times the federal minimum wage, though some debts like child support and certain tax debts allow higher percentages.
+
+Garnishment generally cannot happen without a court judgment first, with narrow exceptions for federal student loans, taxes, and child support, which allow administrative garnishment. Certain income sources, including Social Security benefits and most retirement funds, are largely protected from garnishment by ordinary creditors.
+
+If you are facing a garnishment you believe is improper, whether the debt is invalid, past the statute of limitations, or exceeds legal limits, you generally have a limited window to object in court before the garnishment takes effect. Acting quickly and gathering supporting documentation is essential to preserving your rights.`,
+    relatedTerms: ["judgment", "judgment-debtor", "default-judgment", "lien"],
+    category: "Legal Process",
+  },
+  {
+    term: "Fee Shifting",
+    slug: "fee-shifting",
+    shortDef: "A legal rule or contractual provision that requires the losing party in a lawsuit to pay the winning party's attorney fees.",
+    longDef: `Fee shifting refers to legal rules or contract provisions that require one party, typically the losing party, to pay the other side's attorney fees and litigation costs. In the United States, the default rule is that each party pays their own attorney fees regardless of the outcome. However, many statutes specifically provide for fee shifting, particularly in consumer protection, civil rights, employment discrimination, and environmental cases, to encourage individuals to pursue valid but potentially costly claims.
+
+Contractual fee-shifting provisions are also common, especially in commercial leases, loan agreements, and service contracts. These clauses may be one-sided, allowing only one party to recover fees, or mutual, allowing whichever party prevails to recover. Some states have laws that automatically make one-sided fee-shifting clauses mutual.
+
+Fee shifting is an important consideration when evaluating whether to pursue or defend a claim because it can dramatically increase the stakes for both parties. A demand letter that mentions applicable fee-shifting statutes signals to the recipient that their potential exposure includes not only the claimed damages but also the sender's legal costs.`,
+    relatedTerms: ["prevailing-party", "contingency-fee", "cause-of-action", "settlement"],
+    category: "Legal Process",
+  },
+  {
+    term: "Prevailing Party",
+    slug: "prevailing-party",
+    shortDef: "The party in a lawsuit who wins on the significant issues and is often entitled to recover attorney fees and costs from the other side.",
+    longDef: `The prevailing party is the litigant who succeeds on the merits of the significant issues in a case. Under many statutes and contract provisions, the prevailing party is entitled to recover attorney fees and court costs from the losing side. Determining who is the prevailing party is not always straightforward, particularly when each side wins on some claims but loses on others.
+
+Courts generally look at whether a party achieved a material alteration in the legal relationship between the parties, meaning they obtained an enforceable judgment, injunction, or other relief that changed their legal position. Simply obtaining a nominal or trivial award may not be enough to qualify as the prevailing party for purposes of fee recovery.
+
+When a fee-shifting statute or contract clause exists, the possibility of being designated the prevailing party, and therefore recovering or having to pay attorney fees, is a powerful incentive for both sides to evaluate their positions realistically and consider settlement. Referencing this potential in a demand letter can add significant leverage.`,
+    relatedTerms: ["fee-shifting", "judgment", "settlement", "contingency-fee"],
+    category: "Legal Process",
+  },
+  {
+    term: "Class Action",
+    slug: "class-action",
+    shortDef: "A lawsuit filed by one or more representative plaintiffs on behalf of a larger group of people with similar claims against the same defendant.",
+    longDef: `A class action allows a small number of named plaintiffs to sue on behalf of a much larger group of people, called the class, who suffered similar harm from the same conduct, typically involving a defective product, deceptive practice, or data breach. This structure makes it economically feasible to pursue claims that would be too small to justify individual lawsuits.
+
+Before a class action can proceed, a court must certify the class, confirming that the claims share common questions of law or fact, that the representative plaintiffs adequately represent the group, and that a class action is a superior method for resolving the dispute compared to individual suits. Class certification is often the most hotly contested stage of the litigation.
+
+If a business's mandatory arbitration clause includes a class action waiver, which is common and generally enforceable, affected consumers may be limited to individual arbitration or small claims court instead. It is worth checking whether an existing class action already covers your situation before pursuing an individual demand letter or claim, since joining an existing class may be more efficient.`,
+    relatedTerms: ["plaintiff", "consumer-protection", "class-action-waiver", "arbitration-clause"],
+    category: "Legal Process",
+  },
+  {
+    term: "Pro Se",
+    slug: "pro-se",
+    shortDef: "Representing yourself in a legal proceeding without an attorney.",
+    longDef: `Pro se, a Latin term meaning for oneself, refers to a person who represents themselves in a legal proceeding without hiring an attorney. Pro se litigants are common in small claims court, family court, landlord-tenant disputes, and other matters where the amount in controversy may not justify the cost of legal representation or where attorneys are not permitted.
+
+While everyone has the right to represent themselves in civil and criminal proceedings, pro se litigants are generally held to the same procedural rules and standards as attorneys, though some courts may provide a degree of leniency on procedural technicalities. Many courts offer self-help centers, form packets, and procedural guides designed specifically to help pro se litigants navigate the process.
+
+When representing yourself, preparation is critical. This includes understanding the relevant legal standards, organizing your evidence clearly, practicing your presentation, and knowing what you need to prove. A well-drafted demand letter, thorough documentation, and a clear timeline of events are among the most important tools for a pro se litigant.`,
+    relatedTerms: ["small-claims-court", "legal-aid", "filing-fee", "demand-letter"],
+    category: "Legal Process",
+  },
+  {
+    term: "Legal Aid",
+    slug: "legal-aid",
+    shortDef: "Free or low-cost legal services provided to individuals who cannot afford to hire a private attorney.",
+    longDef: `Legal aid refers to free or reduced-cost legal assistance available to individuals who meet certain income qualifications, typically at or below 125 to 200 percent of the federal poverty level. Legal aid organizations, funded by a combination of federal and state grants, private donations, and pro bono attorney time, provide services ranging from advice and brief consultations to full representation in court.
+
+Legal aid is most commonly available for civil matters including housing disputes, domestic violence, family law, consumer issues, public benefits, and immigration. Most legal aid offices do not handle criminal cases, which are instead covered by public defenders. Availability varies significantly by location, and many legal aid organizations have more demand than they can serve, leading to waitlists or restrictions on the types of cases they accept.
+
+If you cannot afford an attorney but need legal help, contacting your local legal aid office is a good first step. Many state and local bar associations also maintain lawyer referral services that offer initial consultations at reduced rates, and law school clinics provide free legal assistance in certain practice areas.`,
+    relatedTerms: ["pro-se", "contingency-fee", "retainer", "small-claims-court"],
+    category: "Legal Process",
+  },
+  {
+    term: "Contingency Fee",
+    slug: "contingency-fee",
+    shortDef: "A payment arrangement where an attorney receives a percentage of the client's recovery instead of charging hourly fees upfront.",
+    longDef: `A contingency fee is a payment structure where an attorney agrees to represent a client without charging upfront fees, instead taking a percentage, typically between 25 and 40 percent, of any amount recovered through settlement or judgment. If the client does not win or recover anything, the attorney receives no fee. This arrangement makes legal representation accessible to people who could not otherwise afford to hire an attorney.
+
+Contingency fees are most common in personal injury, medical malpractice, employment discrimination, and consumer protection cases, where the expected recovery is large enough to justify the arrangement. They are less common or prohibited in certain areas such as criminal defense and family law. The specific percentage and whether costs are deducted before or after calculating the fee should be clearly spelled out in a written agreement.
+
+While contingency fees eliminate the risk of paying legal fees out of pocket, clients should understand that they may still be responsible for certain litigation costs, such as filing fees, expert witness fees, and deposition expenses, regardless of the outcome, unless the fee agreement specifically provides otherwise.`,
+    relatedTerms: ["retainer", "billable-hour", "fee-shifting", "prevailing-party"],
+    category: "Legal Process",
+  },
+  {
+    term: "Retainer",
+    slug: "retainer",
+    shortDef: "An upfront payment made to an attorney to secure their services, typically held in a trust account and drawn down as work is performed.",
+    longDef: `A retainer is an advance payment a client makes to an attorney to engage their services. The funds are typically deposited into a client trust account and drawn down as the attorney performs work at their hourly rate. A retainer agreement should clearly specify the hourly rate, the scope of work covered, how the retainer will be applied, and what happens if the retainer is exhausted before the work is complete.
+
+Retainers serve two purposes: they secure the attorney's commitment to take on the case and provide working capital for the attorney to begin performing legal services. If the retainer is not fully used, the unused portion should be refunded to the client. If additional work is needed beyond the initial retainer, the attorney may request a replenishment of funds.
+
+Before paying a retainer, it is important to understand the total estimated cost of the legal matter, since the retainer itself is often just an initial payment rather than a cap on total fees. Ask for a clear written engagement letter explaining the billing terms, and keep track of the attorney's invoices to ensure the retainer is being applied correctly.`,
+    relatedTerms: ["billable-hour", "contingency-fee", "attorney-client-privilege", "legal-aid"],
+    category: "Legal Process",
+  },
+  {
+    term: "Billable Hour",
+    slug: "billable-hour",
+    shortDef: "A unit of time, typically measured in six-minute increments, that an attorney charges a client for work performed on their case.",
+    longDef: `The billable hour is the most common method attorneys use to charge for their services, where each hour or fraction of an hour spent working on a client's matter is recorded and billed at the attorney's stated hourly rate. Most attorneys bill in increments of one-tenth of an hour, or six minutes, meaning even a brief phone call or email review may be billed as a minimum of six minutes of time.
+
+Hourly rates vary dramatically based on the attorney's experience, geographic location, and area of practice, ranging from under $150 per hour for newer attorneys in smaller markets to $1,000 or more per hour for senior partners at major law firms. Clients should receive regular, itemized invoices showing the date, description, and time spent on each task.
+
+Understanding how billable hours work is important for managing legal costs. Consolidating questions into single calls or emails, providing well-organized documents, and handling simple tasks yourself, such as gathering records or drafting the initial timeline of events, can significantly reduce the number of hours your attorney needs to bill.`,
+    relatedTerms: ["retainer", "contingency-fee", "fee-shifting", "legal-aid"],
+    category: "Legal Process",
+  },
+  {
+    term: "Attorney-Client Privilege",
+    slug: "attorney-client-privilege",
+    shortDef: "A legal protection that keeps confidential communications between an attorney and their client from being disclosed without consent.",
+    longDef: `Attorney-client privilege is a fundamental legal protection that prevents the forced disclosure of confidential communications between an attorney and their client made for the purpose of seeking or providing legal advice. This privilege belongs to the client, not the attorney, and can only be waived by the client. It survives even after the attorney-client relationship ends.
+
+The privilege covers communications made in confidence between the client and attorney, including oral conversations, emails, letters, and documents shared for the purpose of obtaining legal counsel. It does not protect underlying facts, only the communications themselves. For example, a client cannot hide a relevant document from discovery simply by sharing it with their attorney, but the client's conversation with the attorney about that document is protected.
+
+The privilege can be inadvertently waived if the client shares the privileged communication with third parties, discusses attorney advice publicly, or fails to maintain the confidentiality of the communication. This is why attorneys typically advise clients not to forward attorney communications to others or discuss legal strategy outside the attorney-client relationship.`,
+    relatedTerms: ["retainer", "pro-se", "discovery", "evidence"],
+    category: "Legal Process",
+  },
+  {
+    term: "Cause of Action",
+    slug: "cause-of-action",
+    shortDef: "The specific legal theory or set of facts that gives a person the right to bring a lawsuit and seek a remedy from a court.",
+    longDef: `A cause of action is the legal basis for a lawsuit, consisting of the specific set of facts and the legal theory that, taken together, give a plaintiff the right to seek a judicial remedy. Common causes of action include breach of contract, negligence, fraud, unjust enrichment, and violations of specific consumer protection statutes. Each cause of action has its own required elements that must be proven for the claim to succeed.
+
+A single dispute can give rise to multiple causes of action. For example, a contractor who takes payment but fails to complete the work might face claims for breach of contract, unjust enrichment, and violations of a state consumer protection law, all arising from the same facts. Identifying every applicable cause of action is important because each may offer different remedies, different statutes of limitations, and different burdens of proof.
+
+When writing a demand letter, clearly identifying your cause or causes of action tells the recipient exactly what legal claims they face and what you would need to prove in court, which can make the demand more persuasive and provide a stronger foundation if litigation becomes necessary.`,
+    relatedTerms: ["complaint", "statute-of-limitations", "breach-of-contract", "negligence"],
+    category: "Legal Process",
+  },
+  {
+    term: "Small Claims Court",
+    slug: "small-claims-court",
+    shortDef: "A simplified court division designed to resolve low-dollar disputes quickly and affordably without requiring a lawyer.",
+    longDef: `Small claims court is a special division of the civil court system built for disputes involving relatively small amounts of money, typically ranging from $2,500 to $25,000 depending on the state. The process is designed to be accessible to people without legal training: filing fees are low, procedural rules are relaxed, and in many states attorneys are not even allowed to represent parties.
+
+Most small claims cases are resolved in a single hearing rather than through a long litigation process. A judge or magistrate hears both sides, reviews any documents or evidence presented, and issues a decision, often the same day. There is usually no jury, no formal discovery, and no complex motion practice.
+
+Because small claims court is designed for self-represented litigants, it is frequently the next step after a demand letter goes unanswered or is rejected. Filing a claim shows the other party you are serious and creates a binding court judgment if you win, which can then be enforced through collection tools like wage garnishment or bank levies.`,
+    relatedTerms: ["filing-fee", "plaintiff", "defendant", "jurisdiction", "default-judgment"],
+    category: "Court",
   },
   {
     term: "Plaintiff",
     slug: "plaintiff",
-    shortDef: "The party who initiates a lawsuit by filing a complaint against another party.",
-    longDef: `The plaintiff is the individual, business, or entity that starts a civil lawsuit by filing a complaint in court. The plaintiff bears the initial burden of stating a valid legal claim and, in most civil cases, must prove that claim by a "preponderance of the evidence," meaning it is more likely than not that their version of events is true.\n\nIn a demand letter context, the person sending the letter is effectively acting as the would-be plaintiff: they are the party asserting that a wrong occurred and requesting a remedy before formal litigation begins. Framing a demand letter the way a plaintiff would frame a complaint, with clear facts, a stated legal basis, and a specific request, often makes it more effective.\n\nIf a case does go to court, the plaintiff is responsible for filing fees, arranging service of process on the defendant, and presenting evidence to support their claims at any hearing.`,
-    relatedTerms: ["defendant", "complaint", "burden-of-proof"],
-    relatedDisputes: ["personal-injury", "small-business", "contractor-dispute"],
-    category: "Court Procedures",
+    shortDef: "The party who initiates a lawsuit by filing a complaint against another party in court.",
+    longDef: `The plaintiff is the individual, business, or entity that starts a civil lawsuit by filing a complaint in court. The plaintiff bears the initial burden of stating a valid legal claim and, in most civil cases, must prove that claim by a preponderance of the evidence, meaning it is more likely than not that their version of events is true.
+
+In a demand letter context, the person sending the letter is effectively acting as the would-be plaintiff, asserting that a wrong occurred and requesting a remedy before formal litigation begins. Framing a demand letter the way a plaintiff would frame a complaint, with clear facts, a stated legal basis, and a specific request, often makes it more effective.
+
+If a case does go to court, the plaintiff is responsible for filing fees, arranging service of process on the defendant, and presenting evidence to support their claims at any hearing. The plaintiff also has the right to dismiss their case voluntarily if a settlement is reached or if they choose not to proceed.`,
+    relatedTerms: ["defendant", "complaint", "burden-of-proof", "filing-fee"],
+    category: "Court",
   },
   {
     term: "Defendant",
     slug: "defendant",
     shortDef: "The party against whom a lawsuit is filed and who must respond to the plaintiff's claims.",
-    longDef: `The defendant is the person or entity being sued. Once served with a summons and complaint, the defendant typically has a limited window, often 20 to 30 days, to file a written response, either admitting or denying the allegations and raising any defenses.\n\nA defendant who fails to respond risks having a default judgment entered against them automatically, without ever presenting their side of the case. Defendants can also file a counterclaim if they believe the plaintiff owes them something as well, effectively turning the case into a two-way dispute.\n\nWhen a demand letter is sent, the recipient is essentially being given a chance to resolve the dispute before becoming a formal defendant in a lawsuit. Responding to a demand letter promptly and in good faith can often prevent a case from escalating to court at all.`,
-    relatedTerms: ["plaintiff", "complaint", "counterclaim", "default-judgment"],
-    relatedDisputes: ["personal-injury", "small-business", "contractor-dispute"],
-    category: "Court Procedures",
+    longDef: `The defendant is the person or entity being sued in a civil case. Once served with a summons and complaint, the defendant typically has a limited window, often 20 to 30 days, to file a written response either admitting or denying the allegations and raising any defenses.
+
+A defendant who fails to respond risks having a default judgment entered against them automatically, without ever presenting their side of the case. Defendants can also file a counterclaim if they believe the plaintiff owes them something as well, effectively turning the case into a two-way dispute.
+
+When a demand letter is sent, the recipient is essentially being given a chance to resolve the dispute before becoming a formal defendant in a lawsuit. Responding to a demand letter promptly and in good faith can often prevent a case from escalating to court at all, saving both parties significant time and expense.`,
+    relatedTerms: ["plaintiff", "complaint", "default-judgment", "answer"],
+    category: "Court",
   },
   {
-    term: "Counterclaim",
-    slug: "counterclaim",
-    shortDef: "A claim filed by a defendant against the plaintiff within the same lawsuit, asserting the plaintiff owes them something.",
-    longDef: `A counterclaim is a legal claim a defendant brings back against the plaintiff in the same case, essentially saying "not only am I not liable, but you owe me too." Counterclaims are common in contract and business disputes, where both sides often believe the other party breached their obligations first.\n\nCourts generally allow, and sometimes require, related counterclaims to be resolved in the same proceeding rather than filed as a separate lawsuit, since this avoids duplicative litigation over the same underlying facts. A successful counterclaim can offset or even exceed the amount the original plaintiff was seeking.\n\nAnyone considering sending a demand letter should think about whether the recipient might have a legitimate counterclaim of their own. Anticipating and addressing likely counterarguments in the letter itself can strengthen your position and reduce the chance of a drawn-out dispute.`,
-    relatedTerms: ["defendant", "plaintiff", "complaint"],
-    relatedDisputes: ["contractor-dispute", "small-business", "unpaid-invoice"],
-    category: "Court Procedures",
+    term: "Jurisdiction",
+    slug: "jurisdiction",
+    shortDef: "A court's legal authority to hear and decide a particular case based on geography, subject matter, or dollar amount.",
+    longDef: `Jurisdiction refers to a court's authority to hear and decide a case. There are two main types: personal jurisdiction, which asks whether the court has authority over the specific parties involved, usually based on where they live or do business, and subject-matter jurisdiction, which asks whether the court is authorized to hear that type of case at all.
+
+Small claims courts, for example, only have subject-matter jurisdiction over disputes below a certain dollar threshold set by state law. Federal courts have jurisdiction over cases involving federal law and disputes between citizens of different states exceeding $75,000 in controversy. Filing in the wrong court or against a defendant with no connection to that state can result in a case being dismissed regardless of its merits.
+
+Before sending a demand letter or filing a claim, it is worth confirming which court would actually have jurisdiction over your dispute. This usually depends on where the defendant lives, where the underlying incident occurred, or where a contract was signed or performed.`,
+    relatedTerms: ["venue", "small-claims-court", "complaint", "filing-fee"],
+    category: "Court",
+  },
+  {
+    term: "Venue",
+    slug: "venue",
+    shortDef: "The specific geographic court location where a case should properly be filed and heard.",
+    longDef: `Venue determines which specific courthouse, out of all the courts that might have jurisdiction, is the appropriate place to file a case. While jurisdiction asks whether a court has the power to hear a type of dispute, venue asks which location makes the most practical sense, usually tied to where the defendant resides, where a business operates, or where the events giving rise to the dispute took place.
+
+Venue rules exist largely for fairness and convenience, ensuring that defendants are not forced to litigate in a location with no real connection to the case. Many contracts include a venue clause specifying in advance where any disputes must be filed, which courts generally enforce unless it would be unreasonable.
+
+Getting venue wrong can lead to a case being transferred or dismissed, so it is worth double-checking local court rules, especially for small claims filings, before submitting paperwork. In some states, filing in an improper venue may merely result in a transfer to the correct court rather than an outright dismissal.`,
+    relatedTerms: ["jurisdiction", "small-claims-court", "complaint", "filing-fee"],
+    category: "Court",
+  },
+  {
+    term: "Filing Fee",
+    slug: "filing-fee",
+    shortDef: "The court cost required to open a lawsuit or small claims case, typically ranging from $30 to $200.",
+    longDef: `A filing fee is the payment a court requires before it will accept and process a new case. In small claims court, filing fees are intentionally kept low, often between $30 and $100, though they can scale up with the dollar amount being claimed. Larger civil cases filed in regular trial courts typically carry higher fees.
+
+Most jurisdictions allow the winning party to recover filing fees as part of the judgment, meaning the losing side ultimately reimburses the cost. Courts also offer fee waivers for people who cannot afford the cost, usually through a form documenting income and household size.
+
+Before filing a case, it is worth checking whether a demand letter can resolve the dispute first. Many businesses and individuals settle once they receive a clear, well-documented demand, saving both sides the time and expense of the filing fee and court process altogether.`,
+    relatedTerms: ["small-claims-court", "plaintiff", "complaint", "jurisdiction"],
+    category: "Court",
   },
   {
     term: "Default Judgment",
     slug: "default-judgment",
-    shortDef: "A court ruling entered automatically in favor of the plaintiff when the defendant fails to respond to a lawsuit.",
-    longDef: `A default judgment is entered when a defendant who has been properly served fails to respond within the required time frame. Rather than holding a full hearing on the merits, the court simply rules in the plaintiff's favor because the defendant never contested the claims.\n\nDefault judgments carry the same legal weight as a judgment reached after a full hearing and can be enforced through wage garnishment, bank levies, or property liens. However, they can sometimes be reopened if the defendant can show good cause for missing the deadline, such as never actually being served.\n\nFor plaintiffs, a default judgment is often the fastest possible path to a legal win, but it only has value if the defendant actually has assets or income that can be collected against. This is worth considering before spending time and filing fees on a lawsuit against a defendant with no ability to pay.`,
-    relatedTerms: ["summons", "service-of-process", "garnishment"],
-    relatedDisputes: ["debt-collection", "small-business", "unpaid-invoice"],
-    category: "Court Procedures",
-  },
-  {
-    term: "Discovery",
-    slug: "discovery",
-    shortDef: "The pre-trial process where both sides exchange evidence and information relevant to the case.",
-    longDef: `Discovery is the formal process in litigation where each side requests and exchanges information relevant to the dispute. Common discovery tools include written interrogatories (questions the other side must answer under oath), requests for production of documents, requests for admission, and depositions.\n\nThe goal of discovery is to prevent trial by ambush: both sides should know the key evidence and arguments before a hearing so that cases are decided on the facts rather than surprise. Discovery is largely unavailable in small claims court, where the informal process is designed to move quickly, but it plays a central role in larger civil litigation.\n\nBecause discovery can be expensive and time-consuming, it's one of the biggest reasons parties in bigger disputes often try to settle before a case gets that far. A clear, well-documented demand letter can sometimes achieve the same clarifying effect discovery would, without the cost.`,
-    relatedTerms: ["deposition", "subpoena", "evidence"],
-    relatedDisputes: ["personal-injury", "small-business", "employment-dispute"],
-    category: "Court Procedures",
-  },
-  {
-    term: "Evidence",
-    slug: "evidence",
-    shortDef: "Documents, testimony, or other material used to prove or disprove facts in a dispute or legal proceeding.",
-    longDef: `Evidence is anything offered to prove or disprove a disputed fact: documents, photographs, receipts, emails, text messages, witness testimony, expert reports, and physical objects can all qualify. Courts apply rules governing what evidence is admissible, generally requiring that it be relevant, authentic, and not unfairly prejudicial.\n\nIn small claims and consumer disputes, common and highly persuasive evidence includes contracts, invoices, repair estimates, photos of damage, and written communications like emails or text messages documenting what happened. Organizing this evidence clearly, in chronological order with dates and amounts, makes both a demand letter and any later court case far more effective.\n\nEven outside of a courtroom, strong evidence is often what determines whether a demand letter gets a serious response. A business or individual is far more likely to pay a claim, or settle it, when the demand includes clear documentation rather than unsupported assertions.`,
-    relatedTerms: ["discovery", "burden-of-proof", "affidavit"],
-    relatedDisputes: ["personal-injury", "property-damage", "insurance-claim"],
-    category: "Court Procedures",
-  },
-  {
-    term: "Deposition",
-    slug: "deposition",
-    shortDef: "Sworn out-of-court testimony given by a witness or party, recorded for use later in a case.",
-    longDef: `A deposition is a formal, sworn statement taken outside of court as part of the discovery process, usually with attorneys from both sides present and a court reporter transcribing everything. The person being deposed answers questions under oath, and the testimony can later be used at trial, including to challenge the person if their story changes.\n\nDepositions are a standard tool in larger civil cases, including personal injury and employment litigation, but they are rarely used in small claims matters due to their cost and formality. They are one reason litigation can become expensive quickly once a case moves beyond the small claims threshold.\n\nUnderstanding that depositions exist can be useful context when drafting a demand letter for a larger claim: it signals to the recipient that if the matter proceeds to litigation, they may eventually have to testify under oath about the underlying facts.`,
-    relatedTerms: ["discovery", "subpoena", "evidence"],
-    relatedDisputes: ["personal-injury", "employment-dispute", "wrongful-termination"],
-    category: "Court Procedures",
+    shortDef: "A court ruling entered automatically in favor of the plaintiff when the defendant fails to respond to a lawsuit within the required time.",
+    longDef: `A default judgment is entered when a defendant who has been properly served fails to respond within the required time frame. Rather than holding a full hearing on the merits, the court simply rules in the plaintiff's favor because the defendant never contested the claims.
+
+Default judgments carry the same legal weight as a judgment reached after a full hearing and can be enforced through wage garnishment, bank levies, or property liens. However, they can sometimes be reopened if the defendant can show good cause for missing the deadline, such as never actually being served or excusable neglect.
+
+For plaintiffs, a default judgment is often the fastest possible path to a legal win, but it only has value if the defendant actually has assets or income that can be collected against. This is worth considering before spending time and filing fees on a lawsuit against a defendant with no ability to pay.`,
+    relatedTerms: ["service-of-process", "judgment", "garnishment", "complaint"],
+    category: "Court",
   },
   {
     term: "Subpoena",
     slug: "subpoena",
-    shortDef: "A legal order requiring a person to testify or produce documents for a court proceeding.",
-    longDef: `A subpoena is a court-issued order compelling someone to do one of two things: appear and testify (a subpoena ad testificandum) or produce documents and records (a subpoena duces tecum). Ignoring a valid subpoena can result in being held in contempt of court, which carries fines or other penalties.\n\nSubpoenas are commonly used to obtain records from third parties who are not directly involved in a lawsuit but who hold relevant information, such as banks, employers, or medical providers. They can also be used to compel witnesses to appear at a deposition or trial.\n\nWhile subpoenas are typically only available once a lawsuit has been filed, gathering the same type of documentation voluntarily, bank statements, repair records, correspondence, before sending a demand letter can accomplish much of the same goal without needing court involvement.`,
-    relatedTerms: ["deposition", "discovery", "evidence"],
-    relatedDisputes: ["employment-dispute", "personal-injury", "insurance-claim"],
-    category: "Court Procedures",
+    shortDef: "A legal order requiring a person to testify or produce documents for a court proceeding or investigation.",
+    longDef: `A subpoena is a court-issued order compelling someone to do one of two things: appear and testify, known as a subpoena ad testificandum, or produce documents and records, known as a subpoena duces tecum. Ignoring a valid subpoena can result in being held in contempt of court, which carries fines or other penalties.
+
+Subpoenas are commonly used to obtain records from third parties who are not directly involved in a lawsuit but who hold relevant information, such as banks, employers, or medical providers. They can also be used to compel witnesses to appear at a deposition or trial.
+
+While subpoenas are typically only available once a lawsuit has been filed, gathering the same type of documentation voluntarily, such as bank statements, repair records, and correspondence, before sending a demand letter can accomplish much of the same goal without needing court involvement.`,
+    relatedTerms: ["discovery", "deposition", "evidence", "complaint"],
+    category: "Court",
   },
   {
-    term: "Statute of Limitations",
-    slug: "statute-of-limitations",
-    shortDef: "The legal deadline within which a lawsuit must be filed, after which the claim is generally barred forever.",
-    longDef: `A statute of limitations sets the maximum time period after an event during which a lawsuit can be filed. These deadlines vary widely depending on the type of claim (contract, personal injury, fraud, property damage) and the state where the claim arose, ranging anywhere from one year to over ten years.\n\nOnce the statute of limitations expires, a defendant can raise it as an absolute defense, and the court will dismiss the case regardless of its underlying merits, no matter how clearly the defendant was at fault. The clock generally starts running from the date of the injury or breach, though some claims use a "discovery rule" that starts the clock when the harm was or should have been discovered.\n\nBecause missing this deadline can permanently destroy an otherwise valid claim, it's one of the first things to check when considering a demand letter or lawsuit. Sending a demand letter does not, by itself, pause or extend the statute of limitations in most states, so time-sensitive claims should not wait on a response before also preparing to file if necessary.`,
-    relatedTerms: ["small-claims-court", "complaint", "time-barred-debt"],
-    relatedDisputes: ["personal-injury", "debt-collection", "property-damage"],
-    category: "Court Procedures",
+    term: "Discovery",
+    slug: "discovery",
+    shortDef: "The pre-trial phase where both sides exchange evidence, documents, and information relevant to the case.",
+    longDef: `Discovery is the formal process in litigation where each side requests and exchanges information relevant to the dispute. Common discovery tools include written interrogatories, which are questions the other side must answer under oath, requests for production of documents, requests for admission, and depositions.
+
+The goal of discovery is to prevent trial by ambush, ensuring both sides know the key evidence and arguments before a hearing so that cases are decided on the facts rather than surprise. Discovery is largely unavailable in small claims court, where the informal process is designed to move quickly, but it plays a central role in larger civil litigation.
+
+Because discovery can be expensive and time-consuming, it is one of the biggest reasons parties in bigger disputes often try to settle before a case gets that far. A clear, well-documented demand letter can sometimes achieve the same clarifying effect discovery would, without the cost and delay.`,
+    relatedTerms: ["deposition", "subpoena", "evidence", "interrogatories"],
+    category: "Court",
+  },
+  {
+    term: "Deposition",
+    slug: "deposition",
+    shortDef: "Sworn out-of-court testimony given by a witness or party, recorded by a court reporter for potential use at trial.",
+    longDef: `A deposition is a formal, sworn statement taken outside of court as part of the discovery process, usually with attorneys from both sides present and a court reporter transcribing everything. The person being deposed answers questions under oath, and the testimony can later be used at trial, including to challenge the person if their story changes.
+
+Depositions are a standard tool in larger civil cases, including personal injury and employment litigation, but they are rarely used in small claims matters due to their cost and formality. They are one reason litigation can become expensive quickly once a case moves beyond the small claims threshold.
+
+Understanding that depositions exist can be useful context when drafting a demand letter for a larger claim, as it signals to the recipient that if the matter proceeds to litigation, they may eventually have to testify under oath about the underlying facts.`,
+    relatedTerms: ["discovery", "subpoena", "evidence", "affidavit"],
+    category: "Court",
+  },
+  {
+    term: "Preponderance of Evidence",
+    slug: "preponderance-of-evidence",
+    shortDef: "The standard of proof in most civil cases, requiring a party to show their version of events is more likely true than not.",
+    longDef: `Preponderance of the evidence is the standard of proof applied in most civil cases, meaning the party with the burden of proof must demonstrate that their version of events is more likely true than not true, essentially more than a 50 percent likelihood. This is a significantly lower standard than the beyond a reasonable doubt standard used in criminal cases.
+
+In practical terms, this means a plaintiff does not need to prove their case with absolute certainty. They need only tip the scales slightly in their favor by presenting evidence that makes their account more believable than the defendant's. The quality, credibility, and persuasiveness of the evidence matters more than the sheer quantity.
+
+Understanding this standard is useful when preparing a demand letter or small claims case because it helps focus your preparation on the evidence that most directly supports each fact you need to prove, rather than trying to address every conceivable detail of the dispute.`,
+    relatedTerms: ["burden-of-proof", "evidence", "plaintiff", "small-claims-court"],
+    category: "Court",
   },
   {
     term: "Burden of Proof",
     slug: "burden-of-proof",
-    shortDef: "The obligation to prove disputed facts, which in most civil cases rests with the plaintiff.",
-    longDef: `The burden of proof determines which party must prove a disputed fact and how convincingly they must prove it. In most civil cases, including small claims and personal injury disputes, the plaintiff must prove their claims by a "preponderance of the evidence," meaning it is more likely than not (essentially, more than 50%) that their version of events is accurate.\n\nThis is a lower standard than the "beyond a reasonable doubt" standard used in criminal cases. Certain claims, such as fraud, may require a higher standard called "clear and convincing evidence." Once a plaintiff meets their burden on a particular element, the burden may shift to the defendant to prove any affirmative defenses they are raising.\n\nUnderstanding the burden of proof is useful when preparing a demand letter or a small claims case: focus on the evidence that most directly supports each fact you need to prove, rather than including every detail of the dispute.`,
-    relatedTerms: ["evidence", "plaintiff", "small-claims-court"],
-    relatedDisputes: ["personal-injury", "property-damage", "small-business"],
-    category: "Court Procedures",
+    shortDef: "The obligation falling on one party to prove the facts in dispute to a required standard of certainty.",
+    longDef: `The burden of proof determines which party must prove a disputed fact and how convincingly they must prove it. In most civil cases, including small claims and personal injury disputes, the plaintiff must prove their claims by a preponderance of the evidence, meaning it is more likely than not that their version of events is accurate.
+
+This is a lower standard than the beyond a reasonable doubt standard used in criminal cases. Certain claims, such as fraud, may require a higher standard called clear and convincing evidence. Once a plaintiff meets their burden on a particular element, the burden may shift to the defendant to prove any affirmative defenses they are raising.
+
+Understanding the burden of proof is useful when preparing a demand letter or a small claims case. Focus on the evidence that most directly supports each fact you need to prove, rather than including every detail of the dispute. Strong, organized evidence that clearly addresses each element of your claim is more effective than a large volume of marginally relevant material.`,
+    relatedTerms: ["preponderance-of-evidence", "evidence", "plaintiff", "complaint"],
+    category: "Court",
   },
   {
     term: "Appeal",
     slug: "appeal",
-    shortDef: "A request asking a higher court to review and potentially reverse a lower court's decision.",
-    longDef: `An appeal asks a higher court to review whether the lower court made a legal error, either in how it applied the law or in the procedures it followed. Appellate courts generally do not re-hear evidence or witness testimony; instead, they review the written record from the original case to determine whether the outcome should stand.\n\nAppeals are subject to strict deadlines, often 30 days or less from the date of judgment, and typically require filing fees and formal legal briefs. Because of the cost and complexity involved, and because appellate courts give significant deference to the original judge or jury's factual findings, appeals of small claims decisions are relatively uncommon.\n\nSome states limit or entirely bar appeals from small claims court, particularly for the party who filed the original claim, which is one reason it's worth presenting your strongest evidence the first time a case is heard.`,
-    relatedTerms: ["small-claims-court", "default-judgment", "jurisdiction"],
-    relatedDisputes: ["small-business", "personal-injury", "employment-dispute"],
-    category: "Court Procedures",
-  },
+    shortDef: "A request asking a higher court to review and potentially reverse a lower court's decision based on legal error.",
+    longDef: `An appeal asks a higher court to review whether the lower court made a legal error, either in how it applied the law or in the procedures it followed. Appellate courts generally do not re-hear evidence or witness testimony; instead, they review the written record from the original case to determine whether the outcome should stand.
 
-  // ---------------------------------------------------------------------
-  // Contract Law
-  // ---------------------------------------------------------------------
-  {
-    term: "Breach of Contract",
-    slug: "breach-of-contract",
-    shortDef: "The failure of one party to perform any duty or obligation specified in a legally binding agreement.",
-    longDef: `A breach of contract occurs when one party fails, without legal excuse, to fulfill any of its obligations under a valid, enforceable agreement. This can include failing to deliver goods or services, paying late or not at all, or violating specific terms like confidentiality or exclusivity clauses.\n\nBreaches are typically categorized as either "material" (a significant failure that undermines the core purpose of the contract, allowing the other party to treat the contract as terminated and sue for damages) or "minor" (a partial failure that doesn't excuse the other side from their own obligations but may still support a claim for damages).\n\nWhen a breach occurs, the non-breaching party generally has a duty to mitigate their damages, meaning they must take reasonable steps to minimize their losses rather than letting them pile up. A demand letter is often the first formal step after a breach, putting the other party on notice and giving them a chance to cure the problem before litigation begins.`,
-    relatedTerms: ["material-breach", "consideration", "specific-performance", "demand-letter"],
-    relatedDisputes: ["contractor-dispute", "unpaid-invoice", "freelancer-dispute", "wedding-vendor"],
-    category: "Contract Law",
-  },
-  {
-    term: "Consideration",
-    slug: "consideration",
-    shortDef: "Something of value exchanged between parties that is required to make a contract legally enforceable.",
-    longDef: `Consideration is one of the essential building blocks of a valid contract: each party must give up something of value, whether that's money, goods, services, or a promise to do (or not do) something. Without consideration flowing both ways, an agreement is generally treated as an unenforceable gift promise rather than a binding contract.\n\nConsideration doesn't need to be monetarily equal on both sides; courts generally won't second-guess whether a deal was a "good" one, only whether each party actually gave something up. Past consideration, something already given before the agreement was made, generally cannot support a new contract.\n\nWhen disputing a contract or drafting a demand letter, it can help to point to the specific consideration you provided, payment made, services rendered, deposit paid, since it establishes that a valid, binding agreement existed in the first place.`,
-    relatedTerms: ["breach-of-contract", "statute-of-frauds", "unconscionability"],
-    relatedDisputes: ["contractor-dispute", "freelancer-dispute", "small-business"],
-    category: "Contract Law",
-  },
-  {
-    term: "Material Breach",
-    slug: "material-breach",
-    shortDef: "A significant contract violation that defeats the core purpose of the agreement and excuses further performance.",
-    longDef: `A material breach is a failure to perform that is serious enough to go to the heart of the contract, essentially depriving the other party of the benefit they bargained for. Courts distinguish material breaches from minor ones because the consequences are very different: a material breach generally excuses the non-breaching party from continuing their own performance and entitles them to sue for full damages.\n\nFactors courts consider in deciding whether a breach is material include how much of the benefit the injured party has already received, whether the breach was willful or accidental, and whether the breaching party is likely to cure the problem.\n\nIdentifying whether a breach is material or minor matters a great deal when writing a demand letter, since it affects what remedy you can reasonably request, full contract cancellation and refund, versus a smaller adjustment for a partial problem.`,
-    relatedTerms: ["breach-of-contract", "rescission", "specific-performance"],
-    relatedDisputes: ["contractor-dispute", "unpaid-invoice", "wedding-vendor"],
-    category: "Contract Law",
-  },
-  {
-    term: "Force Majeure",
-    slug: "force-majeure",
-    shortDef: "A contract clause excusing performance when extraordinary events beyond either party's control make it impossible.",
-    longDef: `Force majeure ("superior force") clauses excuse a party from performing its contractual obligations when an extraordinary, unforeseeable event, such as a natural disaster, war, or government shutdown, makes performance impossible or impracticable. These clauses only apply as narrowly as their specific wording allows; courts generally will not read broad excuses into a contract that doesn't explicitly include them.\n\nA party invoking force majeure typically must show that the triggering event is specifically covered by the clause, that it actually prevented performance (not just made it less convenient or profitable), and that they took reasonable steps to mitigate the impact.\n\nIf you receive a force majeure excuse from a vendor or contractor, it's worth checking the actual contract language closely, since many disputes arise when a business invokes force majeure for events that don't actually qualify, such as ordinary supply delays or staffing shortages.`,
-    relatedTerms: ["breach-of-contract", "material-breach", "specific-performance"],
-    relatedDisputes: ["contractor-dispute", "wedding-vendor", "small-business"],
-    category: "Contract Law",
-  },
-  {
-    term: "Indemnification",
-    slug: "indemnification",
-    shortDef: "A contractual promise by one party to compensate the other for specific losses, damages, or liabilities.",
-    longDef: `Indemnification clauses shift financial responsibility for certain losses from one contracting party to another. For example, a contractor might agree to indemnify a homeowner against any injury claims arising from work performed on the property, meaning the contractor (or their insurer) would cover those costs rather than the homeowner.\n\nThese clauses vary enormously in scope: some cover only third-party claims, while others cover direct losses between the contracting parties themselves. Courts scrutinize indemnification clauses closely, and some states limit or prohibit indemnification for a party's own negligence.\n\nWhen a dispute arises and a contract contains an indemnification clause, it's worth reviewing exactly what losses are covered and whether the triggering conditions have been met before assuming the clause applies to your situation.`,
-    relatedTerms: ["breach-of-contract", "liability", "duty-of-care"],
-    relatedDisputes: ["contractor-dispute", "small-business", "property-damage"],
-    category: "Contract Law",
-  },
-  {
-    term: "Liquidated Damages",
-    slug: "liquidated-damages",
-    shortDef: "A pre-agreed dollar amount specified in a contract to be paid if one party breaches its terms.",
-    longDef: `Liquidated damages clauses set a specific dollar figure in advance that will apply if a party breaches the contract, rather than requiring the injured party to prove their actual losses later. These clauses are common in construction contracts (for late completion), leases, and event or vendor contracts.\n\nCourts will only enforce liquidated damages clauses if the amount was a reasonable estimate of likely harm at the time the contract was signed, not an amount so large it functions as a penalty designed to punish rather than compensate. A liquidated damages clause deemed punitive can be struck down entirely, leaving the injured party to prove actual damages instead.\n\nIf your contract includes a liquidated damages clause, citing it directly in a demand letter can simplify your claim considerably, since you won't need to separately prove the exact dollar value of your loss.`,
-    relatedTerms: ["breach-of-contract", "damages", "unconscionability"],
-    relatedDisputes: ["contractor-dispute", "wedding-vendor", "small-business"],
-    category: "Contract Law",
-  },
-  {
-    term: "Specific Performance",
-    slug: "specific-performance",
-    shortDef: "A court order requiring a party to actually perform their contractual obligations rather than simply pay damages.",
-    longDef: `Specific performance is an equitable remedy where a court orders a breaching party to actually complete the action they agreed to do, rather than just pay monetary damages. Courts reserve this remedy for situations where money alone would not adequately compensate the injured party, most commonly in real estate transactions involving a unique property, or contracts involving one-of-a-kind goods.\n\nBecause specific performance is considered an extraordinary remedy, courts are far less willing to grant it for service contracts (they generally won't force someone to perform personal services against their will) or in situations where monetary damages would work just as well.\n\nMost consumer and small business disputes are better suited to money damages rather than specific performance, but for unique situations, a rare antique, a one-of-a-kind property, it's worth knowing this remedy exists and can be requested in a demand letter or lawsuit.`,
-    relatedTerms: ["breach-of-contract", "material-breach", "rescission"],
-    relatedDisputes: ["contractor-dispute", "small-business", "online-purchase"],
-    category: "Contract Law",
-  },
-  {
-    term: "Rescission",
-    slug: "rescission",
-    shortDef: "The cancellation of a contract that returns both parties to the position they were in before it was signed.",
-    longDef: `Rescission unwinds a contract entirely, as if it never existed, returning both parties to their pre-contract position. This typically means any money paid is refunded and any goods or property exchanged are returned. Rescission is available for reasons including fraud, misrepresentation, mutual mistake, undue influence, or a material breach so significant that continuing the contract would be unfair.\n\nRescission is different from simply terminating a contract going forward; it aims to erase the transaction retroactively. Some contracts also include a contractual right of rescission that lets a party cancel within a specific window without needing to prove fraud or breach, such as federal rules giving consumers three days to cancel certain door-to-door sales or home equity loans.\n\nRequesting rescission in a demand letter is appropriate when a product or service was so fundamentally misrepresented, or the breach so severe, that a partial refund or repair wouldn't make you whole.`,
-    relatedTerms: ["breach-of-contract", "material-breach", "right-of-rescission"],
-    relatedDisputes: ["online-purchase", "contractor-dispute", "warranty-claim"],
-    category: "Contract Law",
-  },
-  {
-    term: "Unconscionability",
-    slug: "unconscionability",
-    shortDef: "A legal doctrine allowing courts to refuse to enforce contract terms that are extremely unfair or one-sided.",
-    longDef: `Unconscionability lets a court refuse to enforce a contract, or specific clauses within it, when the terms are so one-sided or unfair that enforcing them would shock the conscience. Courts generally look at two dimensions: procedural unconscionability (unfairness in how the contract was formed, such as fine print, unequal bargaining power, or a take-it-or-leave-it form contract) and substantive unconscionability (unfairness in the actual terms themselves, such as an absurdly high fee or a one-sided limitation of liability).\n\nUnconscionability challenges most often succeed when both procedural and substantive elements are present together, though some courts will act on an extreme version of either alone. It's a high bar; simply having a bad deal is not enough.\n\nIf a contract term you're disputing seems buried in fine print and dramatically favors the other side, for example, an exorbitant early cancellation fee, it may be worth raising unconscionability as an argument in a demand letter or small claims filing.`,
-    relatedTerms: ["consideration", "breach-of-contract", "liquidated-damages"],
-    relatedDisputes: ["gym-membership", "subscription-cancellation", "loan-dispute"],
-    category: "Contract Law",
-  },
-  {
-    term: "Statute of Frauds",
-    slug: "statute-of-frauds",
-    shortDef: "A legal rule requiring certain types of contracts to be in writing and signed to be enforceable.",
-    longDef: `The statute of frauds requires that certain categories of contracts be in writing, and typically signed by the party against whom enforcement is sought, in order to be legally enforceable. Common categories include contracts for the sale of real estate, agreements that cannot be completed within one year, promises to pay someone else's debt, and contracts for the sale of goods above a certain dollar amount under the Uniform Commercial Code.\n\nThe rule exists to prevent fraud and reduce disputes over the terms of significant agreements by requiring reliable written proof rather than relying on memory or oral claims. A writing satisfying the statute doesn't need to be a formal contract; even an email, text message, or signed note referencing the key terms can sometimes be enough.\n\nIf you're trying to enforce an oral agreement that falls into one of these categories, and you don't have anything in writing, this is an important limitation to understand before sending a demand letter or pursuing a claim.`,
-    relatedTerms: ["consideration", "breach-of-contract", "lease-agreement"],
-    relatedDisputes: ["contractor-dispute", "landlord-tenant", "small-business"],
-    category: "Contract Law",
-  },
-  {
-    term: "Good Faith and Fair Dealing",
-    slug: "good-faith-and-fair-dealing",
-    shortDef: "An implied duty in every contract requiring both parties to act honestly and not undermine the other's rights.",
-    longDef: `The implied covenant of good faith and fair dealing exists automatically in virtually every contract, even if it's never written down. It requires each party to act honestly and to avoid actions that would deprive the other side of the benefits they reasonably expected from the agreement.\n\nViolations of this duty can include deliberately withholding information needed to perform, manufacturing a pretext to avoid an obligation, or exercising discretion granted under a contract in a way designed purely to harm the other party rather than for any legitimate business reason. This doctrine is frequently invoked in insurance disputes, where an insurer's unreasonable delay or denial of a valid claim can constitute bad faith.\n\nEven when a contract's literal terms don't seem to have been violated, a pattern of dishonest or obstructive conduct by the other side may still support a claim, and it's worth mentioning in a demand letter if it applies to your situation.`,
-    relatedTerms: ["breach-of-contract", "bad-faith-insurance", "fiduciary-duty"],
-    relatedDisputes: ["insurance-claim", "small-business", "contractor-dispute"],
-    category: "Contract Law",
-  },
-  {
-    term: "Intellectual Property",
-    slug: "intellectual-property",
-    shortDef: "Legal rights protecting creations of the mind, including trademarks, copyrights, patents, and trade secrets.",
-    longDef: `Intellectual property (IP) refers to legally protected creations of the mind, generally divided into four categories: copyrights (protecting original creative works like writing, art, music, and code), trademarks (protecting brand names, logos, and slogans that identify a source of goods or services), patents (protecting new inventions), and trade secrets (protecting confidential business information that provides a competitive advantage).\n\nDisputes over intellectual property often arise in freelance and small business contexts: a client using a freelancer's work beyond the agreed license, a former business partner using shared branding, or a competitor copying protected content or designs.\n\nA demand letter asserting an IP claim is generally strongest when it identifies the specific protected work, explains how it's registered or otherwise protected, and describes exactly how the recipient's use exceeds any permission that was granted.`,
-    relatedTerms: ["breach-of-contract", "cease-and-desist-letter", "damages"],
-    relatedDisputes: ["freelancer-dispute", "small-business", "unpaid-invoice"],
-    category: "Contract Law",
-  },
+Appeals are subject to strict deadlines, often 30 days or less from the date of judgment, and typically require filing fees and formal legal briefs. Because of the cost and complexity involved, and because appellate courts give significant deference to the original judge or jury's factual findings, appeals of small claims decisions are relatively uncommon.
 
-  // ---------------------------------------------------------------------
-  // Consumer Rights
-  // ---------------------------------------------------------------------
+Some states limit or entirely bar appeals from small claims court, particularly for the party who filed the original claim. This is one reason it is worth presenting your strongest evidence the first time a case is heard, rather than assuming you will have a second chance on appeal.`,
+    relatedTerms: ["judgment", "small-claims-court", "motion-to-dismiss", "summary-judgment"],
+    category: "Court",
+  },
   {
-    term: "Consumer Protection Law",
-    slug: "consumer-protection-law",
-    shortDef: "A body of state and federal laws designed to protect buyers from unfair, deceptive, or fraudulent business practices.",
-    longDef: `Consumer protection law encompasses a wide range of federal and state statutes designed to level the playing field between businesses and the individual consumers who buy their goods and services. At the federal level, agencies like the Federal Trade Commission (FTC) and Consumer Financial Protection Bureau (CFPB) enforce rules against deceptive advertising, unfair billing, and predatory lending.\n\nEvery state also has its own consumer protection statute, often called a "Little FTC Act" or Unfair and Deceptive Acts or Practices (UDAP) law, which typically allows individual consumers to sue directly for violations, sometimes recovering attorney's fees and multiplied damages on top of their actual losses.\n\nCiting the specific consumer protection statute that applies in your state can significantly strengthen a demand letter, since many of these laws include statutory penalties well beyond simple reimbursement, giving a business real incentive to resolve the dispute quickly.`,
-    relatedTerms: ["unfair-and-deceptive-acts-or-practices", "class-action", "warranty"],
-    relatedDisputes: ["online-purchase", "warranty-claim", "subscription-cancellation"],
+    term: "Complaint",
+    slug: "complaint",
+    shortDef: "The formal written document that starts a lawsuit by laying out the plaintiff's claims and requested relief.",
+    longDef: `In litigation, a complaint is the initial pleading a plaintiff files with the court to formally begin a lawsuit. It identifies the parties, describes the factual background of the dispute, states the specific legal claims, called causes of action, being brought, and requests a specific remedy, whether that is money damages, an order to do or stop doing something, or both.
+
+A complaint must generally state enough facts to show the plaintiff has a plausible legal claim. Vague or conclusory allegations can be dismissed by the court before the case even proceeds. In small claims court, the complaint is often just a simple form describing the dispute in a few sentences rather than a formal legal document.
+
+Many of the same elements found in a formal court complaint, a clear statement of facts, the legal basis for the claim, and the specific remedy sought, are also present in a well-drafted demand letter. Writing a demand letter with this structure in mind often makes it more persuasive and easier to convert into a court filing if necessary.`,
+    relatedTerms: ["plaintiff", "defendant", "cause-of-action", "answer"],
+    category: "Court",
+  },
+  {
+    term: "Answer",
+    slug: "answer",
+    shortDef: "The defendant's formal written response to a complaint, addressing each allegation and raising any defenses.",
+    longDef: `An answer is the formal written document a defendant files with the court in response to the plaintiff's complaint. In the answer, the defendant must respond to each allegation in the complaint by admitting, denying, or stating they lack sufficient knowledge to admit or deny the claim. The answer may also include affirmative defenses, which are legal reasons why the defendant should not be held liable even if the plaintiff's allegations are true.
+
+The deadline for filing an answer is typically 20 to 30 days after the defendant is served with the complaint, though the exact timeframe varies by jurisdiction. Failing to file an answer within the deadline can result in a default judgment being entered against the defendant.
+
+In small claims court, the answer process is usually much simpler, sometimes requiring only that the defendant appear at the hearing to present their side. In larger civil cases, the answer is the defendant's first opportunity to formally state their position and begin shaping the legal framework of the dispute.`,
+    relatedTerms: ["complaint", "defendant", "default-judgment", "motion-to-dismiss"],
+    category: "Court",
+  },
+  {
+    term: "Motion to Dismiss",
+    slug: "motion-to-dismiss",
+    shortDef: "A formal request asking the court to throw out a case because the complaint fails to state a valid legal claim.",
+    longDef: `A motion to dismiss is a procedural request by the defendant asking the court to throw out the plaintiff's case without a full hearing on the merits. The most common grounds for dismissal include failure to state a claim upon which relief can be granted, meaning the complaint does not allege facts that would support a legal remedy even if everything stated were true, as well as lack of jurisdiction, improper venue, or failure to serve the defendant properly.
+
+Motions to dismiss are decided based on the complaint alone, without considering evidence from either side. The court assumes the plaintiff's factual allegations are true and asks only whether those facts, taken at face value, would give rise to a valid legal claim. This is a relatively high bar for the defendant because most judges give plaintiffs the benefit of the doubt at this early stage.
+
+In small claims court, formal motions to dismiss are uncommon because the procedures are simplified. However, understanding the concept is useful because it highlights the importance of including a clear legal basis for your claim in any demand letter or complaint.`,
+    relatedTerms: ["complaint", "answer", "summary-judgment", "jurisdiction"],
+    category: "Court",
+  },
+  {
+    term: "Summary Judgment",
+    slug: "summary-judgment",
+    shortDef: "A court ruling issued without a full trial when the undisputed facts show that one party is entitled to win as a matter of law.",
+    longDef: `Summary judgment is a procedural mechanism that allows a court to decide a case, or specific issues within a case, without a full trial when there is no genuine dispute about the material facts and one party is entitled to judgment as a matter of law. Either the plaintiff or defendant can file a motion for summary judgment.
+
+The moving party must demonstrate, through affidavits, depositions, documents, and other evidence, that the key facts are not genuinely in dispute and that the law compels a ruling in their favor. The opposing party must then show that there is a genuine issue of material fact that requires a trial to resolve. If the court grants summary judgment, the case or the relevant claims end without a trial.
+
+Summary judgment is not available in small claims court, but it is an important part of larger civil litigation. Understanding the concept underscores the value of preserving strong documentary evidence from the outset, since a case supported by clear, undisputed documentation may be resolved more quickly and favorably.`,
+    relatedTerms: ["motion-to-dismiss", "judgment", "evidence", "discovery"],
+    category: "Court",
+  },
+  {
+    term: "Judgment",
+    slug: "judgment",
+    shortDef: "The court's final official decision resolving a lawsuit and determining the rights and obligations of the parties.",
+    longDef: `A judgment is the court's final decision in a case, resolving the dispute and establishing the legal rights and obligations of the parties. In a money judgment, the court orders the losing party to pay a specified amount to the winning party. Judgments can also require or prohibit specific actions through injunctions or declaratory relief.
+
+Once entered, a judgment becomes a legally enforceable obligation. If the losing party does not voluntarily comply, the winning party can use collection tools such as wage garnishment, bank account levies, and property liens to enforce the judgment. Judgments typically accrue interest until paid and remain enforceable for a significant period, often 10 to 20 years depending on the state, and can usually be renewed.
+
+Obtaining a judgment is only part of the process. Actually collecting on a judgment can be challenging if the debtor has limited assets or income. This practical reality is worth considering when deciding whether to pursue litigation or whether a negotiated settlement for a smaller amount might actually result in a better outcome.`,
+    relatedTerms: ["default-judgment", "judgment-debtor", "judgment-creditor", "garnishment"],
+    category: "Court",
+  },
+  {
+    term: "Judgment Debtor",
+    slug: "judgment-debtor",
+    shortDef: "The party against whom a court judgment has been entered and who owes money or an obligation to the judgment creditor.",
+    longDef: `A judgment debtor is the party who has lost a lawsuit and owes money or an obligation to the winning party, the judgment creditor. Once a judgment is entered, the debtor is legally required to satisfy the judgment, including any interest that accrues. If the judgment debtor does not pay voluntarily, the creditor can pursue enforcement measures such as wage garnishment, bank account levies, and property liens.
+
+Judgment debtors may be required to participate in a debtor's examination, also called a supplemental proceeding, where they must answer questions under oath about their income, assets, bank accounts, and employment. This information helps the judgment creditor identify assets that can be targeted for collection.
+
+In some cases, a judgment debtor who truly has no assets or income may be considered judgment-proof, meaning that while the judgment remains valid and accrues interest, there is nothing currently available to collect. The judgment creditor can wait and attempt to collect later if the debtor's financial situation improves.`,
+    relatedTerms: ["judgment-creditor", "judgment", "garnishment", "satisfaction-of-judgment"],
+    category: "Court",
+  },
+  {
+    term: "Judgment Creditor",
+    slug: "judgment-creditor",
+    shortDef: "The party who has won a court judgment and is entitled to collect the amount owed from the losing party.",
+    longDef: `A judgment creditor is the party who has successfully won a lawsuit and obtained a court judgment against the debtor, entitling them to use formal legal collection tools to recover the amount owed. Winning the judgment is only the first step; the judgment creditor must still take additional legal action to actually collect, such as garnishing wages, levying bank accounts, or placing liens on property.
+
+Judgments generally accrue interest until paid, and remain enforceable for years, often 10 to 20 years depending on the state, and can typically be renewed if not satisfied within that window. The interest rate on judgments is usually set by state law and can add substantially to the total amount owed over time.
+
+If you are a judgment creditor trying to collect, the process usually starts with locating the debtor's assets or employer through discovery tools like a debtor's examination, then applying for the appropriate garnishment or levy order from the court. Some creditors hire collection attorneys or agencies to handle this process.`,
+    relatedTerms: ["judgment-debtor", "judgment", "garnishment", "lien"],
+    category: "Court",
+  },
+  {
+    term: "Satisfaction of Judgment",
+    slug: "satisfaction-of-judgment",
+    shortDef: "A formal court filing confirming that a judgment has been fully paid or otherwise resolved.",
+    longDef: `A satisfaction of judgment is a document filed with the court confirming that the judgment debtor has fully paid or otherwise satisfied the terms of a court judgment. Once filed, it officially closes the case and releases the debtor from any further obligation under that judgment. In most jurisdictions, the judgment creditor is required to file a satisfaction within a specific time period after receiving full payment.
+
+The satisfaction of judgment is important because it clears the public record, which can affect the debtor's credit, ability to sell property, and eligibility for certain licenses. Without a formal satisfaction on file, the judgment may continue to appear as an outstanding obligation even after it has been paid.
+
+If you are a judgment debtor who has paid in full and the creditor has not filed a satisfaction, most states allow you to file a motion with the court requesting that it compel the creditor to do so. Some states also impose penalties on creditors who fail to file a satisfaction within the required timeframe after receiving full payment.`,
+    relatedTerms: ["judgment", "judgment-debtor", "judgment-creditor", "lien"],
+    category: "Court",
+  },
+  {
+    term: "Injunction",
+    slug: "injunction",
+    shortDef: "A court order requiring a party to do or stop doing a specific act, enforceable by contempt of court penalties.",
+    longDef: `An injunction is a court order that requires a party to take a specific action or, more commonly, to stop doing something. Injunctions are an equitable remedy, meaning they are used when monetary damages alone would not adequately address the harm. They are commonly sought in cases involving ongoing harassment, intellectual property infringement, environmental damage, breach of non-compete agreements, and other situations where continued conduct would cause irreparable harm.
+
+There are three main types: temporary restraining orders, which are emergency short-term orders issued quickly and often without notice to the other party, preliminary injunctions issued after a hearing to maintain the status quo during litigation, and permanent injunctions entered as part of a final judgment. To obtain a preliminary injunction, the requesting party typically must show a likelihood of success on the merits, irreparable harm without the injunction, that the balance of hardships tips in their favor, and that the injunction serves the public interest.
+
+Violating an injunction can result in contempt of court charges, which may include fines, sanctions, or even imprisonment, making injunctions a powerful enforcement tool when compliance with a court order is critical.`,
+    relatedTerms: ["restraining-order", "cease-and-desist", "judgment", "complaint"],
+    category: "Court",
+  },
+  {
+    term: "Restraining Order",
+    slug: "restraining-order",
+    shortDef: "A court order prohibiting a person from contacting or approaching another person, typically issued for protection from harassment or abuse.",
+    longDef: `A restraining order, also called a protective order in many jurisdictions, is a court order that prohibits one person from contacting, approaching, or harassing another. Restraining orders are most commonly associated with domestic violence and stalking situations, but they can also be issued in other contexts, such as neighbor disputes, workplace harassment, or civil harassment cases.
+
+The process typically involves two stages: a temporary restraining order, which can be granted quickly, sometimes the same day, based on the petitioner's sworn statement alone, and a permanent restraining order, which is issued after a hearing where both parties have the opportunity to present evidence. Permanent orders typically last one to five years and can be renewed.
+
+Violating a restraining order is a criminal offense that can result in arrest, fines, and jail time, regardless of who initiated the contact. Restraining orders may also address related issues such as temporary custody of children, possession of a shared residence, and financial support. Filing for a restraining order is free in most jurisdictions for domestic violence cases.`,
+    relatedTerms: ["injunction", "cease-and-desist", "complaint", "evidence"],
+    category: "Court",
+  },
+  {
+    term: "Evidence",
+    slug: "evidence",
+    shortDef: "Documents, testimony, photographs, and other materials used to prove or disprove facts in a legal proceeding.",
+    longDef: `Evidence is anything offered to prove or disprove a disputed fact in a legal proceeding. Documents, photographs, receipts, emails, text messages, witness testimony, expert reports, and physical objects can all qualify. Courts apply rules governing what evidence is admissible, generally requiring that it be relevant, authentic, and not unfairly prejudicial.
+
+In small claims and consumer disputes, common and highly persuasive evidence includes contracts, invoices, repair estimates, photos of damage, and written communications like emails or text messages documenting what happened. Organizing this evidence clearly, in chronological order with dates and amounts, makes both a demand letter and any later court case far more effective.
+
+Even outside of a courtroom, strong evidence is often what determines whether a demand letter gets a serious response. A business or individual is far more likely to pay a claim or settle it when the demand includes clear documentation rather than unsupported assertions.`,
+    relatedTerms: ["discovery", "burden-of-proof", "affidavit", "admissibility"],
+    category: "Court",
+  },
+  {
+    term: "Hearsay",
+    slug: "hearsay",
+    shortDef: "An out-of-court statement offered in court to prove the truth of the matter it asserts, which is generally inadmissible.",
+    longDef: `Hearsay is a statement made outside of court that is offered as evidence to prove the truth of what it asserts. Under the rules of evidence, hearsay is generally inadmissible because the person who originally made the statement is not present in court to be cross-examined about its accuracy and truthfulness. The hearsay rule is one of the most fundamental evidentiary rules in the American legal system.
+
+However, the hearsay rule has many exceptions. Common exceptions include statements made for the purpose of medical treatment, business records kept in the regular course of business, excited utterances made during or immediately after a startling event, statements against the declarant's own interest, and official public records. These exceptions exist because such statements are considered inherently more reliable.
+
+In small claims court, the hearsay rule is typically relaxed significantly, with judges having broad discretion to consider evidence that might be excluded in a formal trial. However, understanding hearsay basics is still useful because direct evidence, such as your own testimony, documents you personally created or received, and photographs you personally took, will always carry more weight than secondhand accounts.`,
+    relatedTerms: ["evidence", "admissibility", "deposition", "affidavit"],
+    category: "Court",
+  },
+  {
+    term: "Admissibility",
+    slug: "admissibility",
+    shortDef: "The legal determination of whether a piece of evidence meets the rules required for it to be considered by a court.",
+    longDef: `Admissibility refers to whether a particular piece of evidence meets the legal requirements to be considered by a judge or jury in deciding a case. Evidence must generally be relevant, meaning it tends to make a fact in the case more or less probable, authenticated, meaning there is sufficient proof that it is what it claims to be, and not subject to an exclusionary rule such as the hearsay rule or a privilege.
+
+Common reasons evidence may be deemed inadmissible include hearsay without an applicable exception, evidence obtained through an illegal search in criminal cases, communications protected by attorney-client privilege, evidence whose prejudicial effect substantially outweighs its probative value, and documents or recordings that cannot be properly authenticated.
+
+In small claims court, the rules of evidence are generally relaxed, and judges have broader discretion to consider evidence that might be excluded in a formal trial. Nevertheless, presenting well-organized, clearly authenticated evidence, such as original documents, photographs with dates, and firsthand testimony, gives your case the strongest foundation regardless of which court you are in.`,
+    relatedTerms: ["evidence", "hearsay", "exhibit", "burden-of-proof"],
+    category: "Court",
+  },
+  {
+    term: "Exhibit",
+    slug: "exhibit",
+    shortDef: "A document, photograph, or other item formally presented as evidence during a court proceeding and marked for identification.",
+    longDef: `An exhibit is a document, photograph, object, or other item that is formally presented and marked for identification during a court proceeding or deposition. Exhibits are typically labeled sequentially, such as Exhibit A, Exhibit B, or Plaintiff's Exhibit 1, Plaintiff's Exhibit 2, so they can be easily referenced during the proceedings and in the court record.
+
+Before an exhibit can be considered by the judge or jury, it must be offered into evidence and accepted by the court. The opposing party has the opportunity to object to an exhibit's admission based on relevance, authenticity, hearsay, or other evidentiary grounds. Once admitted, the exhibit becomes part of the official record and can be considered by the factfinder in reaching a decision.
+
+In small claims court, the exhibit process is usually much less formal, but organizing your documents as numbered or labeled exhibits with a brief index describing each one shows the judge you are prepared and makes it easier for them to follow your presentation. Bringing at least three copies of each exhibit, one for the judge, one for the opposing party, and one for yourself, is standard practice.`,
+    relatedTerms: ["evidence", "admissibility", "discovery", "complaint"],
+    category: "Court",
+  },
+  {
+    term: "Warranty",
+    slug: "warranty",
+    shortDef: "A promise or guarantee about the quality, condition, or performance of a product or service, whether written or implied by law.",
+    longDef: `A warranty is a promise about a product's quality, characteristics, or performance. Warranties can be express, meaning explicitly stated in writing or verbally by the seller, or implied, meaning automatically read into the transaction by law regardless of what the seller actually said, such as the implied warranty of merchantability that goods are fit for their ordinary purpose.
+
+Warranties can also be full or limited: a full warranty requires the seller to fix or replace a defective product within a reasonable time at no cost, while a limited warranty may restrict coverage to parts only, require the consumer to pay for labor, or exclude certain types of damage. The Magnuson-Moss Warranty Act governs written warranties on consumer products and requires them to be clearly labeled and written in plain language.
+
+When a product fails to perform as warranted, the first step is usually to review the specific written warranty terms, or rely on the implied warranty if there is no written warranty, and then send a demand letter to the seller or manufacturer describing the failure and requesting repair, replacement, or refund as appropriate.`,
+    relatedTerms: ["implied-warranty", "express-warranty", "consumer-protection", "breach-of-contract"],
     category: "Consumer Rights",
   },
   {
-    term: "Unfair and Deceptive Acts or Practices (UDAP)",
-    slug: "unfair-and-deceptive-acts-or-practices",
-    shortDef: "State laws prohibiting business practices that mislead consumers or cause them unjustified harm.",
-    longDef: `UDAP statutes exist in every U.S. state and prohibit businesses from engaging in unfair or deceptive practices when dealing with consumers. "Deceptive" generally means a representation, omission, or practice likely to mislead a reasonable consumer in a material way. "Unfair" generally means causing substantial harm that consumers couldn't reasonably avoid and that isn't outweighed by any benefit.\n\nCommon UDAP violations include false advertising, hidden fees, bait-and-switch pricing, failing to honor warranties, and misrepresenting the condition or origin of a product. Many UDAP statutes allow successful consumers to recover not just their actual damages but also statutory damages (a fixed minimum amount), attorney's fees, and in some states, treble (triple) damages.\n\nBecause of these enhanced remedies, a demand letter that specifically cites the applicable state UDAP statute often gets more attention from a business than a generic complaint, since it signals the potential cost of ignoring the claim.`,
-    relatedTerms: ["consumer-protection-law", "bait-and-switch", "unfair-business-practices"],
-    relatedDisputes: ["online-purchase", "warranty-claim", "auto-repair"],
+    term: "Implied Warranty",
+    slug: "implied-warranty",
+    shortDef: "An unwritten, automatic legal guarantee that a product sold is fit for its ordinary intended purpose and free of hidden defects.",
+    longDef: `An implied warranty is a guarantee that arises automatically by operation of law in most sales transactions, without needing to be explicitly stated by the seller. The most common form is the implied warranty of merchantability, which guarantees that goods sold by a merchant are fit for the ordinary purposes for which such goods are used, pass without objection in the trade, and conform to any promises made on the packaging or label.
+
+Another common implied warranty is the warranty of fitness for a particular purpose, which applies when a seller knows the buyer intends to use the product for a specific purpose and the buyer is relying on the seller's expertise or advice in selecting the product. If the product fails to perform for that particular purpose, the seller may be liable even if the product works fine for its ordinary use.
+
+Implied warranties can be disclaimed in some circumstances, most commonly through conspicuous language like as-is or with all faults, though a number of states restrict or prohibit such disclaimers, particularly for consumer goods and used cars sold by dealers.`,
+    relatedTerms: ["warranty", "express-warranty", "lemon-law", "consumer-protection"],
+    category: "Consumer Rights",
+  },
+  {
+    term: "Express Warranty",
+    slug: "express-warranty",
+    shortDef: "A specific written or verbal promise by a seller about the quality, features, or performance of a product.",
+    longDef: `An express warranty is a specific promise, affirmation, description, or sample provided by the seller that becomes part of the basis of the bargain between buyer and seller. Unlike implied warranties, which arise automatically by law, express warranties are created by the seller's own statements or representations about the product, whether made in writing, verbally, through advertising, or by showing a sample or model.
+
+Express warranties do not require any specific words like warranty or guarantee to be created. A seller's statement that a roof will last 20 years, or that a used car has a clean title, can create an express warranty even if the seller did not intend it as a formal promise. However, general statements of opinion or puffery, such as this is the best mattress on the market, typically do not create express warranties.
+
+When a product fails to meet an express warranty, the buyer can seek repair, replacement, or refund. A demand letter citing the specific express warranty language used by the seller, along with evidence of how the product failed to meet that promise, is often highly effective because it directly connects the seller's own words to the consumer's loss.`,
+    relatedTerms: ["warranty", "implied-warranty", "breach-of-contract", "consumer-protection"],
+    category: "Consumer Rights",
+  },
+  {
+    term: "Lemon Law",
+    slug: "lemon-law",
+    shortDef: "State laws requiring manufacturers to replace or buy back new vehicles with persistent, unfixable defects.",
+    longDef: `Lemon laws are state statutes that protect consumers who purchase or lease new vehicles with substantial defects that the manufacturer cannot fix after a reasonable number of repair attempts. Most lemon laws apply for a set period after purchase, often one to two years or a defined mileage limit, and require that the defect substantially impair the vehicle's use, value, or safety.
+
+To qualify, a consumer typically needs to show the manufacturer's authorized dealer was given a reasonable number of attempts, often three or four, to fix the same problem, or that the vehicle was out of service for repairs for a cumulative period exceeding a set number of days, commonly 30. If the standard is met, the manufacturer must either replace the vehicle or refund the purchase price, minus a mileage offset for use before the first repair attempt.
+
+Keeping detailed repair records, including dates, mileage, description of the problem, and repair order numbers, is essential to a successful lemon law claim. A well-documented demand letter to the manufacturer is often the required first step before pursuing arbitration or litigation under the state's lemon law.`,
+    relatedTerms: ["warranty", "implied-warranty", "consumer-protection", "breach-of-contract"],
     category: "Consumer Rights",
   },
   {
     term: "Unfair Business Practices",
     slug: "unfair-business-practices",
     shortDef: "Business conduct that is deceptive, exploitative, or violates established standards of fair dealing with consumers.",
-    longDef: `Unfair business practices is a broad term covering a wide range of conduct that violates general standards of honest dealing in the marketplace, including false advertising, price gouging, deceptive billing, unauthorized charges, and refusal to honor advertised terms. Most states prohibit this conduct through their consumer protection or UDAP statutes.\n\nWhat qualifies as "unfair" typically requires showing the practice caused, or was likely to cause, substantial harm to consumers that they couldn't reasonably have avoided, and that isn't outweighed by any legitimate benefit to consumers or competition.\n\nExamples relevant to demand letters include gyms that make cancellation deliberately difficult, subscription services that charge after a supposedly canceled trial, or contractors who quote one price and bill another. Documenting the specific unfair practice, and any pattern of similar complaints against the business, strengthens a claim considerably.`,
-    relatedTerms: ["unfair-and-deceptive-acts-or-practices", "consumer-protection-law", "bait-and-switch"],
-    relatedDisputes: ["gym-membership", "subscription-cancellation", "auto-repair"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Chargeback",
-    slug: "chargeback",
-    shortDef: "A forced reversal of a credit or debit card charge, initiated through the cardholder's bank rather than the merchant.",
-    longDef: `A chargeback is a dispute process that lets a cardholder ask their bank or card issuer to reverse a charge, rather than seeking a refund directly from the merchant. Common grounds for a chargeback include unauthorized transactions, goods that were never delivered, services not rendered as described, or merchandise that was significantly different from what was advertised.\n\nUnder federal law (the Fair Credit Billing Act for credit cards, with similar but more limited protections for debit cards under the Electronic Fund Transfer Act), cardholders generally have 60 days from the statement date to dispute a charge. The bank investigates and, if it sides with the cardholder, permanently reverses the charge and takes the funds back from the merchant.\n\nA chargeback and a demand letter can work together strategically: sending a demand letter first creates a paper trail showing you tried to resolve the issue directly, which can strengthen a chargeback dispute if the merchant refuses to cooperate.`,
-    relatedTerms: ["consumer-protection-law", "right-of-rescission", "warranty"],
-    relatedDisputes: ["online-purchase", "subscription-cancellation", "wedding-vendor"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Right of Rescission",
-    slug: "right-of-rescission",
-    shortDef: "A federally protected right allowing consumers to cancel certain contracts within a specific window without penalty.",
-    longDef: `The right of rescission is a specific consumer protection allowing cancellation of certain transactions within a defined cooling-off period, without needing to prove fraud or breach. The most well-known version applies under the Truth in Lending Act, giving consumers three business days to cancel a home equity loan or refinance that uses their primary residence as collateral.\n\nSimilar rescission rights apply to door-to-door sales exceeding $25 under the FTC's Cooling-Off Rule, and some states extend comparable rights to timeshare purchases, health club memberships, and other specific transaction types.\n\nIf you're within the applicable rescission window, exercising this right is usually as simple as sending written notice to the seller or lender; no specific justification is required. A demand letter invoking the right of rescission should clearly state the transaction date and confirm you are acting within the statutory deadline.`,
-    relatedTerms: ["cooling-off-period", "rescission", "truth-in-lending-act"],
-    relatedDisputes: ["loan-dispute", "online-purchase", "gym-membership"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Lemon Law",
-    slug: "lemon-law",
-    shortDef: "State laws requiring manufacturers to repurchase or replace new vehicles with persistent, unfixable defects.",
-    longDef: `Lemon laws are state statutes that protect consumers who purchase or lease new vehicles with substantial defects that the manufacturer cannot fix after a reasonable number of repair attempts. Most lemon laws apply for a set period after purchase, often one to two years or a defined mileage limit, and require that the defect substantially impair the vehicle's use, value, or safety.\n\nTo qualify, a consumer typically needs to show the manufacturer's authorized dealer was given a reasonable number of attempts (often three or four) to fix the same problem, or that the vehicle was out of service for repairs for a cumulative period exceeding a set number of days (commonly 30). If the standard is met, the manufacturer must either replace the vehicle or refund the purchase price, minus a mileage offset for use.\n\nKeeping detailed repair records, dates, mileage, description of the problem, and repair order numbers, is essential to a successful lemon law claim, and a well-documented demand letter to the manufacturer is often the required first step before pursuing arbitration or litigation.`,
-    relatedTerms: ["implied-warranty-of-merchantability", "magnuson-moss-warranty-act", "breach-of-contract"],
-    relatedDisputes: ["lemon-law", "auto-repair", "warranty-claim"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Implied Warranty of Merchantability",
-    slug: "implied-warranty-of-merchantability",
-    shortDef: "An automatic guarantee that goods sold by a merchant are fit for their ordinary intended purpose.",
-    longDef: `The implied warranty of merchantability is a guarantee, built into nearly every sale of goods by a merchant under the Uniform Commercial Code, that the product is fit for the ordinary purposes for which such goods are normally used. This warranty applies automatically; it doesn't need to be written down or stated out loud by the seller.\n\nThis warranty can be disclaimed in some circumstances, most commonly through conspicuous language like "as is" or "with all faults," though a number of states restrict or prohibit such disclaimers, particularly for consumer goods and used cars sold by dealers.\n\nIf you purchased a product that simply doesn't work for its basic intended purpose, a toaster that won't toast, a mattress with a broken frame right out of the box, the implied warranty of merchantability likely applies even without any separate written warranty, and it's worth citing directly in a demand letter to the seller.`,
-    relatedTerms: ["warranty", "lemon-law", "magnuson-moss-warranty-act"],
-    relatedDisputes: ["warranty-claim", "online-purchase", "auto-repair"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Warranty",
-    slug: "warranty",
-    shortDef: "A promise or guarantee about the quality, condition, or performance of a product or service.",
-    longDef: `A warranty is a promise about a product's quality, characteristics, or performance. Warranties can be express, meaning explicitly stated in writing or verbally by the seller ("this roof will not leak for ten years"), or implied, meaning automatically read into the transaction by law regardless of what the seller actually said (such as the implied warranty of merchantability).\n\nWarranties can also be full or limited: a full warranty requires the seller to fix or replace a defective product within a reasonable time at no cost, while a limited warranty may restrict coverage to parts only, require the consumer to pay for labor, or exclude certain types of damage.\n\nWhen a product fails to perform as warranted, the first step is usually to review the specific written warranty terms (or, if there is none, rely on the implied warranty of merchantability) and then send a demand letter to the seller or manufacturer describing the failure and requesting repair, replacement, or refund as appropriate.`,
-    relatedTerms: ["implied-warranty-of-merchantability", "magnuson-moss-warranty-act", "breach-of-contract"],
-    relatedDisputes: ["warranty-claim", "home-warranty", "auto-repair"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Bait and Switch",
-    slug: "bait-and-switch",
-    shortDef: "A deceptive sales tactic of advertising one product or price to lure customers, then pushing a different, less favorable option.",
-    longDef: `Bait and switch is a deceptive advertising practice where a business promotes a specific product or price to attract customers, then either claims the advertised item is unavailable, discourages the customer from buying it, or pressures them toward a more expensive alternative. This practice is illegal under FTC regulations and most state consumer protection laws.\n\nTo prove bait and switch, a consumer generally needs to show the original advertisement, the fact that the advertised item was unavailable or misrepresented, and any pressure tactics used to push a different purchase. Common examples include advertised sale items that are never actually in stock, or service contracts that change substantially once the customer has already committed.\n\nA demand letter alleging bait and switch is strongest when it includes a copy or screenshot of the original advertisement alongside documentation of what was actually offered or delivered.`,
-    relatedTerms: ["unfair-and-deceptive-acts-or-practices", "consumer-protection-law", "unfair-business-practices"],
-    relatedDisputes: ["online-purchase", "auto-repair", "wedding-vendor"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Class Action",
-    slug: "class-action",
-    shortDef: "A lawsuit filed by one or more representative plaintiffs on behalf of a larger group of people with similar claims.",
-    longDef: `A class action allows a small number of named plaintiffs to sue on behalf of a much larger group of people ("the class") who suffered similar harm from the same conduct, typically involving a defective product, deceptive practice, or data breach. This structure makes it economically feasible to pursue claims that would be too small to justify individual lawsuits.\n\nBefore a class action can proceed, a court must "certify" the class, confirming that the claims share common questions of law or fact, that the representative plaintiffs adequately represent the group, and that a class action is a superior method for resolving the dispute compared to individual suits.\n\nIf a business's mandatory arbitration clause includes a class action waiver, which is common and generally enforceable, affected consumers may be limited to individual arbitration or small claims court instead. It's worth checking whether an existing class action already covers your situation before pursuing an individual demand letter or claim.`,
-    relatedTerms: ["consumer-protection-law", "arbitration-clause", "binding-arbitration"],
-    relatedDisputes: ["data-breach", "warranty-claim", "subscription-cancellation"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Truth in Lending Act (TILA)",
-    slug: "truth-in-lending-act",
-    shortDef: "A federal law requiring lenders to clearly disclose the true costs and terms of consumer credit.",
-    longDef: `The Truth in Lending Act (TILA) is a federal law requiring lenders to disclose the key terms and costs of consumer credit, including the annual percentage rate (APR), finance charges, total payments, and payment schedule, in a clear, standardized format before a consumer is bound to the agreement. It applies to a wide range of credit products, including mortgages, auto loans, and credit cards.\n\nTILA also provides substantive protections, including the three-day right of rescission for certain home-secured loans, limits on credit card liability for unauthorized charges, and rules restricting misleading credit advertising.\n\nWhen a lender fails to provide required disclosures, or provides inaccurate ones, borrowers can raise this in a demand letter and, in serious cases, may be entitled to statutory damages and attorney's fees under TILA in addition to correcting the loan terms.`,
-    relatedTerms: ["right-of-rescission", "consumer-protection-law", "cooling-off-period"],
-    relatedDisputes: ["loan-dispute", "credit-report-error", "debt-collection"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Magnuson-Moss Warranty Act",
-    slug: "magnuson-moss-warranty-act",
-    shortDef: "A federal law governing consumer product warranties and requiring clear, enforceable warranty terms.",
-    longDef: `The Magnuson-Moss Warranty Act is a federal law that regulates written warranties on consumer products costing more than $25. It requires warranties to be labeled clearly as either "full" or "limited," written in plain, understandable language, and made available to consumers before purchase.\n\nImportantly, the Act prohibits "tie-in" provisions that require consumers to use only the manufacturer's branded parts or services to keep a warranty valid, unless those parts or services are provided for free. It also allows consumers who prevail in a warranty dispute to recover attorney's fees, which is a significant incentive for manufacturers to resolve valid claims rather than litigate them.\n\nIf a warranty claim is denied and you believe the manufacturer violated Magnuson-Moss requirements, such as voiding a warranty because you used a third-party repair shop, citing the Act specifically in a demand letter can add meaningful leverage.`,
-    relatedTerms: ["warranty", "implied-warranty-of-merchantability", "lemon-law"],
-    relatedDisputes: ["warranty-claim", "auto-repair", "home-warranty"],
-    category: "Consumer Rights",
-  },
-  {
-    term: "Cooling-Off Period",
-    slug: "cooling-off-period",
-    shortDef: "A legally mandated window of time during which a consumer can cancel certain purchases without penalty.",
-    longDef: `A cooling-off period gives consumers a set number of days after signing a contract to change their mind and cancel without penalty. The best-known example is the FTC's Cooling-Off Rule, which gives consumers three business days to cancel purchases of $25 or more made in their home or at a location that isn't the seller's permanent place of business, such as door-to-door sales, trade shows, or in-home presentations.\n\nMany states extend similar cooling-off protections to specific industries known for high-pressure sales tactics, including timeshares, health club memberships, dating services, and funeral services. The specific length of the period and required cancellation procedure vary by state and transaction type.\n\nTo exercise a cooling-off right, consumers typically need to provide written notice of cancellation within the deadline; verbal cancellation alone is often not sufficient and hard to prove later, so a written demand letter or cancellation notice is strongly recommended.`,
-    relatedTerms: ["right-of-rescission", "truth-in-lending-act", "unconscionability"],
-    relatedDisputes: ["gym-membership", "loan-dispute", "wedding-vendor"],
-    category: "Consumer Rights",
-  },
+    longDef: `Unfair business practices is a broad term covering a wide range of conduct that violates general standards of honest dealing in the marketplace, including false advertising, price gouging, deceptive billing, unauthorized charges, and refusal to honor advertised terms. Most states prohibit this conduct through their consumer protection or unfair and deceptive acts and practices statutes.
 
-  // ---------------------------------------------------------------------
-  // Debt & Collections
-  // ---------------------------------------------------------------------
-  {
-    term: "Fair Debt Collection Practices Act (FDCPA)",
-    slug: "fair-debt-collection-practices-act",
-    shortDef: "A federal law restricting abusive, deceptive, and unfair practices by third-party debt collectors.",
-    longDef: `The Fair Debt Collection Practices Act (FDCPA) is a federal law regulating how third-party debt collectors, though generally not original creditors collecting their own debts, may contact and pursue consumers. It prohibits harassment, such as repeated calls intended to annoy, threats of violence, or contacting a consumer at unreasonable hours (generally before 8 a.m. or after 9 p.m.).\n\nThe FDCPA also bars collectors from making false or misleading representations, including misrepresenting the amount owed, falsely claiming to be an attorney or government official, or threatening legal action they don't actually intend to take. Collectors must also honor a consumer's written request to stop contact, except to confirm they're ceasing collection or to notify of specific further actions.\n\nViolations of the FDCPA can entitle consumers to statutory damages up to $1,000 per lawsuit, plus actual damages and attorney's fees, making a well-documented demand letter citing specific violations a powerful tool for resolving harassment or getting a debt corrected.`,
-    relatedTerms: ["debt-validation", "cease-and-desist-letter", "time-barred-debt"],
-    relatedDisputes: ["debt-collection", "credit-report-error"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Debt Validation",
-    slug: "debt-validation",
-    shortDef: "A consumer's right to demand written proof from a collector that a debt is accurate and actually owed.",
-    longDef: `Debt validation is a right under the FDCPA allowing consumers to demand written proof that a debt collector's claim is legitimate. Within five days of first contacting a consumer, a collector must send a written notice stating the amount of the debt, the name of the original creditor, and the consumer's right to dispute the debt.\n\nIf the consumer disputes the debt in writing within 30 days of that notice, the collector must stop collection activity until it provides verification, typically documentation showing the debt amount and chain of ownership tracing back to the original creditor. Collectors who cannot verify a debt are legally required to stop attempting to collect it.\n\nSending a debt validation letter is often the very first step in disputing a collection account, and it's especially useful when a debt seems inaccurate, isn't recognized at all, or may belong to someone else entirely (a common issue with identity theft or mixed credit files).`,
-    relatedTerms: ["fair-debt-collection-practices-act", "credit-report-dispute", "time-barred-debt"],
-    relatedDisputes: ["debt-collection", "credit-report-error", "identity-theft"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Statute of Limitations on Debt",
-    slug: "statute-of-limitations-on-debt",
-    shortDef: "The state-specific deadline after which a creditor can no longer sue to collect a debt through the courts.",
-    longDef: `Every state sets a deadline, generally ranging from three to ten years depending on the type of debt (written contract, oral agreement, promissory note, or open account) and the state's specific rules, after which a creditor loses the right to sue to collect a debt. This is distinct from how long a debt can remain on a credit report, which is governed by separate federal rules (generally seven years).\n\nThe clock typically starts running from the date of the last payment or last activity on the account, and in many states, making even a small payment or acknowledging the debt in writing can restart the clock, a trap consumers should be careful to avoid when negotiating old debts.\n\nIf a collector sues on a debt that is past the statute of limitations, the consumer can raise this as a complete defense in court, but it must be raised affirmatively; the court won't apply it automatically. Debt collectors are also barred by the FDCPA from suing, or threatening to sue, on debt they know is time-barred.`,
-    relatedTerms: ["time-barred-debt", "statute-of-limitations", "fair-debt-collection-practices-act"],
-    relatedDisputes: ["debt-collection", "credit-report-error"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Garnishment",
-    slug: "garnishment",
-    shortDef: "A court-ordered process allowing a creditor to collect a debt directly from a debtor's wages or bank account.",
-    longDef: `Garnishment is a legal collection tool that allows a creditor holding a court judgment to seize a portion of the debtor's wages, bank account funds, or other property directly, without needing further cooperation from the debtor. Federal law caps wage garnishment for most debts at the lesser of 25% of disposable earnings or the amount by which weekly earnings exceed 30 times the federal minimum wage, though some debts, like child support and certain tax debts, allow higher percentages.\n\nGarnishment generally cannot happen without a court judgment first (with narrow exceptions for federal student loans, taxes, and child support, which allow administrative garnishment). Certain income sources, including Social Security benefits and most retirement funds, are largely protected from garnishment by ordinary creditors.\n\nIf you're facing a garnishment you believe is improper, whether the debt is invalid, past the statute of limitations, or exceeds legal limits, you generally have a limited window to object in court before the garnishment takes effect.`,
-    relatedTerms: ["default-judgment", "wage-garnishment", "lien"],
-    relatedDisputes: ["debt-collection", "credit-report-error"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Lien",
-    slug: "lien",
-    shortDef: "A legal claim against property that secures payment of a debt, giving the creditor a right to the asset if unpaid.",
-    longDef: `A lien is a legal claim or right attached to a piece of property that secures the payment of a debt or obligation. Common types include mortgage liens (securing a home loan), mechanic's or contractor's liens (securing payment for construction work), tax liens (securing unpaid taxes), and judgment liens (attached to property after winning a lawsuit).\n\nA lien generally must be paid off, or otherwise resolved, before the underlying property can be sold or refinanced with clear title. Liens can be voluntary (like a mortgage the owner agreed to) or involuntary (like a lien placed by an unpaid contractor or a judgment creditor).\n\nIf you're disputing a lien placed against your property, whether it's an incorrect mechanic's lien for work you already paid for, or a judgment lien from a debt you believe is invalid, most states have a formal process to challenge and remove an improper lien, often requiring prompt written notice to the party who filed it.`,
-    relatedTerms: ["garnishment", "judgment-creditor", "default-judgment"],
-    relatedDisputes: ["contractor-dispute", "debt-collection", "small-business"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Charge-Off",
-    slug: "charge-off",
-    shortDef: "An accounting designation where a creditor writes off a debt as unlikely to be collected, though it is often still owed.",
-    longDef: `A charge-off is an internal accounting action a creditor takes, typically after an account has been delinquent for around 180 days, to write the debt off its books as a loss for tax and reporting purposes. Importantly, a charge-off does not mean the debt is forgiven or that the consumer no longer owes it; the creditor (or a debt buyer who purchases the account) can still pursue collection or file a lawsuit.\n\nA charge-off is reported to credit bureaus and significantly damages a consumer's credit score, generally remaining on a credit report for up to seven years from the date of the original delinquency that led to the charge-off, regardless of subsequent payment activity.\n\nBecause charged-off debts are frequently sold to third-party debt buyers, often for pennies on the dollar, it's common for these accounts to change hands multiple times, sometimes with errors in the amount owed or the account details. Requesting debt validation is especially important when dealing with a charged-off account purchased by a new collector.`,
-    relatedTerms: ["debt-validation", "collection-agency", "credit-report-dispute"],
-    relatedDisputes: ["debt-collection", "credit-report-error"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Collection Agency",
-    slug: "collection-agency",
-    shortDef: "A company that pursues payment of debts on behalf of, or after purchasing them from, an original creditor.",
-    longDef: `A collection agency is a business that specializes in recovering unpaid debts, either working on commission for the original creditor or having purchased the delinquent accounts outright, often for a small fraction of their face value. Once a debt is placed with or sold to a collection agency, the original creditor typically stops contacting the consumer directly.\n\nCollection agencies are subject to the FDCPA (for third-party collectors and debt buyers) or, in some states, similar state-level collection laws, which restrict harassment, require debt validation upon request, and prohibit false or misleading statements about the debt.\n\nWhen dealing with a collection agency, it's important to get everything in writing, request debt validation before making any payment, and understand that even a small payment or written acknowledgment of an old debt can potentially restart the statute of limitations clock in many states.`,
-    relatedTerms: ["fair-debt-collection-practices-act", "debt-validation", "charge-off"],
-    relatedDisputes: ["debt-collection", "credit-report-error"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Judgment Creditor",
-    slug: "judgment-creditor",
-    shortDef: "A person or entity who has won a court judgment entitling them to collect a specific debt from another party.",
-    longDef: `A judgment creditor is a party who has successfully won a lawsuit and obtained a court judgment against a debtor (the "judgment debtor"), entitling them to use formal legal collection tools to recover the amount owed. Winning the judgment is only the first step; the judgment creditor must still take additional legal action to actually collect, such as garnishing wages, levying bank accounts, or placing liens on property.\n\nJudgments generally accrue interest until paid, and remain enforceable for years, often 10 to 20 years depending on the state, and can typically be renewed if not satisfied within that window.\n\nIf you're a judgment creditor trying to collect, the process usually starts with locating the debtor's assets or employer through discovery tools like a debtor's examination, then applying for the appropriate garnishment or levy order from the court.`,
-    relatedTerms: ["garnishment", "default-judgment", "lien"],
-    relatedDisputes: ["debt-collection", "small-business", "unpaid-invoice"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Wage Garnishment",
-    slug: "wage-garnishment",
-    shortDef: "The court-authorized deduction of a portion of an employee's paycheck to satisfy an unpaid debt.",
-    longDef: `Wage garnishment is a specific form of garnishment where a creditor collects a debt by requiring an employer to withhold a portion of an employee's paycheck and send it directly to the creditor. Except for certain debts like child support, taxes, and federal student loans, most creditors must first win a court judgment before they can garnish wages.\n\nFederal law under the Consumer Credit Protection Act limits how much of a paycheck can be garnished, generally the lesser of 25% of disposable earnings or the amount above 30 times the federal minimum hourly wage, and prohibits employers from firing an employee because of a single wage garnishment. Some states set even more protective limits.\n\nIf you receive notice of a wage garnishment, it's important to check the underlying judgment for accuracy and confirm the garnishment amount doesn't exceed legal limits; many states also allow debtors to claim exemptions or hardship reductions.`,
-    relatedTerms: ["garnishment", "judgment-creditor", "default-judgment"],
-    relatedDisputes: ["debt-collection"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Credit Report Dispute",
-    slug: "credit-report-dispute",
-    shortDef: "A formal process under federal law for challenging inaccurate or unverifiable information on a credit report.",
-    longDef: `Under the Fair Credit Reporting Act (FCRA), consumers have the right to dispute inaccurate, incomplete, or unverifiable information on their credit reports directly with the credit bureau (Equifax, Experian, or TransUnion) and with the business that furnished the information. Once a dispute is filed, the bureau generally has 30 days to investigate and either correct, delete, or verify the disputed item.\n\nCommon disputable errors include accounts that don't belong to you, incorrect balances or payment history, accounts listed as open when they've been paid off or closed, and outdated negative information that should have aged off the report (most negative items, other than certain bankruptcies, fall off after seven years).\n\nA strong dispute letter identifies each disputed item specifically, explains why it's inaccurate, and includes supporting documentation. If a bureau fails to properly investigate or a furnisher continues reporting inaccurate information after being notified, consumers may have grounds for an FCRA claim with statutory damages.`,
-    relatedTerms: ["debt-validation", "charge-off", "statute-of-limitations-on-debt"],
-    relatedDisputes: ["credit-report-error", "identity-theft", "debt-collection"],
-    category: "Debt & Collections",
-  },
-  {
-    term: "Time-Barred Debt",
-    slug: "time-barred-debt",
-    shortDef: "A debt that is still technically owed but can no longer be enforced through a lawsuit because the statute of limitations has expired.",
-    longDef: `Time-barred debt refers to a debt on which the statute of limitations for filing a lawsuit has already expired. The debt itself doesn't disappear, and a collector can still legally ask you to pay it voluntarily, but they can no longer successfully sue you to collect it if you raise the expiration as a defense.\n\nUnder the FDCPA and CFPB regulations, debt collectors are prohibited from suing, or threatening to sue, on a debt they know or should know is time-barred. Many states also require collectors to disclose, in writing, when a debt is beyond the statute of limitations. A key trap: in many states, making even a small payment or written acknowledgment on a time-barred debt can restart the clock, effectively reviving the collector's ability to sue.\n\nIf you're contacted about an old debt, it's worth calculating the applicable statute of limitations for your state and debt type before making any payment or written acknowledgment, since doing so could waive this defense entirely.`,
-    relatedTerms: ["statute-of-limitations-on-debt", "fair-debt-collection-practices-act", "debt-validation"],
-    relatedDisputes: ["debt-collection"],
-    category: "Debt & Collections",
-  },
+What qualifies as unfair typically requires showing the practice caused, or was likely to cause, substantial harm to consumers that they could not reasonably have avoided, and that is not outweighed by any legitimate benefit to consumers or competition. Many states allow individual consumers to sue directly for violations and recover statutory damages, attorney fees, and sometimes treble damages.
 
-  // ---------------------------------------------------------------------
-  // Employment Law
-  // ---------------------------------------------------------------------
-  {
-    term: "Wrongful Termination",
-    slug: "wrongful-termination",
-    shortDef: "The firing of an employee in violation of law, public policy, an employment contract, or anti-discrimination protections.",
-    longDef: `Wrongful termination occurs when an employer fires an employee for a reason that violates the law, an employment contract, or established public policy, even in an at-will employment state. Common categories include termination based on a protected characteristic (race, sex, age, disability, religion), retaliation for reporting illegal conduct or exercising a legal right (such as filing a workers' compensation claim or taking legally protected leave), or termination that breaches an explicit or implied employment contract.\n\nMost U.S. employees are considered "at-will," meaning they can generally be fired for any reason or no reason at all, but not for an illegal one. Determining whether a termination was wrongful usually requires looking at the stated reason, comparing treatment of similarly situated employees, and examining the timing relative to any protected activity, close timing between a complaint and a firing can itself be evidence of retaliation.\n\nBefore pursuing a wrongful termination claim, most employees must first file a charge with the EEOC or a state equivalent (for discrimination claims) within a strict deadline, often 180 to 300 days from the termination date, before they can sue in court.`,
-    relatedTerms: ["at-will-employment", "employment-discrimination", "retaliation", "severance-agreement"],
-    relatedDisputes: ["wrongful-termination", "discrimination", "employment-dispute"],
-    category: "Employment Law",
+Examples relevant to demand letters include gyms that make cancellation deliberately difficult, subscription services that charge after a supposedly canceled trial, or contractors who quote one price and bill another. Documenting the specific unfair practice, and any pattern of similar complaints against the business, strengthens a claim considerably.`,
+    relatedTerms: ["deceptive-trade-practices", "consumer-protection", "warranty", "damages"],
+    category: "Consumer Rights",
   },
   {
-    term: "At-Will Employment",
-    slug: "at-will-employment",
-    shortDef: "The default employment relationship in most U.S. states, where either party can end the job at any time for any legal reason.",
-    longDef: `At-will employment is the default legal presumption in nearly every U.S. state (Montana being a notable exception after a probationary period). It means either the employer or the employee can end the working relationship at any time, for any reason, or no reason at all, and without advance notice, so long as the reason isn't illegal.\n\nEven within an at-will relationship, employers cannot fire someone for reasons that violate anti-discrimination law, retaliate against protected activity, breach an implied contract created through employee handbooks or verbal promises, or violate public policy (such as firing someone for refusing to do something illegal or for serving jury duty).\n\nMany employees mistakenly believe at-will status means they have no legal protection at all. In reality, it simply shifts the burden: the employee must show the termination falls into one of the recognized exceptions to at-will employment rather than assuming any firing without a stated reason is automatically wrongful.`,
-    relatedTerms: ["wrongful-termination", "retaliation", "employment-discrimination"],
-    relatedDisputes: ["wrongful-termination", "employment-dispute"],
-    category: "Employment Law",
-  },
-  {
-    term: "Wage Theft",
-    slug: "wage-theft",
-    shortDef: "An employer's failure to pay workers the full wages they are legally owed, including overtime and minimum wage.",
-    longDef: `Wage theft occurs when an employer fails to pay an employee wages they are legally entitled to. Common forms include not paying overtime for hours worked beyond 40 in a week, paying less than minimum wage, requiring off-the-clock work, illegally deducting expenses from paychecks, misclassifying employees as independent contractors to avoid overtime and benefits, or simply not paying a final paycheck after termination.\n\nThe federal Fair Labor Standards Act (FLSA) sets baseline wage and overtime protections, and most states have their own wage laws that can provide even stronger protections, including specific deadlines for final paycheck delivery and penalties for late payment.\n\nEmployees pursuing a wage theft claim should gather pay stubs, time records, and any employer communications about hours or pay before sending a demand letter. Many states allow recovery of not just unpaid wages but also liquidated damages (often doubling the amount owed) and attorney's fees, which can substantially increase the value of a claim.`,
-    relatedTerms: ["fair-labor-standards-act", "exempt-vs-non-exempt-employee", "wrongful-termination"],
-    relatedDisputes: ["wage-theft", "employment-dispute"],
-    category: "Employment Law",
-  },
-  {
-    term: "Severance Agreement",
-    slug: "severance-agreement",
-    shortDef: "A contract offered to a departing employee providing pay or benefits, typically in exchange for a release of legal claims.",
-    longDef: `A severance agreement is a contract, usually offered when an employee is laid off or terminated, providing a payment (often calculated by weeks of pay per year of service) or continued benefits in exchange for the employee agreeing to release the employer from potential legal claims. Severance is generally not legally required unless promised in an employment contract, offer letter, or company policy.\n\nBecause severance agreements typically include a broad release of claims, they should be reviewed carefully before signing, especially if the employee believes they may have a discrimination, retaliation, or wage claim. Federal law (the Older Workers Benefit Protection Act) requires that employees age 40 and older be given at least 21 days to consider a severance agreement and 7 days to revoke it after signing, along with specific disclosures if the severance is part of a group layoff.\n\nIf you believe you were wrongfully terminated, it's worth consulting with an employment attorney, or at minimum carefully weighing the value of the severance against potential legal claims, before signing away your rights.`,
-    relatedTerms: ["wrongful-termination", "non-compete-agreement", "at-will-employment"],
-    relatedDisputes: ["wrongful-termination", "employment-dispute"],
-    category: "Employment Law",
-  },
-  {
-    term: "Non-Compete Agreement",
-    slug: "non-compete-agreement",
-    shortDef: "A contract restricting an employee from working for a competitor or starting a competing business for a set time and area.",
-    longDef: `A non-compete agreement is a contract clause restricting a former employee from working for a competitor, or starting a competing business, within a defined geographic area and time period after leaving a job. Enforceability varies dramatically by state: some states, most notably California, generally void non-compete agreements entirely as against public policy, while others enforce them if the restrictions are reasonable in scope, duration, and geography, and protect a legitimate business interest.\n\nThe FTC has also moved to restrict non-compete agreements nationally in recent years, and many states have passed laws limiting or banning them for lower-wage workers specifically, even where they remain enforceable for higher-level employees.\n\nIf you're bound by a non-compete and considering a new job or business, it's worth reviewing your specific state's law and the exact language of the agreement, since overly broad non-competes (unreasonable duration, unlimited geography, or overly broad restricted activities) are often unenforceable even in states that generally allow them.`,
-    relatedTerms: ["severance-agreement", "breach-of-contract", "wrongful-termination"],
-    relatedDisputes: ["employment-dispute", "wrongful-termination"],
-    category: "Employment Law",
-  },
-  {
-    term: "Employment Discrimination",
-    slug: "employment-discrimination",
-    shortDef: "Unfavorable treatment of an employee or applicant based on a legally protected characteristic.",
-    longDef: `Employment discrimination occurs when an employer treats an employee or job applicant unfavorably because of a protected characteristic, including race, color, national origin, sex, religion, age (40 and older), disability, or genetic information under federal law, with many states and cities adding further protected categories such as sexual orientation, gender identity, or marital status.\n\nDiscrimination can be direct (an explicit policy or statement) or shown through disparate treatment (similarly situated employees outside the protected group treated better) or disparate impact (a facially neutral policy that disproportionately harms a protected group). Claims generally must first be filed with the Equal Employment Opportunity Commission (EEOC) or a state fair employment agency within a strict deadline before a lawsuit can be filed.\n\nBuilding a discrimination claim typically involves documenting the specific adverse action (firing, demotion, pay disparity, failure to hire or promote), comparing treatment to similarly situated coworkers outside the protected class, and preserving any relevant communications, performance reviews, and witness information.`,
-    relatedTerms: ["wrongful-termination", "sexual-harassment", "retaliation"],
-    relatedDisputes: ["discrimination", "wrongful-termination", "employment-dispute"],
-    category: "Employment Law",
-  },
-  {
-    term: "Sexual Harassment",
-    slug: "sexual-harassment",
-    shortDef: "Unwelcome sexual conduct or gender-based mistreatment in the workplace that creates a hostile environment or is tied to job benefits.",
-    longDef: `Sexual harassment in the workplace generally falls into two legal categories. "Quid pro quo" harassment occurs when a job benefit (hiring, promotion, avoiding termination) is conditioned on submitting to unwelcome sexual conduct. "Hostile work environment" harassment occurs when unwelcome sexual conduct, including comments, jokes, unwanted touching, or explicit materials, is severe or pervasive enough to alter the conditions of employment and create an abusive environment.\n\nEmployers can be held liable for harassment by supervisors, and in many cases for harassment by coworkers or even non-employees (like clients) if the employer knew or should have known about it and failed to take corrective action. Most states require employers of a certain size to provide a reporting mechanism, and employees are generally expected to use it, though a strong claim can still exist even without a formal internal complaint in egregious cases.\n\nDocumenting each incident with dates, witnesses, and direct quotes when possible, along with saving any relevant messages or emails, significantly strengthens both an internal complaint and any subsequent EEOC charge or demand letter.`,
-    relatedTerms: ["employment-discrimination", "retaliation", "wrongful-termination"],
-    relatedDisputes: ["sexual-harassment", "discrimination", "employment-dispute"],
-    category: "Employment Law",
-  },
-  {
-    term: "Retaliation",
-    slug: "retaliation",
-    shortDef: "Adverse action taken against an employee for engaging in legally protected activity, such as reporting discrimination.",
-    longDef: `Retaliation occurs when an employer takes an adverse action, termination, demotion, pay cut, negative reviews, exclusion from projects, against an employee because they engaged in legally protected activity. Protected activity typically includes filing a discrimination or harassment complaint, participating in an investigation, requesting a reasonable accommodation, reporting safety violations, or exercising rights like taking family medical leave.\n\nRetaliation claims are among the most commonly filed employment claims, in part because they can succeed even when the underlying complaint (for example, the original discrimination claim) does not, as long as the employee had a reasonable, good-faith belief that they were reporting something unlawful. Close timing between the protected activity and the adverse action is often key evidence.\n\nBuilding a retaliation claim generally requires documenting the protected activity (the date and content of a complaint), the adverse action that followed, and the timeline connecting them, along with any shift in how the employee was treated after making the complaint.`,
-    relatedTerms: ["employment-discrimination", "wrongful-termination", "whistleblower-protection"],
-    relatedDisputes: ["wrongful-termination", "discrimination", "employment-dispute"],
-    category: "Employment Law",
-  },
-  {
-    term: "Fair Labor Standards Act (FLSA)",
-    slug: "fair-labor-standards-act",
-    shortDef: "The federal law establishing minimum wage, overtime pay, and child labor protections for most U.S. workers.",
-    longDef: `The Fair Labor Standards Act (FLSA) is the primary federal law governing minimum wage, overtime pay, recordkeeping, and youth employment standards for private and public sector employees. It requires covered non-exempt employees to be paid at least the federal minimum wage for all hours worked and overtime at 1.5 times their regular rate for hours worked beyond 40 in a workweek.\n\nThe FLSA distinguishes between "exempt" employees (typically certain executive, administrative, professional, and outside sales employees meeting specific salary and duties tests) who are not entitled to overtime, and "non-exempt" employees who are. Many states also have their own wage and hour laws that provide greater protection than the FLSA, and employers must follow whichever standard is more favorable to the employee.\n\nEmployees who believe they've been misclassified as exempt, or who haven't been paid proper overtime, can file a complaint with the Department of Labor's Wage and Hour Division or pursue a private lawsuit, often recovering unpaid wages, an equal amount in liquidated damages, and attorney's fees.`,
-    relatedTerms: ["wage-theft", "exempt-vs-non-exempt-employee", "wrongful-termination"],
-    relatedDisputes: ["wage-theft", "employment-dispute"],
-    category: "Employment Law",
-  },
-  {
-    term: "Constructive Dismissal",
-    slug: "constructive-dismissal",
-    shortDef: "A resignation that is treated legally as a firing because the employer made working conditions intolerable.",
-    longDef: `Constructive dismissal (also called constructive discharge) occurs when an employee resigns because their employer made working conditions so intolerable that a reasonable person in their position would feel forced to quit. Even though the employee technically resigned, the law treats the departure the same as a termination for purposes of claims like discrimination or wrongful termination.\n\nExamples that can support a constructive dismissal claim include a severe pay cut, demotion to a substantially different role, persistent harassment the employer failed to address, or a hostile work environment created deliberately to push the employee out. Courts generally require the conditions to be objectively intolerable, not just unpleasant or stressful, and often expect the employee to have raised the issue internally before resigning.\n\nBecause constructive dismissal is harder to prove than a direct firing, since the employee made the final decision to leave, documenting the specific intolerable conditions, any internal complaints made about them, and the employer's failure to respond is especially important.`,
-    relatedTerms: ["wrongful-termination", "retaliation", "employment-discrimination"],
-    relatedDisputes: ["wrongful-termination", "discrimination", "employment-dispute"],
-    category: "Employment Law",
-  },
-  {
-    term: "Whistleblower Protection",
-    slug: "whistleblower-protection",
-    shortDef: "Legal safeguards preventing employers from retaliating against employees who report illegal conduct.",
-    longDef: `Whistleblower protection laws shield employees from retaliation when they report illegal activity, safety violations, fraud, or other misconduct, whether internally to a supervisor, to a government agency, or in some cases publicly. Protections exist at both the federal level (covering areas like securities fraud, workplace safety, healthcare fraud, and government contracting) and under many state laws with broader general application.\n\nTo qualify for protection, an employee generally needs a good-faith, reasonable belief that the conduct they reported was actually illegal, even if it later turns out they were mistaken. Some whistleblower statutes, particularly those involving fraud against the government (like the federal False Claims Act), also allow whistleblowers to receive a percentage of any money recovered as a result of their report.\n\nEmployees considering a whistleblower report should understand which specific statute applies to their situation, since the protections, deadlines, and required reporting procedures vary significantly depending on the type of misconduct being reported.`,
-    relatedTerms: ["retaliation", "wrongful-termination", "employment-discrimination"],
-    relatedDisputes: ["wrongful-termination", "employment-dispute"],
-    category: "Employment Law",
-  },
-  {
-    term: "Exempt vs. Non-Exempt Employee",
-    slug: "exempt-vs-non-exempt-employee",
-    shortDef: "A classification determining whether an employee is entitled to overtime pay under federal and state wage laws.",
-    longDef: `Under the Fair Labor Standards Act, employees are classified as either "exempt" (not entitled to overtime pay) or "non-exempt" (entitled to overtime at 1.5 times their regular rate for hours over 40 in a week). To qualify as exempt, an employee generally must be paid a fixed salary above a minimum threshold set by federal regulation, and their actual job duties must primarily involve executive, administrative, professional, outside sales, or certain computer-related work, as defined by specific legal tests.\n\nJob title alone does not determine exempt status; an employee with a manager-sounding title who spends most of their time on non-managerial tasks may still be legally non-exempt and owed overtime. This is one of the most common and costly employer mistakes, known as misclassification.\n\nIf you're salaried but regularly work more than 40 hours a week and aren't sure whether you're properly classified, comparing your actual daily job duties against the specific federal exemption tests, not just your job title, is the right starting point before pursuing a wage claim.`,
-    relatedTerms: ["fair-labor-standards-act", "wage-theft"],
-    relatedDisputes: ["wage-theft", "employment-dispute"],
-    category: "Employment Law",
-  },
+    term: "Deceptive Trade Practices",
+    slug: "deceptive-trade-practices",
+    shortDef: "Business conduct involving false representations, misleading statements, or omissions that deceive consumers in commercial transactions.",
+    longDef: `Deceptive trade practices encompass business conduct that involves false, misleading, or deceptive acts or omissions in connection with the sale or advertisement of goods and services. Every state has laws prohibiting such conduct, often referred to as UDAP statutes, unfair and deceptive acts and practices laws, or consumer fraud statutes. These laws are designed to protect consumers from dishonest business behavior.
 
-  // ---------------------------------------------------------------------
-  // Insurance
-  // ---------------------------------------------------------------------
-  {
-    term: "Bad Faith Insurance",
-    slug: "bad-faith-insurance",
-    shortDef: "An insurer's unreasonable failure to fulfill its obligations to a policyholder, such as wrongfully denying or delaying a valid claim.",
-    longDef: `Bad faith insurance occurs when an insurance company fails to deal fairly and honestly with its policyholder, violating the implied duty of good faith present in every insurance contract. Common examples include denying a claim without a reasonable investigation, unreasonably delaying payment, offering a lowball settlement not supported by the actual damages, misrepresenting policy language to avoid coverage, or failing to communicate with the policyholder about the claim's status.\n\nMost states allow policyholders to sue for bad faith as a separate legal claim beyond simply enforcing the underlying policy, and successful bad faith claims can result in damages well beyond the original claim amount, including emotional distress damages, attorney's fees, and in egregious cases, punitive damages.\n\nA demand letter alleging bad faith is strongest when it lays out a clear timeline: the claim submission date, the insurer's specific actions or delays, the coverage provisions being ignored or misapplied, and the actual damages suffered as a result of the insurer's conduct.`,
-    relatedTerms: ["insurance-claim-denial", "duty-to-defend", "good-faith-and-fair-dealing"],
-    relatedDisputes: ["insurance-claim", "car-accident", "home-warranty"],
-    category: "Insurance",
-  },
-  {
-    term: "Insurance Claim Denial",
-    slug: "insurance-claim-denial",
-    shortDef: "An insurer's formal refusal to pay a claim, which must be explained in writing and can often be appealed.",
-    longDef: `An insurance claim denial is the insurer's formal decision not to pay a submitted claim. Insurers are generally required by state law to provide a written explanation of the specific reason for denial, citing the relevant policy language, when a claim is rejected. Common denial reasons include the claim allegedly falling under a policy exclusion, insufficient documentation, missed filing deadlines, or a dispute over the value of the loss.\n\nA denial is not always the final word. Most policies, and most states, provide an internal appeals process allowing the policyholder to submit additional evidence and request reconsideration before pursuing external remedies like a state insurance department complaint, appraisal, or litigation.\n\nWhen appealing or disputing a denial, it's important to obtain the full written denial letter, review the actual policy language it cites (rather than relying on the insurer's summary), and gather any additional documentation that directly addresses the stated reason for denial before responding.`,
-    relatedTerms: ["bad-faith-insurance", "proof-of-loss", "policy-exclusion"],
-    relatedDisputes: ["insurance-claim", "car-accident", "home-warranty"],
-    category: "Insurance",
-  },
-  {
-    term: "Proof of Loss",
-    slug: "proof-of-loss",
-    shortDef: "A formal, often sworn statement submitted to an insurer detailing the nature and amount of a claimed loss.",
-    longDef: `A proof of loss is a formal document, sometimes required to be notarized or signed under penalty of perjury, that a policyholder submits to their insurer describing the cause, extent, and dollar value of a claimed loss. Many property and casualty policies require proof of loss to be submitted within a specific deadline, often 60 to 90 days after the loss, as a condition of coverage.\n\nA thorough proof of loss typically includes an itemized list of damaged or lost property with estimated values, supporting documentation like receipts, photos, or repair estimates, and a clear explanation of how the loss occurred.\n\nMissing the proof of loss deadline, or submitting an incomplete one, is a common reason insurers deny otherwise valid claims, so it's worth confirming the specific deadline and required format in your policy and submitting as complete a proof of loss as possible, keeping a copy for your own records.`,
-    relatedTerms: ["insurance-claim-denial", "bad-faith-insurance", "actual-cash-value"],
-    relatedDisputes: ["insurance-claim", "property-damage", "home-warranty"],
-    category: "Insurance",
-  },
-  {
-    term: "Subrogation",
-    slug: "subrogation",
-    shortDef: "An insurer's legal right to recover the amount it paid on a claim from the at-fault party who caused the loss.",
-    longDef: `Subrogation is the legal right an insurer gains, after paying a policyholder's claim, to step into the policyholder's shoes and pursue reimbursement from the party actually responsible for the loss. For example, if your insurer pays for car repairs after another driver hit you, it may then pursue that driver's insurer directly to recover what it paid out.\n\nSubrogation matters to policyholders in a few practical ways: it's the mechanism that can eventually restore a deductible you paid out of pocket if your insurer successfully recovers from the at-fault party, and it means you generally shouldn't settle directly with an at-fault party for damages your own insurer already covered without accounting for the insurer's subrogation interest.\n\nIf you're pursuing your own claim against a third party while your insurer has also paid part of the loss, coordinating with your insurer's subrogation department, or including them in settlement discussions, helps avoid later disputes over who is entitled to which portion of any recovery.`,
-    relatedTerms: ["insurance-claim-denial", "damages", "comparative-negligence"],
-    relatedDisputes: ["car-accident", "property-damage", "insurance-claim"],
-    category: "Insurance",
-  },
-  {
-    term: "Deductible",
-    slug: "deductible",
-    shortDef: "The fixed amount a policyholder must pay out of pocket before insurance coverage begins to pay a claim.",
-    longDef: `A deductible is the portion of a covered loss the policyholder is responsible for paying before the insurer's coverage kicks in. For example, with a $1,000 deductible and a $5,000 covered claim, the insurer would pay $4,000. Deductibles can be a flat dollar amount or, in some property policies, a percentage of the insured value, which can result in a much larger out-of-pocket amount for events like hurricanes in high-risk areas.\n\nSome policies apply deductibles per claim, while others (common in health insurance) apply an annual deductible that resets each policy year regardless of how many claims are filed.\n\nWhen a claim is disputed, it's worth confirming the deductible amount was correctly applied and, if a third party is at fault, remembering that a successful subrogation recovery by your insurer may eventually reimburse some or all of your deductible.`,
-    relatedTerms: ["proof-of-loss", "subrogation", "actual-cash-value"],
-    relatedDisputes: ["insurance-claim", "car-accident", "property-damage"],
-    category: "Insurance",
-  },
-  {
-    term: "Policy Exclusion",
-    slug: "policy-exclusion",
-    shortDef: "A specific provision in an insurance policy identifying losses or circumstances that are not covered.",
-    longDef: `A policy exclusion is language in an insurance contract carving out specific types of losses, causes, or circumstances that the policy does not cover, even though the loss might otherwise seem to fall within the general coverage grant. Common exclusions include flood damage under standard homeowners policies, intentional acts, wear and tear, and losses occurring while a policy was lapsed for non-payment.\n\nInsurers bear the burden of proving an exclusion applies, and courts generally interpret exclusions narrowly and against the insurer (a rule called "contra proferentem") when policy language is ambiguous. This means a denial based on an exclusion should be scrutinized carefully rather than accepted at face value.\n\nWhen an insurer denies a claim citing a specific exclusion, request the exact policy language being relied on and compare it word-for-word against the facts of your loss; exclusions are often more narrowly written than an initial denial letter suggests.`,
-    relatedTerms: ["insurance-claim-denial", "bad-faith-insurance", "duty-to-defend"],
-    relatedDisputes: ["insurance-claim", "home-warranty", "car-accident"],
-    category: "Insurance",
-  },
-  {
-    term: "Reservation of Rights",
-    slug: "reservation-of-rights",
-    shortDef: "A letter from an insurer agreeing to investigate or defend a claim while preserving its right to later deny coverage.",
-    longDef: `A reservation of rights letter is sent by an insurer to notify a policyholder that, while the insurer will investigate a claim or provide a defense in a lawsuit, it is reserving the right to later deny coverage, or withdraw its defense, if it determines the claim isn't actually covered under the policy. This commonly happens in liability insurance, where the insurer wants to avoid the legal risk of appearing to have waived its coverage defenses simply by participating in the case.\n\nReceiving a reservation of rights letter doesn't mean your claim has been denied, but it is a signal that the insurer has identified a potential coverage issue it may raise later. Policyholders who receive such a letter, particularly in a liability lawsuit where the insurer is providing a defense, may want independent legal advice, since the insurer's interests may not fully align with the policyholder's in that situation.\n\nIt's worth responding to a reservation of rights letter by asking the insurer to specifically identify which policy provisions are in question, so you can address the concern directly rather than being surprised by a later denial.`,
-    relatedTerms: ["duty-to-defend", "policy-exclusion", "bad-faith-insurance"],
-    relatedDisputes: ["insurance-claim", "car-accident"],
-    category: "Insurance",
-  },
-  {
-    term: "Actual Cash Value",
-    slug: "actual-cash-value",
-    shortDef: "A method of valuing insured property based on its replacement cost minus depreciation for age and wear.",
-    longDef: `Actual cash value (ACV) is a common method insurers use to value a covered loss, calculated as the cost to replace the damaged property with something similar, minus depreciation to account for its age, condition, and prior use. A five-year-old roof damaged in a storm, for example, would be valued at significantly less than the cost of a brand-new roof under an ACV policy.\n\nThis differs from replacement cost value coverage, which pays the full cost to replace the item with a new equivalent, without any deduction for depreciation. ACV policies are typically cheaper, but they can leave a significant gap between the payout and the actual cost to replace or repair the damaged property.\n\nIf your claim was paid on an ACV basis and you believe the depreciation applied was excessive or improperly calculated, request the insurer's specific depreciation methodology and itemized valuation; these calculations are a common source of underpayment disputes.`,
-    relatedTerms: ["replacement-cost-value", "proof-of-loss", "insurance-claim-denial"],
-    relatedDisputes: ["insurance-claim", "property-damage", "home-warranty"],
-    category: "Insurance",
-  },
-  {
-    term: "Replacement Cost Value",
-    slug: "replacement-cost-value",
-    shortDef: "A coverage type that pays the full cost to replace damaged property with new items, without deducting for depreciation.",
-    longDef: `Replacement cost value (RCV) coverage pays the full amount necessary to repair or replace damaged property with a new equivalent item, without any reduction for depreciation due to the item's age or condition. This is generally more valuable to policyholders than actual cash value coverage, though it typically comes with a higher premium.\n\nMany RCV policies use a two-step payment process: the insurer initially pays the actual cash value amount, then reimburses the depreciation "holdback" once the policyholder actually completes the repair or replacement and submits proof (such as receipts) of the cost incurred. Failing to complete repairs within the policy's required timeframe (often 180 days to two years) can forfeit the right to recover that holdback amount.\n\nIf your policy includes replacement cost coverage, make sure to follow through on repairs within the required window and submit the necessary documentation to recover the full holdback amount you're entitled to.`,
-    relatedTerms: ["actual-cash-value", "proof-of-loss", "insurance-claim-denial"],
-    relatedDisputes: ["insurance-claim", "property-damage", "home-warranty"],
-    category: "Insurance",
-  },
-  {
-    term: "Duty to Defend",
-    slug: "duty-to-defend",
-    shortDef: "A liability insurer's contractual obligation to provide a legal defense against covered claims filed against the policyholder.",
-    longDef: `The duty to defend is a liability insurer's obligation to provide, and pay for, a legal defense when the policyholder is sued over a claim that potentially falls within the policy's coverage. This duty is typically broader than the insurer's duty to actually pay (indemnify) a judgment: courts generally require insurers to defend a lawsuit as long as any allegation in the complaint could potentially be covered, even if most of the claims would ultimately be excluded.\n\nBecause the duty to defend is triggered by the allegations in a complaint rather than the ultimate facts proven, insurers will sometimes agree to defend under a reservation of rights while reserving the ability to later deny payment of any resulting judgment if it turns out coverage doesn't apply.\n\nIf you're sued and your insurer denies a defense outright, it's worth having the denial reviewed, since courts in most states resolve doubts about the duty to defend in the policyholder's favor.`,
-    relatedTerms: ["reservation-of-rights", "policy-exclusion", "bad-faith-insurance"],
-    relatedDisputes: ["insurance-claim", "personal-injury"],
-    category: "Insurance",
-  },
-  {
-    term: "Appraisal Clause",
-    slug: "appraisal-clause",
-    shortDef: "A policy provision allowing a disputed claim's value to be resolved by independent appraisers instead of litigation.",
-    longDef: `An appraisal clause is a common provision in property insurance policies that provides an alternative to litigation when the insurer and policyholder agree a loss is covered but disagree about its dollar value. Under this process, each side selects an independent appraiser, and the two appraisers select a neutral umpire; if the appraisers can't agree, the umpire's decision (with agreement from at least one appraiser) becomes binding.\n\nAppraisal is generally faster and cheaper than a lawsuit, but it's limited to valuation disputes; it typically cannot resolve broader coverage questions, like whether a policy exclusion applies at all. Either party can usually invoke the appraisal clause once a genuine dispute over value exists.\n\nIf your insurer's valuation of a covered loss seems too low but they aren't disputing that the claim is covered at all, requesting appraisal under this clause can be a faster path to a fair resolution than filing a lawsuit.`,
-    relatedTerms: ["proof-of-loss", "actual-cash-value", "insurance-claim-denial"],
-    relatedDisputes: ["insurance-claim", "property-damage", "home-warranty"],
-    category: "Insurance",
-  },
-  {
-    term: "Underinsured Motorist Coverage",
-    slug: "underinsured-motorist-coverage",
-    shortDef: "Auto insurance that pays for a policyholder's injuries when an at-fault driver's liability coverage is insufficient.",
-    longDef: `Underinsured motorist (UIM) coverage protects a policyholder when they're injured by an at-fault driver whose liability insurance limits aren't high enough to fully cover the resulting damages. It's closely related to uninsured motorist (UM) coverage, which applies when the at-fault driver has no insurance at all; many policies bundle both under a single "UM/UIM" provision.\n\nTo access UIM benefits, a policyholder typically must first exhaust the at-fault driver's liability coverage (by settling with or obtaining a judgment against that driver's insurer) and then submit the remaining unpaid damages to their own insurer under the UIM provision. Because the policyholder's own insurer is now effectively in an adversarial position, defending against its own customer's claim, disputes and lowball offers are common at this stage.\n\nBecause UIM claims usually require formal notice and specific procedural steps to preserve the claim, including your own insurer, and providing prompt notice of the underlying accident, are important even before you know whether the at-fault driver's coverage will be enough.`,
-    relatedTerms: ["insurance-claim-denial", "bad-faith-insurance", "subrogation"],
-    relatedDisputes: ["car-accident", "insurance-claim", "personal-injury"],
-    category: "Insurance",
-  },
+Common examples include advertising products with features they do not have, failing to disclose known defects, using bait-and-switch pricing tactics, making false claims about a product's origin or quality, and misrepresenting the terms of a warranty or return policy. The standard for proving deception typically requires showing that the business's representation, omission, or practice was likely to mislead a reasonable consumer in a material way.
 
-  // ---------------------------------------------------------------------
-  // Real Estate & Housing
-  // ---------------------------------------------------------------------
-  {
-    term: "Security Deposit",
-    slug: "security-deposit",
-    shortDef: "A refundable sum a tenant pays a landlord to cover potential unpaid rent or damage beyond normal wear and tear.",
-    longDef: `A security deposit is money a tenant pays at the start of a lease to protect the landlord against unpaid rent or damage to the unit beyond normal wear and tear. Most states cap the amount a landlord can charge (commonly one to two months' rent) and set a strict deadline, often 14 to 30 days after move-out, for returning the deposit or providing an itemized list of deductions.\n\nLandlords generally cannot deduct for ordinary wear and tear, the gradual, expected deterioration that occurs from normal living, such as minor carpet wear or small nail holes. Deductions are typically limited to actual damage beyond that baseline, unpaid rent, or other amounts specifically allowed under the lease and state law.\n\nLandlords who wrongfully withhold a deposit or miss the statutory deadline often face penalties well beyond the deposit amount itself; many states allow tenants to recover two or three times the wrongfully withheld amount, making a well-documented demand letter citing the specific statute a powerful first step.`,
-    relatedTerms: ["normal-wear-and-tear", "lease-agreement", "move-in-move-out-inspection"],
-    relatedDisputes: ["security-deposit", "landlord-tenant", "pet-damage"],
-    category: "Real Estate & Housing",
+Many state deceptive trade practices statutes provide powerful remedies including statutory minimum damages, treble or double damages, and mandatory attorney fee awards for successful plaintiffs. These enhanced remedies make deceptive trade practices claims particularly effective in demand letters because they significantly increase the other party's potential exposure beyond simple reimbursement.`,
+    relatedTerms: ["unfair-business-practices", "consumer-protection", "damages", "warranty"],
+    category: "Consumer Rights",
   },
   {
-    term: "Eviction",
-    slug: "eviction",
-    shortDef: "The legal process by which a landlord removes a tenant from a rental property, requiring court approval in nearly all cases.",
-    longDef: `Eviction is the formal legal process a landlord must follow to remove a tenant from a rental property. In virtually every U.S. jurisdiction, landlords cannot simply lock a tenant out, remove their belongings, or shut off utilities to force them out ("self-help eviction"); they must instead go through the court system, which typically begins with a written notice to quit or cure, followed by a formal court filing if the tenant doesn't comply.\n\nCommon grounds for eviction include non-payment of rent, lease violations, or the end of a lease term (for month-to-month tenancies, with proper notice). Tenants generally have the right to appear in court and raise defenses, such as improper notice, retaliation, discrimination, or the landlord's own failure to maintain a habitable unit.\n\nA landlord who attempts self-help eviction, changing locks, removing belongings, shutting off utilities, is typically violating the law and may be liable to the tenant for damages, making this an important thing to document and address promptly if it happens.`,
-    relatedTerms: ["notice-to-quit", "constructive-eviction", "implied-warranty-of-habitability"],
-    relatedDisputes: ["landlord-tenant", "security-deposit"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Implied Warranty of Habitability",
-    slug: "implied-warranty-of-habitability",
-    shortDef: "A legal guarantee that a rental unit meets basic standards of safety and livability, regardless of lease terms.",
-    longDef: `The implied warranty of habitability is a legal requirement, recognized in nearly every state, that landlords maintain rental properties in a condition that is safe and fit for human habitation, regardless of what the lease says. This typically includes functioning plumbing, heating, electrical systems, weatherproofing, and freedom from serious pest infestations or hazardous conditions like mold or lead paint.\n\nWhen a landlord fails to maintain these basic standards after receiving proper notice of the problem, tenants in many states have several possible remedies, including withholding rent (often requiring the money be placed in escrow), "repair and deduct" (paying for the repair themselves and deducting the cost from rent), terminating the lease, or suing for damages, though the specific remedies and required procedures vary significantly by state.\n\nDocumenting habitability issues thoroughly, photos, dates, written notices to the landlord, and any responses (or lack of response), is essential before pursuing any of these remedies, since most require proof that the landlord had reasonable notice and time to fix the problem.`,
-    relatedTerms: ["eviction", "constructive-eviction", "landlord-obligations"],
-    relatedDisputes: ["landlord-tenant", "security-deposit"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Lease Agreement",
-    slug: "lease-agreement",
-    shortDef: "A legally binding contract establishing the terms under which a tenant rents property from a landlord.",
-    longDef: `A lease agreement is a contract between a landlord and tenant establishing the terms of the rental, including the rent amount, payment due date, lease duration, security deposit terms, and each party's responsibilities for maintenance and repairs. Leases can be for a fixed term (such as one year) or month-to-month, which continues indefinitely until either party gives proper notice to end it.\n\nWhile many lease terms are negotiable, certain tenant protections generally cannot be waived even if the lease claims otherwise, including the implied warranty of habitability and specific statutory security deposit and eviction procedures. Lease clauses that attempt to waive these baseline protections are typically unenforceable regardless of what the tenant signed.\n\nBefore signing, and again when a dispute arises, it's worth reading the actual lease language closely, since many disputes hinge on specific clauses about who is responsible for particular repairs, how notice must be given, and what happens at lease-end.`,
-    relatedTerms: ["security-deposit", "landlord-obligations", "tenant-rights"],
-    relatedDisputes: ["landlord-tenant", "security-deposit"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Landlord Obligations",
-    slug: "landlord-obligations",
-    shortDef: "The legal duties a landlord owes tenants, including maintaining habitable conditions and following proper legal procedures.",
-    longDef: `Landlord obligations are the legal duties owed to tenants under state and local law, generally including maintaining the property in habitable condition, making timely repairs after proper notice, complying with health and safety codes, providing required disclosures (such as lead paint warnings for older buildings), and following the specific legal procedures required for entry, eviction, and security deposit handling.\n\nMany of these obligations exist independently of what's written in the lease; a landlord cannot contract around basic habitability and safety requirements simply by including a waiver clause. Landlords in most states must also provide reasonable advance notice, commonly 24 to 48 hours, before entering an occupied unit except in genuine emergencies.\n\nWhen a landlord fails to meet these obligations, documenting the specific failure with dates, photos, and copies of any written notice given to the landlord provides the foundation for a demand letter, rent withholding, or a habitability-based legal claim.`,
-    relatedTerms: ["implied-warranty-of-habitability", "tenant-rights", "quiet-enjoyment"],
-    relatedDisputes: ["landlord-tenant", "security-deposit"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Tenant Rights",
-    slug: "tenant-rights",
-    shortDef: "The legal protections afforded to renters, including habitability standards, privacy, and protection from unlawful eviction.",
-    longDef: `Tenant rights encompass the legal protections available to renters under state and local law, generally including the right to a habitable living space, the right to privacy and advance notice before landlord entry, protection from retaliatory eviction (being evicted for exercising a legal right, such as reporting a code violation), and the right to have a security deposit returned according to statutory timelines.\n\nMany cities and states provide additional protections beyond the baseline, such as rent control, "just cause" eviction requirements limiting when a landlord can decline to renew a lease, and specific relocation assistance obligations for certain types of evictions.\n\nBecause tenant protections vary so significantly by state and even by city, it's worth checking the specific rules where the rental property is located, many local tenant rights organizations and city housing departments publish plain-language guides, before responding to a landlord dispute.`,
-    relatedTerms: ["landlord-obligations", "implied-warranty-of-habitability", "security-deposit"],
-    relatedDisputes: ["landlord-tenant", "security-deposit"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Constructive Eviction",
-    slug: "constructive-eviction",
-    shortDef: "A situation where a landlord's failure to maintain a unit makes it so unlivable that a tenant is effectively forced to move out.",
-    longDef: `Constructive eviction occurs when a landlord's actions, or failure to act, make a rental unit so uninhabitable or unusable that a tenant is effectively forced to move out, even though the landlord never formally evicted them. Common examples include prolonged loss of heat in winter, persistent severe pest infestations, extended loss of running water, or serious safety hazards the landlord refuses to fix despite repeated notice.\n\nTo successfully claim constructive eviction, a tenant generally must show they gave the landlord reasonable notice of the problem and a fair opportunity to fix it, that the condition was severe enough to substantially interfere with the tenant's use of the property, and that the tenant actually moved out within a reasonable time after the condition arose (continuing to live there for too long can undermine the claim).\n\nA tenant who successfully proves constructive eviction may be released from further lease obligations and can potentially recover moving costs and other damages, but because the standard is fact-intensive, thorough documentation of the condition and the landlord's failure to respond is critical.`,
-    relatedTerms: ["implied-warranty-of-habitability", "eviction", "landlord-obligations"],
-    relatedDisputes: ["landlord-tenant"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Homeowners Association (HOA)",
-    slug: "homeowners-association",
-    shortDef: "A governing organization that manages a residential community and enforces its rules, budgets, and shared property maintenance.",
-    longDef: `A homeowners association (HOA) is an organization that governs a residential community, typically a subdivision, condominium building, or planned development, enforcing rules set out in the community's governing documents (often called covenants, conditions, and restrictions, or CC&Rs) and managing shared amenities and common areas. Membership is usually mandatory for anyone who purchases property within the community.\n\nHOAs generally have authority to levy dues and special assessments, enforce architectural and aesthetic rules, and impose fines for violations, but that authority is not unlimited; HOAs must follow their own governing documents and applicable state law, including providing notice and an opportunity to be heard before imposing significant fines.\n\nWhen disputing an HOA fine or decision, start by reviewing the specific governing document provision the HOA is relying on, request the HOA's own records showing how the decision was made, and check whether the HOA followed its required notice and hearing procedures, since procedural failures are a common basis for successfully challenging HOA action.`,
-    relatedTerms: ["lease-agreement", "notarized-document", "quiet-enjoyment"],
-    relatedDisputes: ["HOA-dispute"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Notice to Quit",
-    slug: "notice-to-quit",
-    shortDef: "A formal written notice from a landlord informing a tenant they must move out or fix a lease violation by a specific date.",
-    longDef: `A notice to quit is a formal, legally required written notice a landlord must give a tenant before starting the eviction process. Depending on the reason and the state's requirements, this might be a "pay or quit" notice (giving the tenant a deadline to pay overdue rent or vacate), a "cure or quit" notice (giving a deadline to fix a lease violation), or an unconditional notice to vacate (used for serious violations or the simple end of a month-to-month tenancy).\n\nEach type of notice has specific timing requirements set by state law, often ranging from 3 to 30 days depending on the reason and jurisdiction, and must generally be delivered in a specific legally recognized manner (personal delivery, posting and mailing, etc.). A landlord who skips this step, or delivers the notice improperly, generally cannot proceed with a valid eviction case.\n\nTenants who receive a notice to quit should note the exact deadline and reason given, and if there's a legitimate dispute over the underlying claim, such as rent the tenant believes was already paid, responding promptly in writing can be an important step before the matter reaches court.`,
-    relatedTerms: ["eviction", "service-of-process", "landlord-obligations"],
-    relatedDisputes: ["landlord-tenant"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Holdover Tenant",
-    slug: "holdover-tenant",
-    shortDef: "A tenant who remains in a rental property after their lease has expired without the landlord's renewed consent.",
-    longDef: `A holdover tenant is someone who continues occupying a rental property after their lease term has ended without signing a new lease or otherwise getting the landlord's agreement to stay. If the landlord accepts rent from a holdover tenant without objection, many states treat this as creating a new month-to-month tenancy on the same general terms as the expired lease.\n\nIf the landlord does not want the tenant to stay, they generally must go through the same formal eviction process required for any other tenant; a holdover tenant cannot simply be removed without proper legal notice and, if necessary, a court order. Some leases include holdover clauses imposing a higher rent rate (sometimes 150% to 200% of the normal rent) for any period the tenant stays past the lease end date without a new agreement.\n\nIf you're a holdover tenant facing a dispute, check both your original lease for any specific holdover clause and confirm whether the landlord's acceptance of rent after the lease ended may have created a new tenancy under your state's law.`,
-    relatedTerms: ["lease-agreement", "eviction", "notice-to-quit"],
-    relatedDisputes: ["landlord-tenant"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Normal Wear and Tear",
-    slug: "normal-wear-and-tear",
-    shortDef: "The expected, gradual deterioration of a rental unit from ordinary use, which landlords cannot deduct from a security deposit.",
-    longDef: `Normal wear and tear refers to the gradual, expected deterioration of a rental property that results from ordinary use over time, rather than from negligence, abuse, or accidents. Examples typically include minor scuffs on walls, faded paint, small nail holes from hanging pictures, worn carpet in high-traffic areas, and minor scratches on flooring from ordinary foot traffic.\n\nThis concept matters most in security deposit disputes: landlords are generally prohibited from deducting the cost of fixing normal wear and tear from a tenant's deposit, since it's considered a cost of doing business as a landlord rather than tenant-caused damage. Actual damage, large stains, broken fixtures, holes from unauthorized modifications, pet damage beyond minor scratching, is treated differently and can properly be deducted.\n\nThe distinction is often the central issue in a deposit dispute, so comparing move-in and move-out photos or inspection reports side by side is one of the most effective ways to show a deduction was for normal wear and tear rather than legitimate damage.`,
-    relatedTerms: ["security-deposit", "move-in-move-out-inspection", "landlord-obligations"],
-    relatedDisputes: ["security-deposit", "pet-damage", "landlord-tenant"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Move-In/Move-Out Inspection",
-    slug: "move-in-move-out-inspection",
-    shortDef: "A documented walkthrough of a rental unit's condition at the start and end of a tenancy, used to resolve deposit disputes.",
-    longDef: `A move-in/move-out inspection is a documented walkthrough of a rental unit's condition, ideally with photos or video and a written checklist, conducted at the start and end of a tenancy. Many states require landlords to offer tenants the opportunity to participate in these inspections and to provide a copy of the completed report.\n\nThe primary purpose of this documentation is to establish a clear baseline of the unit's condition before the tenant moved in, so that any deductions from the security deposit at move-out can be fairly compared against how the unit actually looked at the start, rather than relying on memory or assumption.\n\nTenants who didn't receive a formal move-in inspection from their landlord can still protect themselves by taking their own timestamped photos and video of the unit's condition when they move in and again when they move out; this self-documentation is often decisive evidence in a security deposit dispute.`,
-    relatedTerms: ["security-deposit", "normal-wear-and-tear", "evidence"],
-    relatedDisputes: ["security-deposit", "landlord-tenant", "pet-damage"],
-    category: "Real Estate & Housing",
-  },
-  {
-    term: "Quiet Enjoyment",
-    slug: "quiet-enjoyment",
-    shortDef: "A tenant's legal right to use and enjoy their rental property without unreasonable interference from the landlord.",
-    longDef: `The right to quiet enjoyment is an implied promise in every lease that the tenant will be able to use and enjoy the rental property without significant, unreasonable interference from the landlord or people acting on the landlord's behalf. This doesn't mean literal silence; rather, it protects against things like a landlord repeatedly entering without proper notice, harassing the tenant, cutting off utilities, or allowing conditions that substantially disrupt the tenant's ability to live in the unit.\n\nViolations of quiet enjoyment often overlap with habitability and constructive eviction claims, since a landlord's disruptive conduct or failure to address serious problems can breach multiple tenant protections simultaneously. This right generally exists automatically in every lease, even if the written lease never mentions it explicitly.\n\nDocumenting specific incidents, dates of unauthorized entry, records of harassment, notices given to the landlord about a disruption, helps build a claim if a landlord's conduct is interfering with your ability to reasonably use and enjoy your rental unit.`,
-    relatedTerms: ["landlord-obligations", "constructive-eviction", "implied-warranty-of-habitability"],
-    relatedDisputes: ["landlord-tenant"],
-    category: "Real Estate & Housing",
-  },
+    term: "Consumer Protection",
+    slug: "consumer-protection",
+    shortDef: "The body of state and federal laws designed to safeguard buyers from unfair, deceptive, or fraudulent business practices.",
+    longDef: `Consumer protection law encompasses a wide range of federal and state statutes designed to level the playing field between businesses and the individual consumers who buy their goods and services. At the federal level, agencies like the Federal Trade Commission and Consumer Financial Protection Bureau enforce rules against deceptive advertising, unfair billing, and predatory lending.
 
-  // ---------------------------------------------------------------------
-  // Torts & Liability
-  // ---------------------------------------------------------------------
-  {
-    term: "Negligence",
-    slug: "negligence",
-    shortDef: "A failure to exercise reasonable care that results in harm to another person, forming the basis of most personal injury claims.",
-    longDef: `Negligence is the legal theory underlying most personal injury and property damage claims. To prove negligence, a plaintiff generally must establish four elements: the defendant owed a duty of care to the plaintiff, the defendant breached that duty by failing to act as a reasonably careful person would under the circumstances, that breach actually and proximately caused the plaintiff's injury, and the plaintiff suffered actual damages as a result.\n\nWhat counts as "reasonable care" depends heavily on context; a driver, a property owner, and a professional like a doctor or contractor are all held to different specific standards of care appropriate to their role. Even a well-intentioned defendant can be found negligent if their conduct fell short of what a reasonably careful person would have done in the same situation.\n\nBuilding a negligence claim generally starts with documenting each of the four elements separately: what duty existed, exactly how it was breached, how that breach led directly to your specific injury or loss, and the actual dollar value or extent of the resulting damages.`,
-    relatedTerms: ["duty-of-care", "proximate-cause", "damages", "liability"],
-    relatedDisputes: ["personal-injury", "property-damage", "car-accident"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Duty of Care",
-    slug: "duty-of-care",
-    shortDef: "The legal obligation to act with a reasonable level of caution to avoid causing foreseeable harm to others.",
-    longDef: `A duty of care is the legal obligation requiring a person or business to act with a level of caution that a reasonably prudent party would exercise under similar circumstances, in order to avoid causing foreseeable harm to others. Whether a duty of care exists at all is typically a threshold legal question: drivers owe a duty of care to other drivers and pedestrians, property owners owe a duty of care to visitors on their property, and professionals owe a duty of care to their clients or patients.\n\nThe specific scope of the duty often varies based on the relationship between the parties and the foreseeability of harm; a property owner, for example, generally owes a higher duty of care to an invited guest than to a trespasser. Some relationships, such as doctor-patient or attorney-client, carry a heightened professional standard of care specific to that field.\n\nEstablishing that a duty of care existed, and describing precisely what a reasonable person or business should have done differently, is typically the first step in building any negligence-based claim.`,
-    relatedTerms: ["negligence", "premises-liability", "fiduciary-duty"],
-    relatedDisputes: ["personal-injury", "property-damage", "car-accident"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Liability",
-    slug: "liability",
-    shortDef: "Legal responsibility for a loss, injury, or damage, which can arise from negligence, contract, or specific statutes.",
-    longDef: `Liability refers to legal responsibility for a loss or harm, and it can arise from multiple sources: negligence (failing to exercise reasonable care), breach of contract (failing to fulfill agreed obligations), strict liability (responsibility imposed regardless of fault, common in certain product defect or animal-related cases), or specific statutory violations that create liability by law.\n\nLiability can also be shared among multiple parties. Under "joint and several liability," each defendant found partly responsible can potentially be held liable for the entire judgment, though many states have modified this rule so that liability is instead allocated proportionally based on each party's degree of fault under comparative negligence principles.\n\nWhen pursuing a claim, it's important to correctly identify every potentially liable party early on, a property owner, a contractor, a manufacturer, an employer, since missing a liable party can limit your ability to fully recover, particularly if the primary defendant lacks sufficient assets or insurance.`,
-    relatedTerms: ["negligence", "damages", "comparative-negligence", "strict-liability"],
-    relatedDisputes: ["personal-injury", "property-damage", "car-accident"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Damages",
-    slug: "damages",
-    shortDef: "The monetary compensation awarded to a plaintiff to make them whole for a loss caused by another party.",
-    longDef: `Damages are the monetary compensation a court or settlement awards to make an injured party whole for the loss they suffered. Damages generally fall into a few categories: compensatory damages (covering actual, provable losses like medical bills, lost wages, and property repair costs), consequential damages (indirect losses that foreseeably resulted from the harm, such as lost business income), and in cases of especially egregious conduct, punitive damages (intended to punish the wrongdoer rather than simply compensate the victim).\n\nCompensatory damages are further divided into economic damages (objectively calculable losses like bills and receipts) and non-economic damages (harder-to-quantify losses like pain and suffering, common in personal injury cases). Courts generally require damages to be proven with reasonable certainty; speculative or unsupported claims of loss are typically not recoverable.\n\nWhen preparing a demand letter, itemizing damages clearly, with specific dollar amounts backed by receipts, invoices, or estimates, makes the letter far more persuasive than a vague or unsupported dollar request.`,
-    relatedTerms: ["compensatory-damages", "punitive-damages", "negligence", "liability"],
-    relatedDisputes: ["personal-injury", "property-damage", "contractor-dispute"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Compensatory Damages",
-    slug: "compensatory-damages",
-    shortDef: "Monetary damages intended to reimburse a plaintiff for their actual, provable losses.",
-    longDef: `Compensatory damages are intended to reimburse an injured party for the actual losses they suffered, restoring them, as closely as money can, to the position they would have been in had the harm never occurred. These are split into economic damages (objectively measurable costs like medical bills, repair estimates, and lost wages, generally supported by receipts or invoices) and non-economic damages (subjective harms like pain, suffering, and emotional distress, more common in personal injury cases than contract disputes).\n\nUnlike punitive damages, compensatory damages are not meant to punish the defendant; they're strictly about making the plaintiff whole. Courts require plaintiffs to prove both the existence and the amount of their damages with reasonable certainty, which is why documentation matters so much in any claim.\n\nWhen drafting a demand letter, listing compensatory damages in clear categories, medical expenses, property repair costs, lost income, with supporting documentation for each line item, gives the recipient a concrete basis to evaluate and potentially agree to your claim.`,
-    relatedTerms: ["damages", "punitive-damages", "negligence"],
-    relatedDisputes: ["personal-injury", "property-damage", "car-accident"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Punitive Damages",
-    slug: "punitive-damages",
-    shortDef: "Monetary damages awarded to punish especially egregious or malicious conduct, beyond simply compensating the victim's losses.",
-    longDef: `Punitive damages, sometimes called exemplary damages, are awarded in addition to compensatory damages when a defendant's conduct is found to be especially egregious, malicious, fraudulent, or recklessly indifferent to the safety of others, not merely negligent. Their purpose is to punish the wrongdoer and deter similar conduct in the future, rather than simply compensating the plaintiff for actual losses.\n\nPunitive damages are relatively rare and are awarded only in a small subset of cases; most negligence and contract disputes do not qualify. Many states impose caps on punitive damages, often expressed as a multiple of the compensatory damages awarded, and courts apply constitutional due process limits to prevent grossly excessive awards.\n\nBecause punitive damages require a much higher showing of intentional or reckless misconduct, claims for punitive damages should be reserved for cases with genuinely egregious facts, such as insurance bad faith, fraud, or willful violations of safety regulations, rather than routine negligence or contract disputes.`,
-    relatedTerms: ["damages", "compensatory-damages", "bad-faith-insurance"],
-    relatedDisputes: ["personal-injury", "insurance-claim"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Proximate Cause",
-    slug: "proximate-cause",
-    shortDef: "The legal requirement that a defendant's conduct be sufficiently connected to a plaintiff's injury to justify holding them liable.",
-    longDef: `Proximate cause is a legal limitation on liability, requiring that a defendant's conduct be closely and foreseeably connected to the plaintiff's injury, not just a technical or remote link in the chain of events. This is distinct from "actual cause" (or "cause in fact"), which simply asks whether the injury would have happened "but for" the defendant's conduct; proximate cause adds a further requirement that the harm be a reasonably foreseeable result of that conduct.\n\nCourts use proximate cause to draw a line around liability so that defendants aren't held responsible for every conceivable downstream consequence of their actions, only the consequences that were reasonably foreseeable at the time. An unusual, unforeseeable chain of events breaking the connection between the original conduct and the ultimate harm, sometimes called a "superseding cause", can cut off liability even where "but for" causation technically exists.\n\nWhen building a negligence claim, it helps to clearly explain the direct, foreseeable link between the defendant's specific action and your specific injury, rather than relying on a general sense that the defendant did something wrong.`,
-    relatedTerms: ["negligence", "duty-of-care", "liability"],
-    relatedDisputes: ["personal-injury", "property-damage", "car-accident"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Strict Liability",
-    slug: "strict-liability",
-    shortDef: "Legal responsibility imposed regardless of fault or intent, applied to certain inherently dangerous activities or defective products.",
-    longDef: `Strict liability holds a defendant legally responsible for harm without requiring the plaintiff to prove negligence or intentional wrongdoing; simply showing the defendant engaged in the covered activity and it caused the harm is enough. This doctrine is applied narrowly to specific categories of cases, including defective product liability claims, certain abnormally dangerous activities (like using explosives), and, in many states, injuries caused by dogs or other domestic animals with known dangerous tendencies.\n\nIn product liability specifically, strict liability allows an injured consumer to recover from a manufacturer for a defective product without needing to prove the manufacturer was careless in how it designed, made, or labeled the product, only that the product was defective and that defect caused the injury.\n\nIf your claim falls into a strict liability category, dog bites, defective products, certain hazardous activities, it can significantly simplify what you need to prove, since you can focus on demonstrating the harm and its connection to the covered activity rather than the defendant's specific carelessness.`,
-    relatedTerms: ["negligence", "liability", "damages"],
-    relatedDisputes: ["personal-injury", "pet-damage", "auto-repair"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Comparative Negligence",
-    slug: "comparative-negligence",
-    shortDef: "A legal rule that reduces a plaintiff's damages award in proportion to their own percentage of fault for the injury.",
-    longDef: `Comparative negligence is a legal doctrine that allocates fault between multiple parties and reduces a plaintiff's damages award in proportion to their own share of responsibility for the injury. Most states use "pure" comparative negligence (a plaintiff who is 90% at fault can still recover the remaining 10% from the defendant) or "modified" comparative negligence (a plaintiff can only recover if their fault is below a certain threshold, commonly 50% or 51%; some states use a strict "contributory negligence" rule barring recovery entirely if the plaintiff bears any fault at all).\n\nFor example, if a plaintiff is found 20% at fault for a car accident and total damages are $10,000, a pure comparative negligence state would reduce the award to $8,000. Insurance adjusters frequently use comparative fault arguments to reduce settlement offers, so it's worth understanding your state's specific rule and threshold.\n\nWhen responding to a comparative fault argument in a claim, focus on evidence that directly addresses the specific fault allegation, such as traffic camera footage, witness statements, or a police report, rather than simply denying any responsibility in general terms.`,
-    relatedTerms: ["negligence", "liability", "damages"],
-    relatedDisputes: ["car-accident", "personal-injury", "property-damage"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Premises Liability",
-    slug: "premises-liability",
-    shortDef: "A property owner's legal responsibility for injuries that occur on their property due to unsafe conditions.",
-    longDef: `Premises liability is a category of negligence law holding property owners and occupiers responsible for injuries that occur on their property due to dangerous or unsafe conditions they knew about, or reasonably should have known about, and failed to fix or adequately warn visitors about. Common premises liability claims include slip-and-fall accidents, inadequate security leading to an assault, and injuries from poorly maintained structures.\n\nThe specific duty a property owner owes often depends on the legal status of the visitor: invitees (such as customers at a store) are typically owed the highest duty of care, licensees (social guests) an intermediate duty, and trespassers generally the lowest duty, though even trespassers are usually owed some protection against intentionally created hazards.\n\nA strong premises liability claim generally documents the specific hazardous condition (with photos taken as soon as possible), how long it existed before the injury (relevant to whether the owner had a reasonable opportunity to discover and fix it), and any prior complaints or incident reports involving the same condition.`,
-    relatedTerms: ["negligence", "duty-of-care", "personal-injury"],
-    relatedDisputes: ["personal-injury", "property-damage"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Personal Injury",
-    slug: "personal-injury",
-    shortDef: "Physical or psychological harm to a person caused by another party's negligent, reckless, or intentional conduct.",
-    longDef: `Personal injury is a broad area of law covering claims for physical or psychological harm caused by another party's conduct, most commonly through negligence (car accidents, slip-and-falls, medical malpractice), but sometimes through intentional acts (assault) or strict liability (certain defective products or dog bites). A personal injury claim seeks compensation for the resulting damages, medical expenses, lost income, pain and suffering, and related losses.\n\nBuilding a strong personal injury claim generally requires establishing the same core negligence elements: a duty of care, a breach of that duty, causation connecting the breach to the specific injury, and documented damages. Prompt medical treatment and thorough documentation are especially important, since delays or gaps in treatment are commonly used by insurers to argue an injury was minor or unrelated to the incident.\n\nMany personal injury claims settle before reaching a lawsuit, often beginning with a demand letter to the at-fault party or their insurer that lays out liability, describes the injuries and treatment received, and requests a specific settlement amount supported by medical bills and other documentation.`,
-    relatedTerms: ["negligence", "damages", "duty-of-care", "premises-liability"],
-    relatedDisputes: ["personal-injury", "car-accident"],
-    category: "Torts & Liability",
-  },
-  {
-    term: "Fiduciary Duty",
-    slug: "fiduciary-duty",
-    shortDef: "A heightened legal obligation to act with utmost loyalty and care in the best interests of another party.",
-    longDef: `A fiduciary duty is one of the highest legal obligations recognized by law, requiring a person or entity in a position of trust to act with undivided loyalty and reasonable care solely in the best interests of the party they serve, rather than their own interests. Common fiduciary relationships include trustees and beneficiaries, attorneys and clients, financial advisors and their clients, corporate directors and shareholders, and business partners toward one another.\n\nA fiduciary generally has two core obligations: the duty of loyalty (avoiding conflicts of interest and self-dealing) and the duty of care (making informed, reasonable decisions on behalf of the party they serve). Breaching a fiduciary duty can result in liability well beyond ordinary negligence, since courts hold fiduciaries to an especially demanding standard given the trust placed in them.\n\nIf you believe someone in a fiduciary role, a financial advisor, business partner, or trustee, acted in their own interest at your expense, documenting the specific self-dealing or conflict of interest, along with the resulting financial harm, is central to building a breach of fiduciary duty claim.`,
-    relatedTerms: ["duty-of-care", "good-faith-and-fair-dealing", "liability"],
-    relatedDisputes: ["small-business", "elder-abuse", "loan-dispute"],
-    category: "Torts & Liability",
-  },
+Every state also has its own consumer protection statute, often called a Little FTC Act or UDAP law, which typically allows individual consumers to sue directly for violations, sometimes recovering attorney fees and multiplied damages on top of their actual losses. These state laws cover a broad range of misconduct including false advertising, hidden fees, defective products, and failure to honor warranties or refund policies.
 
-  // ---------------------------------------------------------------------
-  // Legal Documents
-  // ---------------------------------------------------------------------
-  {
-    term: "Demand Letter",
-    slug: "demand-letter",
-    shortDef: "A formal written request asking another party to pay money, fix a problem, or take a specific action to resolve a dispute.",
-    longDef: `A demand letter is a formal written communication sent to another party stating a specific grievance, explaining the legal or factual basis for the claim, and requesting a specific remedy, typically payment of a dollar amount, correction of a problem, or a change in behavior, within a defined deadline. It is often the first formal step in resolving a dispute before pursuing small claims court or a lawsuit.\n\nAn effective demand letter is clear, factual, and professional rather than emotional or threatening. It typically includes a description of what happened with relevant dates, the specific legal or contractual basis supporting the claim, the exact remedy being requested, supporting documentation (receipts, photos, contracts), and a reasonable deadline for response, along with a clear statement of the next steps if the deadline passes without resolution.\n\nBeyond simply requesting payment, a demand letter serves several practical purposes: it creates a documented record showing you attempted to resolve the dispute in good faith (which can matter later in court), it signals that you're serious and prepared to escalate if necessary, and in many states it's a required prerequisite before filing certain types of claims or before statutory penalties, like extra security deposit damages, become available.`,
-    relatedTerms: ["cease-and-desist-letter", "complaint", "small-claims-court", "settlement-agreement"],
-    relatedDisputes: ["security-deposit", "landlord-tenant", "auto-repair", "unpaid-invoice"],
-    category: "Legal Documents",
+Citing the specific consumer protection statute that applies in your state can significantly strengthen a demand letter, since many of these laws include statutory penalties well beyond simple reimbursement, giving a business real incentive to resolve the dispute quickly rather than risk enhanced damages in court.`,
+    relatedTerms: ["unfair-business-practices", "deceptive-trade-practices", "warranty", "damages"],
+    category: "Consumer Rights",
   },
   {
-    term: "Affidavit",
-    slug: "affidavit",
-    shortDef: "A written statement of facts sworn to be true under oath, typically signed before a notary.",
-    longDef: `An affidavit is a written statement in which the signer (called the "affiant") swears, under penalty of perjury, that the facts stated are true. Affidavits are typically signed in front of a notary public, who verifies the identity of the signer and administers the oath, though some jurisdictions allow unsworn declarations under penalty of perjury as an alternative.\n\nAffidavits are used throughout the legal system as a way to present sworn factual testimony without requiring the person's live presence, commonly used to support motions in court, to verify facts in a small claims case, or to formally document specific events, such as an affidavit of service confirming that legal papers were properly delivered.\n\nBecause an affidavit is a sworn statement, knowingly including false information in one can expose the signer to perjury charges, so affidavits should be prepared carefully, sticking to facts the signer actually knows to be true from personal knowledge rather than assumptions or hearsay.`,
-    relatedTerms: ["notarized-document", "evidence", "certificate-of-service"],
-    relatedDisputes: ["small-business", "personal-injury", "identity-theft"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Notarized Document",
-    slug: "notarized-document",
-    shortDef: "A document whose signing has been formally witnessed and certified by a notary public to prevent fraud.",
-    longDef: `A notarized document is one that has been signed in the presence of a notary public, a state-commissioned official authorized to verify the identity of signers and witness the signing of important documents. The notary's role is to confirm the signer is who they claim to be, that they are signing willingly and knowingly, and then to certify this by applying their official seal and signature.\n\nNotarization does not verify that the contents of a document are true or legally valid; it simply certifies that the signature is authentic and was made under the specific circumstances required by law. Common documents requiring notarization include real estate deeds, powers of attorney, certain affidavits, and various court filings.\n\nIf a dispute involves a document that should have been notarized but wasn't, or where you suspect a signature was forged, the lack of proper notarization, or evidence the notarization process wasn't actually followed, can be an important issue to raise.`,
-    relatedTerms: ["affidavit", "power-of-attorney", "evidence"],
-    relatedDisputes: ["small-business", "identity-theft"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Power of Attorney",
-    slug: "power-of-attorney",
-    shortDef: "A legal document granting one person the authority to act on another person's behalf in financial, legal, or medical matters.",
-    longDef: `A power of attorney (POA) is a legal document in which one person (the "principal") grants another person (the "agent" or "attorney-in-fact") the authority to act on their behalf in specified matters, which can range from a single transaction (a "limited" or "special" power of attorney) to broad authority over most financial and legal decisions (a "general" power of attorney). A "durable" power of attorney remains in effect even if the principal later becomes incapacitated, which is why they're commonly used in estate planning.\n\nAn agent acting under a power of attorney has a fiduciary duty to act in the principal's best interests, and misuse of that authority, using the principal's funds for the agent's own benefit, for example, can constitute financial elder abuse or breach of fiduciary duty, both of which can support a legal claim.\n\nIf you suspect a power of attorney has been misused, gathering financial records showing the specific transactions in question, along with a copy of the POA document itself defining the agent's actual authority, is the essential first step before pursuing a claim.`,
-    relatedTerms: ["fiduciary-duty", "notarized-document", "affidavit"],
-    relatedDisputes: ["elder-abuse", "identity-theft"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Cease and Desist Letter",
-    slug: "cease-and-desist-letter",
-    shortDef: "A formal written demand that a person or business stop a specific harmful, unlawful, or infringing activity.",
-    longDef: `A cease and desist letter formally demands that the recipient immediately stop a specific activity, such as harassment, defamation, trademark or copyright infringement, or unauthorized use of a name or likeness, and warns of potential legal consequences if the conduct continues. Unlike a demand letter seeking payment for a past harm, a cease and desist letter is primarily focused on stopping ongoing or repeated conduct going forward.\n\nWhile a cease and desist letter itself is not a court order and carries no independent legal force, it serves an important function: it creates a documented record showing the recipient was formally notified their conduct was unlawful, which can support a claim for damages or an injunction if the conduct continues afterward, and it can sometimes trigger enhanced remedies (like willfulness findings in IP cases) for continued violations after notice.\n\nAn effective cease and desist letter clearly identifies the specific conduct at issue, cites the legal basis (a specific law, trademark registration, or contractual right), and states a clear deadline and consequence for non-compliance.`,
-    relatedTerms: ["demand-letter", "intellectual-property", "damages"],
-    relatedDisputes: ["debt-collection", "small-business", "neighbor-dispute"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Release of Liability",
-    slug: "release-of-liability",
-    shortDef: "A document in which one party agrees to give up their right to sue another party for specified claims.",
-    longDef: `A release of liability is a legal document in which one party (the "releasor") agrees to give up, or "release," their right to bring specified legal claims against another party (the "releasee"), often in exchange for a payment or other consideration. Releases are commonly used to settle personal injury claims, resolve disputes as part of a settlement agreement, or waive liability in advance for activities with inherent risk (such as a gym membership or recreational activity waiver).\n\nA release's scope matters enormously: some are narrow, covering only a specific known claim, while others are broad, covering "any and all claims, known or unknown," arising from a particular event or relationship. Courts generally enforce releases as written, so it's important to understand exactly what rights are being given up before signing, especially in a personal injury settlement where future medical complications might not yet be known.\n\nBecause a signed release is typically final and difficult to undo, it's worth fully evaluating the value of a claim, including potential future damages, before agreeing to release it in exchange for a settlement payment.`,
-    relatedTerms: ["settlement-agreement", "mutual-release", "waiver"],
-    relatedDisputes: ["personal-injury", "insurance-claim", "small-business"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Settlement Agreement",
-    slug: "settlement-agreement",
-    shortDef: "A legally binding contract resolving a dispute, typically involving a payment and a release of related legal claims.",
-    longDef: `A settlement agreement is a binding contract in which the parties to a dispute agree to specific terms to resolve their disagreement without further litigation, typically involving a payment from one party to the other and a release of the underlying legal claims. Settlements can be reached at any stage of a dispute, before a lawsuit is even filed, during litigation, or even after a trial is underway.\n\nOnce signed, a settlement agreement is generally enforceable as a contract in its own right, meaning that if a party fails to honor its terms (such as failing to make an agreed payment), the other party can sue to enforce the settlement agreement itself, sometimes through a simpler process than the original underlying claim would have required.\n\nA well-drafted settlement agreement specifies the exact payment amount and deadline, precisely what claims are being released, confidentiality terms if applicable, and what happens if either party fails to comply, details worth reviewing carefully, or having reviewed by an attorney, before signing.`,
-    relatedTerms: ["release-of-liability", "mutual-release", "demand-letter"],
-    relatedDisputes: ["personal-injury", "small-business", "employment-dispute"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Notice of Intent to Sue",
-    slug: "notice-of-intent-to-sue",
-    shortDef: "A formal letter informing a party that a lawsuit will be filed against them unless the dispute is resolved beforehand.",
-    longDef: `A notice of intent to sue is a formal letter, similar to a demand letter but often more explicit, informing the recipient that legal action is being seriously considered or planned unless the dispute is resolved within a stated deadline. Some types of claims legally require this type of formal notice before a lawsuit can be filed at all, most notably claims against government entities, which often require a specific notice within a short window (sometimes as little as 60 to 180 days) after the incident, and certain medical malpractice or product liability claims in specific states.\n\nEven when not legally required, sending a clear notice of intent to sue can be strategically valuable: it gives the recipient a final, unambiguous opportunity to resolve the matter, and it establishes a documented record showing a genuine attempt at resolution before litigation, which courts and opposing counsel often view favorably.\n\nBecause claims against government agencies often have unusually short and strict notice deadlines, it's especially important to check the specific requirements early if your dispute involves a city, county, state, or federal entity.`,
-    relatedTerms: ["demand-letter", "statute-of-limitations", "complaint"],
-    relatedDisputes: ["personal-injury", "small-business", "employment-dispute"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Certificate of Service",
-    slug: "certificate-of-service",
-    shortDef: "A document certifying that legal papers were properly delivered to the other party in a case.",
-    longDef: `A certificate of service is a document, often a simple signed statement attached to a court filing, certifying that a copy of the filing was properly delivered to the other parties involved in the case, along with the date and method of delivery (mail, email, personal delivery, etc.). Courts require this documentation to confirm that all parties received fair notice of filings throughout a case, consistent with due process requirements.\n\nWhile most closely associated with formal court filings, keeping a similar informal record, proof of mailing, delivery confirmation, or email timestamps, when sending a demand letter is also valuable. It establishes exactly when the recipient was given notice of your claim, which can matter for demonstrating good-faith efforts to resolve the dispute or for establishing when a response deadline began running.\n\nSending important documents, including demand letters, by a method that generates proof of delivery (certified mail with return receipt, or email with read confirmation) is a simple way to create this kind of record even outside of formal litigation.`,
-    relatedTerms: ["service-of-process", "demand-letter", "evidence"],
-    relatedDisputes: ["small-business", "unpaid-invoice"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Waiver",
-    slug: "waiver",
-    shortDef: "The voluntary and intentional giving up of a known legal right or claim.",
-    longDef: `A waiver is the voluntary and intentional relinquishment of a known legal right. Waivers can be explicit (a signed document, such as a liability waiver before a recreational activity) or implied through conduct (such as a landlord who repeatedly accepts late rent without objection potentially waiving the right to strictly enforce a lease's on-time payment clause going forward).\n\nCourts generally require that a waiver be made knowingly and voluntarily; a party cannot be found to have waived a right they didn't know they had, or that they were pressured or misled into giving up. Some rights, including certain fundamental consumer protections, cannot be waived at all regardless of what a contract says, because doing so would violate public policy.\n\nBefore signing a waiver, whether for a recreational activity, employment issue, or as part of a settlement, it's important to understand exactly which specific rights or claims are being given up, since a broadly worded waiver can sometimes cover more than the signer initially expected.`,
-    relatedTerms: ["release-of-liability", "settlement-agreement", "unconscionability"],
-    relatedDisputes: ["personal-injury", "gym-membership", "small-business"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Retainer Agreement",
-    slug: "retainer-agreement",
-    shortDef: "A contract between a client and an attorney (or other professional) establishing the scope of work and fee arrangement.",
-    longDef: `A retainer agreement is a contract between a client and a professional, most commonly an attorney, establishing the scope of the services to be provided and the fee arrangement, whether that's an hourly rate, a flat fee, a contingency fee (a percentage of any recovery, common in personal injury cases), or an upfront retainer fee held in trust and drawn down as work is performed.\n\nA clear retainer agreement should specify exactly what work is covered, how fees are calculated and billed, what expenses the client is responsible for separately, and the circumstances under which either party can end the relationship. Most states require these terms to be in writing, especially for contingency fee arrangements.\n\nIf you're considering hiring an attorney to help with a dispute after a demand letter goes unanswered, reviewing the retainer agreement's fee structure carefully, and asking specifically how costs like filing fees and expert witnesses are handled, helps avoid unexpected costs later.`,
-    relatedTerms: ["settlement-agreement", "demand-letter"],
-    relatedDisputes: ["personal-injury", "small-business", "wrongful-termination"],
-    category: "Legal Documents",
-  },
-  {
-    term: "Bill of Particulars",
-    slug: "bill-of-particulars",
-    shortDef: "A formal request or document that provides a detailed, itemized breakdown of a claim's specific facts or damages.",
-    longDef: `A bill of particulars is a formal document, either requested by a defendant or voluntarily provided by a plaintiff, that lays out the specific factual details underlying a claim in more depth than a general complaint provides, including a detailed breakdown of the damages being claimed. It's used to clarify vague allegations and prevent a defendant from being surprised later in the case by claims or damages that weren't clearly disclosed up front.\n\nIn debt collection cases specifically, some states allow, or require, a consumer to request an itemized bill of particulars from the plaintiff creditor, showing exactly how the claimed debt amount was calculated, including principal, interest, and fees. This can be a powerful tool when a debt collection lawsuit doesn't clearly explain how it arrived at the amount being demanded.\n\nWhether responding to a lawsuit or drafting your own demand, providing (or requesting) this level of itemized detail, rather than a single lump-sum figure, makes it much easier for both sides, and eventually a judge, to evaluate whether the claimed amount is accurate.`,
-    relatedTerms: ["complaint", "debt-validation", "damages"],
-    relatedDisputes: ["debt-collection", "unpaid-invoice"],
-    category: "Legal Documents",
-  },
+    term: "Breach of Contract",
+    slug: "breach-of-contract",
+    shortDef: "The failure of one party to perform any duty or obligation specified in a legally binding agreement without legal excuse.",
+    longDef: `A breach of contract occurs when one party fails, without legal excuse, to fulfill any of its obligations under a valid, enforceable agreement. This can include failing to deliver goods or services, paying late or not at all, or violating specific terms like confidentiality or exclusivity clauses. Breaches are typically categorized as either material or minor.
 
-  // ---------------------------------------------------------------------
-  // Dispute Resolution
-  // ---------------------------------------------------------------------
-  {
-    term: "Mediation",
-    slug: "mediation",
-    shortDef: "A voluntary process where a neutral third party helps disputing parties reach a mutually acceptable resolution.",
-    longDef: `Mediation is a form of alternative dispute resolution where a neutral third party, the mediator, helps disputing parties communicate and negotiate toward a mutually acceptable resolution. Unlike a judge or arbitrator, a mediator has no authority to impose a decision; their role is to facilitate discussion, help each side understand the other's position, and explore possible compromises.\n\nMediation is typically voluntary, confidential, and non-binding unless and until the parties reach and sign a formal settlement agreement, at which point it becomes an enforceable contract. Many courts offer or require mediation before certain types of cases, particularly family law and some civil disputes, can proceed to trial, and many contracts include a mediation clause requiring parties to attempt mediation before pursuing arbitration or litigation.\n\nBecause mediation is generally far less expensive and faster than litigation, and gives both parties more control over the outcome than a judge or arbitrator would, it's often worth proposing mediation, even informally, before a dispute escalates to a lawsuit.`,
-    relatedTerms: ["arbitration", "alternative-dispute-resolution", "settlement"],
-    relatedDisputes: ["small-business", "contractor-dispute", "employment-dispute"],
-    category: "Dispute Resolution",
+A material breach is a significant failure that undermines the core purpose of the contract, allowing the other party to treat the contract as terminated and sue for damages. A minor breach is a partial failure that does not excuse the other side from their own obligations but may still support a claim for damages.
+
+When a breach occurs, the non-breaching party generally has a duty to mitigate their damages, meaning they must take reasonable steps to minimize their losses rather than letting them pile up. A demand letter is often the first formal step after a breach, putting the other party on notice and giving them a chance to cure the problem before litigation begins.`,
+    relatedTerms: ["consideration", "specific-performance", "damages", "good-faith"],
+    category: "Contract Law",
   },
   {
-    term: "Arbitration",
-    slug: "arbitration",
-    shortDef: "A private dispute resolution process where a neutral arbitrator hears both sides and issues a decision outside of court.",
-    longDef: `Arbitration is a private alternative to court litigation in which a neutral arbitrator (or panel of arbitrators) hears evidence and arguments from both sides and issues a decision, called an award, resolving the dispute. Arbitration can be binding (the decision is final and enforceable, with only very limited grounds for court review) or non-binding (either party can reject the outcome and still pursue litigation).\n\nMany consumer, employment, and business contracts include a mandatory arbitration clause requiring disputes to be resolved through arbitration rather than a public lawsuit, often also including a waiver of the right to participate in a class action. These clauses are generally enforceable under the Federal Arbitration Act, though courts can strike them down in cases of extreme unconscionability.\n\nArbitration is typically faster and more private than litigation, but it also has downsides worth understanding: discovery is usually more limited, arbitrator decisions are very difficult to appeal even if legally incorrect, and arbitration fees (sometimes split between the parties) can be substantial depending on the arbitration provider and claim size.`,
-    relatedTerms: ["binding-arbitration", "arbitration-clause", "mediation", "class-action"],
-    relatedDisputes: ["employment-dispute", "small-business", "subscription-cancellation"],
-    category: "Dispute Resolution",
+    term: "Uniform Commercial Code",
+    slug: "ucc",
+    shortDef: "A comprehensive set of standardized laws governing commercial transactions, including the sale of goods, adopted in all 50 states.",
+    longDef: `The Uniform Commercial Code is a comprehensive body of law governing commercial transactions in the United States, adopted in some form by all 50 states and the District of Columbia. Its most relevant provisions for consumer disputes are found in Article 2, which covers the sale of goods, including implied warranties, remedies for breach, and rules about acceptance and rejection of non-conforming goods.
+
+The UCC applies to transactions in goods, meaning tangible, movable items, rather than services or real estate. When a dispute involves a mix of goods and services, courts typically apply the predominant purpose test to determine whether the UCC or common law contract principles govern. The UCC provides default rules that fill gaps in agreements between parties, so even when a contract does not address a particular issue, the UCC may provide an answer.
+
+For consumer disputes, the UCC is particularly important because it provides the legal foundation for implied warranty claims, sets rules for when a buyer can reject defective goods, and establishes the remedies available when a seller fails to deliver conforming merchandise.`,
+    relatedTerms: ["breach-of-contract", "implied-warranty", "warranty", "good-faith"],
+    category: "Contract Law",
   },
   {
-    term: "Settlement",
-    slug: "settlement",
-    shortDef: "A mutually agreed resolution to a dispute that avoids the need for a trial or further litigation.",
-    longDef: `A settlement is a mutually agreed resolution to a legal dispute reached by the parties themselves, rather than a decision imposed by a judge, jury, or arbitrator. Settlements can happen at any point, before a claim is even filed, during negotiations following a demand letter, mid-litigation, or even during trial, and typically involve one party paying money, providing some other remedy, or both, in exchange for the other party dropping or releasing their claims.\n\nThe vast majority of civil disputes, by some estimates over 90%, resolve through settlement rather than a final court judgment, largely because settlement avoids the cost, delay, and uncertainty inherent in litigation for both sides. Settlements are typically documented in a written settlement agreement to make the terms clear and legally enforceable.\n\nWhen evaluating a settlement offer, it helps to compare it honestly against the likely range of outcomes if the case proceeded further, factoring in the cost, time, and uncertainty of continued negotiation or litigation, not just the difference between the offer and your original demand.`,
-    relatedTerms: ["settlement-agreement", "demand-letter", "negotiation"],
-    relatedDisputes: ["personal-injury", "small-business", "insurance-claim"],
-    category: "Dispute Resolution",
+    term: "Good Faith",
+    slug: "good-faith",
+    shortDef: "The implied legal duty requiring parties to a contract to act honestly and not undermine each other's reasonable expectations.",
+    longDef: `Good faith, also referred to as the implied covenant of good faith and fair dealing, is a legal duty that exists automatically in virtually every contract, even if it is never written down. It requires each party to act honestly and to avoid actions that would deprive the other side of the benefits they reasonably expected from the agreement.
+
+Violations of this duty can include deliberately withholding information needed to perform, manufacturing a pretext to avoid an obligation, exercising discretion granted under a contract in a way designed purely to harm the other party, or unreasonably delaying performance. This doctrine is frequently invoked in insurance disputes, where an insurer's unreasonable delay or denial of a valid claim can constitute bad faith.
+
+Even when a contract's literal terms do not seem to have been violated, a pattern of dishonest or obstructive conduct by the other side may still support a claim for breach of the implied covenant of good faith. Documenting such conduct and mentioning it in a demand letter can add significant weight to your position.`,
+    relatedTerms: ["bad-faith", "breach-of-contract", "consideration", "settlement"],
+    category: "Contract Law",
   },
   {
-    term: "Negotiation",
-    slug: "negotiation",
-    shortDef: "The direct back-and-forth process between disputing parties aimed at reaching a voluntary resolution.",
-    longDef: `Negotiation is the direct process of communication between disputing parties, or their representatives, aimed at reaching a voluntary resolution without involving a third party like a mediator or arbitrator. Negotiation can happen informally through phone calls and emails, or more formally through a structured exchange of written settlement demands and counteroffers, often beginning with a demand letter.\n\nEffective negotiation generally starts with a clear, well-supported opening position (a demand letter with documented facts and a specific requested remedy), and proceeds through a series of offers and counteroffers, each side adjusting based on the strength of the other's arguments and evidence. Understanding your realistic best alternative if negotiation fails, whether that's small claims court, arbitration, or simply walking away, helps set a rational floor for what settlement terms are actually worth accepting.\n\nKeeping negotiation communications professional and focused on facts, rather than emotional or personal, tends to produce better outcomes and also protects you if the dispute later proceeds to a more formal process where your prior communications might be reviewed.`,
-    relatedTerms: ["demand-letter", "settlement", "mediation"],
-    relatedDisputes: ["small-business", "contractor-dispute", "unpaid-invoice"],
-    category: "Dispute Resolution",
+    term: "Bad Faith",
+    slug: "bad-faith",
+    shortDef: "Intentionally dishonest, deceptive, or unfair conduct by a party to a contract or insurance agreement.",
+    longDef: `Bad faith is the opposite of good faith and refers to conduct that is intentionally dishonest, deceptive, or designed to deprive another party of the benefits they are entitled to under an agreement. In contract law, bad faith can include deliberately sabotaging performance, using a contract provision in a way that contradicts the reasonable expectations of the parties, or manufacturing excuses to avoid obligations.
+
+Bad faith is most commonly litigated in the insurance context, where it refers to an insurer's unreasonable denial, delay, or underpayment of a valid claim. Insurance bad faith can give rise to damages far beyond the value of the underlying claim, including emotional distress damages and punitive damages in many states, because of the special relationship of trust between insurers and policyholders.
+
+Alleging bad faith in a demand letter can be a powerful tool because it signals to the recipient that their conduct, not just the underlying contractual obligation, is at issue. This can increase the stakes for the recipient and create additional incentive to settle, particularly in insurance disputes where bad faith exposure can dwarf the original claim amount.`,
+    relatedTerms: ["good-faith", "breach-of-contract", "damages", "punitive-damages"],
+    category: "Contract Law",
   },
   {
-    term: "Alternative Dispute Resolution (ADR)",
-    slug: "alternative-dispute-resolution",
-    shortDef: "Methods of resolving disputes outside of traditional courtroom litigation, including mediation and arbitration.",
-    longDef: `Alternative dispute resolution (ADR) is an umbrella term covering methods of resolving legal disputes outside the traditional courtroom litigation process, most commonly mediation and arbitration, but also including less formal methods like structured negotiation or early neutral evaluation. ADR methods generally aim to resolve disputes faster, more privately, and at lower cost than a full lawsuit.\n\nADR can be voluntary (parties choose to pursue it after a dispute arises) or contractually mandatory (a contract requires disputes to go through mediation, arbitration, or both before litigation is even permitted). Many courts also incorporate ADR into the litigation process itself, requiring parties to attempt mediation before a trial date will be set.\n\nBefore assuming a dispute must go to court, it's worth checking whether any relevant contract includes an ADR clause and understanding whether that process is mandatory, since skipping a required ADR step can sometimes delay or complicate a later lawsuit.`,
-    relatedTerms: ["mediation", "arbitration", "arbitration-clause"],
-    relatedDisputes: ["small-business", "employment-dispute", "contractor-dispute"],
-    category: "Dispute Resolution",
+    term: "Specific Performance",
+    slug: "specific-performance",
+    shortDef: "A court order requiring a party to actually perform their contractual obligations rather than simply paying money damages.",
+    longDef: `Specific performance is an equitable remedy where a court orders a breaching party to actually complete the action they agreed to do, rather than just pay monetary damages. Courts reserve this remedy for situations where money alone would not adequately compensate the injured party, most commonly in real estate transactions involving unique property or contracts involving one-of-a-kind goods.
+
+Because specific performance is considered an extraordinary remedy, courts are far less willing to grant it for service contracts, as they generally will not force someone to perform personal services against their will, or in situations where monetary damages would work just as well. The party requesting specific performance must typically show that they are ready, willing, and able to perform their own obligations under the contract.
+
+Most consumer and small business disputes are better suited to money damages rather than specific performance, but for unique situations, a rare antique, a one-of-a-kind property, a custom fabrication, it is worth knowing this remedy exists and can be requested in a demand letter or lawsuit.`,
+    relatedTerms: ["breach-of-contract", "damages", "injunction", "consideration"],
+    category: "Contract Law",
   },
   {
-    term: "Binding Arbitration",
-    slug: "binding-arbitration",
-    shortDef: "An arbitration process where the arbitrator's decision is final and legally enforceable, with very limited grounds for appeal.",
-    longDef: `Binding arbitration is a form of arbitration in which the arbitrator's final decision, the award, is legally enforceable and generally cannot be appealed or overturned except in extremely narrow circumstances, such as arbitrator fraud, corruption, or exceeding the scope of their authority under the arbitration agreement. This is a key distinction from non-binding arbitration, where either party retains the right to reject the outcome and pursue litigation instead.\n\nBecause binding arbitration decisions are so difficult to challenge, courts require that the arbitration clause creating this obligation be clear and that both parties genuinely agreed to it, though courts have generally enforced these clauses even when included in standard-form consumer or employment contracts that weren't individually negotiated.\n\nBefore agreeing to binding arbitration, or when a contract you've already signed contains a binding arbitration clause, it's worth understanding that you're generally giving up your right to a jury trial and to appeal an unfavorable decision on the merits, even if you believe the arbitrator got it wrong.`,
-    relatedTerms: ["arbitration", "arbitration-clause", "class-action"],
-    relatedDisputes: ["employment-dispute", "subscription-cancellation", "small-business"],
-    category: "Dispute Resolution",
+    term: "Consideration",
+    slug: "consideration",
+    shortDef: "Something of value exchanged between the parties to a contract that makes the agreement legally enforceable.",
+    longDef: `Consideration is one of the essential building blocks of a valid contract: each party must give up something of value, whether that is money, goods, services, or a promise to do or not do something. Without consideration flowing both ways, an agreement is generally treated as an unenforceable gift promise rather than a binding contract.
+
+Consideration does not need to be monetarily equal on both sides; courts generally will not second-guess whether a deal was a good one, only whether each party actually gave something up. Past consideration, something already given before the agreement was made, generally cannot support a new contract. A promise to do something you are already legally obligated to do also typically fails as consideration.
+
+When disputing a contract or drafting a demand letter, it can help to point to the specific consideration you provided, whether payment made, services rendered, or deposit paid, since it establishes that a valid, binding agreement existed in the first place and gives the other party a clear obligation to fulfill their end.`,
+    relatedTerms: ["breach-of-contract", "good-faith", "counteroffer", "promissory-estoppel"],
+    category: "Contract Law",
   },
   {
-    term: "Demand for Arbitration",
-    slug: "demand-for-arbitration",
-    shortDef: "The formal document that initiates an arbitration proceeding, similar to how a complaint starts a lawsuit.",
-    longDef: `A demand for arbitration is the formal document that starts an arbitration proceeding, filed with the arbitration provider specified in the underlying contract (commonly organizations like the American Arbitration Association or JAMS) rather than with a court. It typically identifies the parties, describes the nature of the dispute, cites the contract clause requiring arbitration, and states the relief being sought.\n\nFiling a demand for arbitration usually requires paying a filing fee to the arbitration provider, which can be more expensive than a small claims court filing fee, though some arbitration providers offer reduced consumer fee schedules, and many contracts require the business to cover most or all of the arbitration costs for the consumer.\n\nBefore filing a demand for arbitration, it's worth reviewing the specific arbitration clause carefully, since it typically dictates which arbitration provider must be used, where the arbitration must take place, and any specific procedural requirements that must be followed for the demand to be valid.`,
-    relatedTerms: ["arbitration", "arbitration-clause", "binding-arbitration"],
-    relatedDisputes: ["employment-dispute", "subscription-cancellation", "small-business"],
-    category: "Dispute Resolution",
+    term: "Counteroffer",
+    slug: "counteroffer",
+    shortDef: "A response to an offer that changes the terms and operates as a rejection of the original offer while proposing a new one.",
+    longDef: `A counteroffer is a response to an original offer that changes one or more terms, effectively rejecting the original offer and proposing a new one in its place. Under traditional contract law, a counteroffer terminates the original offer, meaning the original offeror is no longer bound by their initial proposal and the party who made the counteroffer cannot later go back and accept the original terms.
+
+Counteroffers are a normal part of negotiation in business transactions, real estate deals, settlement discussions, and employment negotiations. Each counteroffer creates a new proposal that the other party can accept, reject, or counter again. A binding contract is formed only when one party makes an offer that the other accepts without modification.
+
+Understanding counteroffers is important in settlement negotiations arising from demand letters. If you send a demand letter requesting $5,000 and the recipient responds offering $2,000, that is a counteroffer that you can accept, reject, or counter. Simply making a counteroffer does not lock either party into a deal unless and until both sides agree to the same terms.`,
+    relatedTerms: ["consideration", "settlement", "settlement-agreement", "good-faith"],
+    category: "Contract Law",
   },
   {
-    term: "Mutual Release",
-    slug: "mutual-release",
-    shortDef: "An agreement in which both parties to a dispute simultaneously release each other from all related legal claims.",
-    longDef: `A mutual release is a settlement provision in which both parties agree to release one another from claims related to their dispute, as opposed to a one-way release where only one side gives up their claims. Mutual releases are common when both sides have plausible claims against each other, such as a contract dispute where each party believes the other breached first.\n\nA mutual release typically specifies the exact scope of claims being released on both sides, and whether it covers only known claims or extends to unknown claims that might not yet be apparent. Because both parties are giving something up, mutual releases can sometimes be reached more easily than one-sided settlements, since neither side has to fully "win" or "lose" the underlying dispute.\n\nWhen negotiating a mutual release, it's worth considering whether you might have claims against the other party you're not yet aware of, particularly in ongoing business relationships, since a broadly worded mutual release could waive those claims too.`,
-    relatedTerms: ["release-of-liability", "settlement-agreement", "settlement"],
-    relatedDisputes: ["small-business", "contractor-dispute", "employment-dispute"],
-    category: "Dispute Resolution",
+    term: "Promissory Estoppel",
+    slug: "promissory-estoppel",
+    shortDef: "A legal doctrine that enforces a promise even without a formal contract when the promisee reasonably relied on it to their detriment.",
+    longDef: `Promissory estoppel is a legal doctrine that allows a court to enforce a promise even in the absence of a formal contract with consideration when it would be unjust not to do so. To invoke promissory estoppel, you generally must show that a clear and definite promise was made, that you reasonably relied on that promise, that your reliance led to a substantial and foreseeable detriment, and that enforcing the promise is necessary to prevent injustice.
+
+This doctrine is commonly raised when someone acts on a verbal promise or informal assurance that does not meet all the technical requirements of a binding contract. For example, if an employer promises a job candidate that they will be employed for at least a year, the candidate quits their current job in reliance on that promise, and then the employer rescinds the offer, promissory estoppel might allow the candidate to recover damages despite the absence of a formal employment contract.
+
+Promissory estoppel is a backup theory rather than a primary one. Courts generally prefer to enforce actual contracts, but when the elements of promissory estoppel are met, it can prevent parties from breaking promises that others have reasonably relied upon to their detriment.`,
+    relatedTerms: ["consideration", "breach-of-contract", "unjust-enrichment", "damages"],
+    category: "Contract Law",
   },
   {
-    term: "Without Prejudice",
-    slug: "without-prejudice",
-    shortDef: "A label on settlement communications indicating they cannot later be used as evidence if the dispute goes to court.",
-    longDef: `"Without prejudice" is a legal designation applied to settlement communications, offers, and negotiations to indicate they are being made for the purpose of reaching a resolution and cannot later be used as evidence of liability if the matter proceeds to litigation. This protection encourages open, honest settlement discussions by ensuring that an offer to compromise isn't later held against the offering party as an admission of fault.\n\nThis concept is closely related to Federal Rule of Evidence 408 (and similar state rules), which generally makes settlement offers and related statements inadmissible to prove liability or the amount of a disputed claim, though these statements can sometimes still be used for other purposes, such as proving a party's bias.\n\nWhen sending settlement communications you want this protection to apply to, it's common practice to explicitly label the communication "without prejudice" or "for settlement purposes only," and to avoid mixing settlement discussion with unrelated factual admissions that wouldn't be protected.`,
-    relatedTerms: ["negotiation", "settlement", "settlement-agreement"],
-    relatedDisputes: ["small-business", "personal-injury", "insurance-claim"],
-    category: "Dispute Resolution",
+    term: "Unjust Enrichment",
+    slug: "unjust-enrichment",
+    shortDef: "A legal claim that one party has unfairly benefited at another's expense without a legal justification and should pay for the benefit received.",
+    longDef: `Unjust enrichment is a legal claim that allows a person to recover the value of a benefit they conferred on another party when it would be unfair for the recipient to retain that benefit without paying for it. Unlike breach of contract, unjust enrichment does not require a valid contract between the parties. Instead, it is based on the principle that no one should be unjustly enriched at another's expense.
+
+To prove unjust enrichment, a claimant generally must show that they conferred a benefit on the defendant, that the defendant was aware of and accepted the benefit, and that it would be inequitable for the defendant to retain the benefit without compensating the claimant. Common examples include paying for improvements to someone else's property based on a later-failed agreement, performing work that was promised payment but never formalized in a contract, or overpaying due to a billing error.
+
+Unjust enrichment is a particularly useful legal theory when there is no written contract to enforce or when a contract turns out to be unenforceable for technical reasons. Including it as an alternative cause of action in a demand letter can strengthen your position by providing an additional path to recovery.`,
+    relatedTerms: ["quantum-meruit", "promissory-estoppel", "restitution", "breach-of-contract"],
+    category: "Contract Law",
+  },
+  {
+    term: "Quantum Meruit",
+    slug: "quantum-meruit",
+    shortDef: "A legal claim for the reasonable value of services rendered when there is no enforceable contract specifying payment.",
+    longDef: `Quantum meruit, a Latin phrase meaning as much as is deserved, is a legal theory that allows a person to recover the reasonable value of services they provided to another party when there is no enforceable contract specifying compensation. It is closely related to unjust enrichment but focuses specifically on the value of services rendered rather than benefits conferred more broadly.
+
+Quantum meruit claims commonly arise when work is performed under an oral agreement that does not specify a price, when a contract is unenforceable due to a technicality, when work exceeds the scope of an existing contract with the other party's knowledge and tacit approval, or when a contract is terminated before completion and the performing party seeks payment for work already done.
+
+The recovery in a quantum meruit claim is typically measured by the reasonable market value of the services provided, not necessarily the price originally discussed or expected. Including quantum meruit as an alternative theory in a demand letter is particularly useful in contractor and freelancer disputes where the scope of work expanded beyond the original agreement or where a formal written contract was never executed.`,
+    relatedTerms: ["unjust-enrichment", "breach-of-contract", "restitution", "consideration"],
+    category: "Contract Law",
+  },
+  {
+    term: "Class Action Waiver",
+    slug: "class-action-waiver",
+    shortDef: "A contractual provision requiring consumers to resolve disputes individually rather than joining or leading a class action lawsuit.",
+    longDef: `A class action waiver is a provision commonly found in consumer contracts, terms of service, and employment agreements that requires the parties to resolve any disputes on an individual basis rather than as part of a class action lawsuit. These waivers are frequently paired with mandatory arbitration clauses, meaning disputes must be resolved through individual arbitration rather than collective legal action.
+
+The Supreme Court has generally upheld class action waivers as enforceable under the Federal Arbitration Act, even when they effectively eliminate consumers' ability to pursue small-value claims that would only be economically viable as a group. However, some state courts have found class action waivers unenforceable in specific circumstances, particularly where the waiver would effectively prevent consumers from vindicating their statutory rights.
+
+If your dispute involves a contract with a class action waiver, your options may be limited to individual arbitration or small claims court. Checking whether the waiver is enforceable under your state's law, and whether an existing class action has already been certified despite the waiver, is an important early step in your dispute strategy.`,
+    relatedTerms: ["arbitration-clause", "class-action", "arbitration", "consumer-protection"],
+    category: "Contract Law",
   },
   {
     term: "Arbitration Clause",
     slug: "arbitration-clause",
-    shortDef: "A contract provision requiring disputes to be resolved through arbitration rather than through the court system.",
-    longDef: `An arbitration clause is a specific provision within a contract requiring that any disputes arising from the agreement be resolved through arbitration rather than a traditional lawsuit. These clauses are extremely common in consumer contracts, employment agreements, and terms of service for online platforms, and are generally enforceable under the Federal Arbitration Act, even when included in standard, non-negotiable form contracts.\n\nArbitration clauses typically specify which arbitration provider will administer the process, where arbitration hearings will take place, which state's law applies, and often include a class action waiver preventing the signer from joining or bringing a class action related to the dispute. Some clauses also specify who pays the arbitration fees, which can significantly affect whether pursuing a claim is practical.\n\nBefore assuming you can file in small claims court or sue in a regular lawsuit, it's important to check whether the relevant contract, terms of service, employment agreement, gym membership, includes an arbitration clause, since many courts will enforce it and dismiss or pause a lawsuit filed in violation of it. Some arbitration clauses do carve out an exception allowing small claims court despite an otherwise mandatory arbitration requirement, so it's worth reading the specific language closely.`,
-    relatedTerms: ["arbitration", "binding-arbitration", "class-action"],
-    relatedDisputes: ["subscription-cancellation", "gym-membership", "employment-dispute"],
-    category: "Dispute Resolution",
+    shortDef: "A contract provision requiring the parties to resolve disputes through private arbitration instead of going to court.",
+    longDef: `An arbitration clause is a provision in a contract that requires the parties to submit any disputes arising from the agreement to binding arbitration rather than filing a lawsuit in court. These clauses are extremely common in consumer contracts, employment agreements, financial services agreements, and terms of service for online platforms. They are generally enforceable under the Federal Arbitration Act.
+
+Arbitration clauses vary in their terms. Some specify the arbitration provider, such as the American Arbitration Association or JAMS, the location of the arbitration, which party bears the costs, and whether the arbitrator's decision can be appealed. Many also include class action waivers preventing consumers from joining together to pursue shared claims.
+
+Before sending a demand letter or filing a lawsuit, it is important to check whether the underlying contract contains an arbitration clause. If it does, the other party can likely compel arbitration and have any court case dismissed. However, some states provide exceptions for small claims court, meaning you may still be able to pursue your claim there regardless of the arbitration clause.`,
+    relatedTerms: ["arbitration", "class-action-waiver", "breach-of-contract", "good-faith"],
+    category: "Contract Law",
   },
   {
-    term: "Good Faith Negotiation",
-    slug: "good-faith-negotiation",
-    shortDef: "The obligation to genuinely attempt to resolve a dispute honestly, rather than merely going through the motions.",
-    longDef: `Good faith negotiation refers to genuinely and honestly attempting to reach a resolution during settlement discussions, rather than simply going through the motions without any real intent to settle. While parties are generally not legally required to negotiate at all, some contracts specifically require "good faith negotiation" as a mandatory step before either side can pursue arbitration or litigation, and courts can sometimes enforce this requirement by delaying a case until it's satisfied.\n\nEvidence of bad faith in negotiation can include refusing to respond to reasonable settlement offers at all, making offers so unreasonably low they suggest no genuine intent to settle, or using negotiation purely as a delay tactic while a statute of limitations runs out.\n\nWhen a contract requires good faith negotiation before further dispute resolution steps, documenting your own genuine attempts, dates of communication, specific offers made, and the other side's responses, helps establish that you satisfied this requirement if the dispute later proceeds further.`,
-    relatedTerms: ["negotiation", "good-faith-and-fair-dealing", "settlement"],
-    relatedDisputes: ["small-business", "contractor-dispute", "employment-dispute"],
-    category: "Dispute Resolution",
+    term: "Force Majeure",
+    slug: "force-majeure",
+    shortDef: "A contract clause excusing performance when extraordinary events beyond either party's control make fulfillment impossible.",
+    longDef: `Force majeure, meaning superior force, is a contract clause that excuses a party from performing its contractual obligations when an extraordinary, unforeseeable event, such as a natural disaster, war, pandemic, or government-ordered shutdown, makes performance impossible or impracticable. These clauses only apply as narrowly as their specific wording allows, and courts generally will not read broad excuses into a contract that does not explicitly include them.
+
+A party invoking force majeure typically must show that the triggering event is specifically covered by the clause, that it actually prevented performance rather than just making it less convenient or profitable, and that they took reasonable steps to mitigate the impact. Many force majeure clauses also require the invoking party to provide prompt written notice to the other side.
+
+If you receive a force majeure excuse from a vendor or contractor, it is worth checking the actual contract language closely. Many disputes arise when a business invokes force majeure for events that do not actually qualify, such as ordinary supply delays, staffing shortages, or cost increases that do not rise to the level of impossibility or impracticability.`,
+    relatedTerms: ["breach-of-contract", "good-faith", "specific-performance", "damages"],
+    category: "Contract Law",
+  },
+  {
+    term: "Indemnification",
+    slug: "indemnification",
+    shortDef: "A contractual promise by one party to compensate the other for specific losses, damages, or legal costs that may arise.",
+    longDef: `Indemnification clauses shift financial responsibility for certain losses from one contracting party to another. For example, a contractor might agree to indemnify a homeowner against any injury claims arising from work performed on the property, meaning the contractor or their insurer would cover those costs rather than the homeowner.
+
+These clauses vary enormously in scope. Some cover only third-party claims, while others cover direct losses between the contracting parties themselves. Some include defense costs and attorney fees, while others are limited to damages paid. Courts scrutinize indemnification clauses closely, and some states limit or prohibit indemnification for a party's own negligence.
+
+When a dispute arises and a contract contains an indemnification clause, it is worth reviewing exactly what losses are covered and whether the triggering conditions have been met before assuming the clause applies to your situation. An indemnification claim referenced in a demand letter can be a powerful tool, particularly when it shifts not only damages but also the cost of legal representation.`,
+    relatedTerms: ["hold-harmless", "breach-of-contract", "liability", "damages"],
+    category: "Contract Law",
+  },
+  {
+    term: "Hold Harmless",
+    slug: "hold-harmless",
+    shortDef: "A contractual agreement where one party agrees not to hold the other responsible for certain risks, damages, or liabilities.",
+    longDef: `A hold harmless clause, also called a hold harmless agreement, is a contractual provision in which one party agrees not to hold the other party legally responsible for certain risks, liabilities, or damages that may arise from the agreement or activity. Hold harmless clauses are often paired with indemnification provisions and are common in construction contracts, service agreements, event participation waivers, and lease agreements.
+
+Hold harmless agreements can be unilateral, where only one party is protected, or mutual, where both parties agree to absorb their own risks. The enforceability of these clauses depends on factors including the clarity of the language, the relative bargaining power of the parties, whether the clause covers the specific type of harm at issue, and whether enforcing it would violate public policy.
+
+Many states limit or void hold harmless clauses that attempt to shield a party from liability for their own gross negligence or intentional misconduct. If you signed a hold harmless agreement and later suffered harm, the clause may not be as absolute as it appears, and it is worth reviewing the specific language and your state's law before assuming you have no claim.`,
+    relatedTerms: ["indemnification", "liability", "release-of-claims", "negligence"],
+    category: "Contract Law",
+  },
+  {
+    term: "Release of Claims",
+    slug: "release-of-claims",
+    shortDef: "A legal agreement in which one party gives up the right to pursue specific legal claims against another party.",
+    longDef: `A release of claims is a legally binding agreement in which one party voluntarily relinquishes the right to pursue certain legal claims against another party. Releases are commonly included in settlement agreements, severance packages, personal injury settlements, and various types of waivers. Once signed, a valid release generally bars the releasing party from later suing on the released claims.
+
+The scope of a release can vary dramatically. Some releases are narrow, covering only a specific incident or claim, while others are broad, releasing all claims of any kind that the releasing party may have against the other, whether known or unknown, at the time of signing. Because broad releases can extinguish claims the signer was not even aware of, they should be reviewed very carefully before signing.
+
+Some states, notably California, have specific statutory protections regarding releases of unknown claims, requiring explicit waiver language before unknown claims can be released. If you are asked to sign a release as part of a settlement or severance, understanding exactly which claims you are giving up is one of the most important steps in the process.`,
+    relatedTerms: ["settlement-agreement", "mutual-release", "settlement", "hold-harmless"],
+    category: "Contract Law",
+  },
+  {
+    term: "Mutual Release",
+    slug: "mutual-release",
+    shortDef: "An agreement where both parties simultaneously release each other from all claims arising from a dispute.",
+    longDef: `A mutual release is an agreement in which both parties to a dispute simultaneously release each other from any and all claims they may have against one another arising from the disputed matter. Mutual releases are the most common form of settlement documentation because they provide finality for both sides, ensuring that neither party can come back later to assert additional claims related to the same dispute.
+
+The mutual release typically specifies the scope of claims being released, the consideration being exchanged, usually a payment or other agreed-upon action, and any terms that survive the release, such as confidentiality obligations. Both parties should carefully review the scope to ensure they are comfortable releasing all covered claims.
+
+Mutual releases are particularly valuable in complex disputes where both parties may have cross-claims against each other. By exchanging releases simultaneously, both sides achieve closure and can move forward without ongoing legal exposure. In many settlement negotiations initiated by a demand letter, the mutual release is the final document that formally resolves the matter.`,
+    relatedTerms: ["release-of-claims", "settlement-agreement", "settlement", "consideration"],
+    category: "Contract Law",
+  },
+  {
+    term: "Damages",
+    slug: "damages",
+    shortDef: "The monetary compensation a court awards to a party who has been harmed by another's wrongful conduct or breach of obligation.",
+    longDef: `Damages refers to the monetary compensation awarded by a court to a party who has suffered loss, injury, or harm due to another party's wrongful conduct, breach of contract, or violation of law. The fundamental purpose of damages in civil cases is to make the injured party whole, restoring them as closely as possible to the position they would have been in if the wrong had not occurred.
+
+There are several categories of damages. Compensatory damages cover actual losses suffered, including both economic damages like medical bills, lost wages, and repair costs, and non-economic damages like pain and suffering. Punitive damages are awarded in some cases to punish particularly egregious conduct. Statutory damages are set by specific laws rather than based on actual loss. Nominal damages are small symbolic amounts awarded when a legal right was violated but no significant harm occurred.
+
+When writing a demand letter, clearly itemizing your damages with supporting documentation, such as receipts, estimates, pay stubs, and medical records, makes your claim more credible and provides a concrete basis for the amount you are requesting.`,
+    relatedTerms: ["compensatory-damages", "punitive-damages", "actual-damages", "restitution"],
+    category: "Damages",
+  },
+  {
+    term: "Compensatory Damages",
+    slug: "compensatory-damages",
+    shortDef: "Money awarded to reimburse a plaintiff for actual losses suffered, including both economic and non-economic harm.",
+    longDef: `Compensatory damages are the most common type of damages awarded in civil cases, designed to compensate the injured party for actual losses they suffered as a direct result of the defendant's wrongful conduct. They are divided into two subcategories: economic damages, which cover quantifiable financial losses such as medical expenses, lost wages, property repair costs, and out-of-pocket expenses, and non-economic damages, which cover subjective harm such as pain and suffering, emotional distress, loss of enjoyment of life, and loss of consortium.
+
+Economic damages are typically proven through documentation such as bills, receipts, pay stubs, and expert estimates. Non-economic damages are more subjective and often depend on the severity and duration of the plaintiff's suffering, the credibility of their testimony, and comparative verdicts in similar cases. Some states cap non-economic damages in certain types of cases, particularly medical malpractice.
+
+In a demand letter, clearly separating and documenting your economic damages with supporting records, while describing the impact on your quality of life for non-economic damages, provides a comprehensive picture of your total harm and justifies the amount you are requesting.`,
+    relatedTerms: ["damages", "actual-damages", "punitive-damages", "negligence"],
+    category: "Damages",
+  },
+  {
+    term: "Punitive Damages",
+    slug: "punitive-damages",
+    shortDef: "Extra damages awarded above compensation to punish the defendant for particularly outrageous or malicious conduct and deter future misconduct.",
+    longDef: `Punitive damages, also called exemplary damages, are awarded in addition to compensatory damages to punish a defendant whose conduct was particularly egregious, malicious, fraudulent, or showed a reckless disregard for the rights or safety of others. Unlike compensatory damages, which aim to make the plaintiff whole, punitive damages are designed to punish the wrongdoer and deter similar conduct in the future.
+
+Punitive damages are not available in every case. They typically require a showing of intentional misconduct, gross negligence, or fraud, and are not usually awarded for ordinary negligence or simple breach of contract. Many states impose caps on punitive damages, either as a fixed amount or as a ratio to compensatory damages. The Supreme Court has indicated that ratios exceeding roughly 9-to-1 relative to compensatory damages may raise due process concerns.
+
+While punitive damages are relatively rare, the possibility of their award can significantly increase the stakes in a dispute. Mentioning the potential for punitive damages in a demand letter, when the defendant's conduct was truly egregious, can add leverage to settlement negotiations.`,
+    relatedTerms: ["damages", "compensatory-damages", "treble-damages", "bad-faith"],
+    category: "Damages",
+  },
+  {
+    term: "Treble Damages",
+    slug: "treble-damages",
+    shortDef: "A statutory remedy that triples the amount of actual damages awarded, commonly available under consumer protection and antitrust laws.",
+    longDef: `Treble damages are a statutory remedy that multiplies the plaintiff's actual damages by three. They are provided by specific federal and state statutes as an incentive for individuals to bring claims that serve the public interest and to impose a meaningful financial penalty on violators. Treble damages are commonly available under antitrust laws, RICO, certain consumer protection statutes, and some state deceptive trade practices laws.
+
+Unlike punitive damages, which are awarded at the discretion of a judge or jury based on the egregiousness of the defendant's conduct, treble damages are mandated by statute when specific conditions are met. The statutory language typically specifies whether the trebling is automatic upon a finding of liability or whether it requires a showing of willful or knowing misconduct.
+
+The availability of treble damages can dramatically increase the value of a claim. A demand letter that cites a statute providing for treble damages effectively tells the recipient that their $3,000 exposure could become $9,000 plus attorney fees, creating a strong incentive to settle before litigation. Checking whether your state's consumer protection law provides for treble damages is an important step in evaluating your claim.`,
+    relatedTerms: ["damages", "punitive-damages", "compensatory-damages", "consumer-protection"],
+    category: "Damages",
+  },
+  {
+    term: "Liquidated Damages",
+    slug: "liquidated-damages",
+    shortDef: "A pre-agreed amount specified in a contract to be paid if one party breaches, serving as an estimate of anticipated harm.",
+    longDef: `Liquidated damages clauses set a specific dollar figure in advance that will apply if a party breaches the contract, rather than requiring the injured party to prove their actual losses later. These clauses are common in construction contracts for late completion, leases for early termination, and event or vendor contracts for cancellation.
+
+Courts will only enforce liquidated damages clauses if the amount was a reasonable estimate of likely harm at the time the contract was signed and the actual damages would be difficult to calculate precisely. A liquidated damages clause deemed punitive, meaning the amount is so disproportionate to any reasonable estimate of harm that it functions as a penalty, can be struck down entirely, leaving the injured party to prove actual damages instead.
+
+If your contract includes a liquidated damages clause, citing it directly in a demand letter can simplify your claim considerably, since you will not need to separately prove the exact dollar value of your loss. The pre-agreed amount provides a clear, enforceable measure of damages that both parties accepted when they signed the contract.`,
+    relatedTerms: ["damages", "breach-of-contract", "compensatory-damages", "consideration"],
+    category: "Damages",
+  },
+  {
+    term: "Actual Damages",
+    slug: "actual-damages",
+    shortDef: "The real, measurable financial losses a party suffered as a direct result of another's wrongful conduct.",
+    longDef: `Actual damages, sometimes called general damages or direct damages, represent the real, quantifiable financial losses a party has suffered as a direct result of another's wrongful conduct or breach. They include out-of-pocket costs such as repair bills, replacement costs, medical expenses, lost wages, and other expenses that can be documented with receipts, invoices, and other records.
+
+Actual damages are distinguished from other types of damages like punitive damages, which punish misconduct, statutory damages, which are set by law regardless of actual loss, and nominal damages, which acknowledge a legal violation without significant monetary harm. In most civil cases, the plaintiff must prove their actual damages with reasonable certainty, meaning they need evidence that establishes both the fact of the loss and its approximate dollar amount.
+
+Documenting actual damages thoroughly is one of the most important steps in preparing a demand letter or court case. Keeping organized records of every expense, lost payment, and out-of-pocket cost related to the dispute, supported by receipts and written estimates, provides the foundation for a credible and persuasive claim.`,
+    relatedTerms: ["damages", "compensatory-damages", "nominal-damages", "evidence"],
+    category: "Damages",
+  },
+  {
+    term: "Nominal Damages",
+    slug: "nominal-damages",
+    shortDef: "A small, symbolic monetary award recognizing that a legal right was violated even though no significant financial harm was proven.",
+    longDef: `Nominal damages are a small, token monetary award, often one dollar, given by a court when a plaintiff has proven that their legal rights were violated but has not demonstrated any significant financial harm resulting from the violation. The award formally recognizes the wrong and establishes that the defendant acted improperly, even if the plaintiff suffered no measurable economic loss.
+
+Nominal damages serve several important purposes. They establish a legal precedent that a violation occurred, which can be valuable in ongoing disputes. They may also serve as the basis for recovering attorney fees under fee-shifting statutes that award fees to the prevailing party. In some contexts, winning nominal damages establishes the plaintiff as the prevailing party, unlocking additional remedies.
+
+While nominal damages themselves are financially insignificant, pursuing them can make sense when the principle of the matter is important, when the claim establishes useful legal rights for future disputes, or when the nominal damages award triggers a right to recover attorney fees that far exceed the token amount itself.`,
+    relatedTerms: ["damages", "actual-damages", "compensatory-damages", "prevailing-party"],
+    category: "Damages",
+  },
+  {
+    term: "Restitution",
+    slug: "restitution",
+    shortDef: "A legal remedy requiring the wrongdoer to return money or property to restore the injured party to their original position.",
+    longDef: `Restitution is a legal remedy that requires the party who has been unjustly enriched to return money, property, or the value of a benefit to the party from whom it was taken or received. Unlike compensatory damages, which measure the plaintiff's loss, restitution measures the defendant's gain, focusing on what the defendant received rather than what the plaintiff lost.
+
+Restitution is commonly ordered in cases involving fraud, theft, breach of fiduciary duty, unjust enrichment, and rescission of contracts. It can also be ordered as part of a criminal sentence, requiring the defendant to repay victims for their losses. In the civil context, restitution aims to prevent the wrongdoer from profiting from their misconduct.
+
+Restitution can be a more advantageous remedy than compensatory damages in some situations, particularly when the defendant's gain exceeds the plaintiff's measurable loss. For example, if someone is defrauded into selling property below market value, restitution based on the defendant's profit may exceed compensatory damages based on the plaintiff's out-of-pocket loss.`,
+    relatedTerms: ["unjust-enrichment", "damages", "quantum-meruit", "compensatory-damages"],
+    category: "Damages",
+  },
+  {
+    term: "Fair Debt Collection Practices Act",
+    slug: "fdcpa",
+    shortDef: "A federal law prohibiting abusive, deceptive, and unfair practices by third-party debt collectors when collecting consumer debts.",
+    longDef: `The Fair Debt Collection Practices Act is a federal law regulating how third-party debt collectors, though generally not original creditors collecting their own debts, may contact and pursue consumers. It prohibits harassment, such as repeated calls intended to annoy, threats of violence, or contacting a consumer at unreasonable hours, generally before 8 a.m. or after 9 p.m.
+
+The FDCPA also bars collectors from making false or misleading representations, including misrepresenting the amount owed, falsely claiming to be an attorney or government official, or threatening legal action they do not actually intend to take. Collectors must honor a consumer's written request to stop contact, except to confirm they are ceasing collection or to notify of specific further actions.
+
+Violations of the FDCPA can entitle consumers to statutory damages up to $1,000 per lawsuit, plus actual damages and attorney fees, making a well-documented demand letter citing specific violations a powerful tool for resolving harassment or getting a debt corrected. The FDCPA also requires collectors to validate debts upon request, giving consumers a right to demand proof that the amount and ownership of the debt are accurate.`,
+    relatedTerms: ["consumer-protection", "damages", "statute-of-limitations", "garnishment"],
+    category: "Federal Law",
+  },
+  {
+    term: "Fair Credit Reporting Act",
+    slug: "fcra",
+    shortDef: "A federal law regulating how consumer credit information is collected, shared, and disputed to ensure accuracy and privacy.",
+    longDef: `The Fair Credit Reporting Act is the primary federal law governing consumer credit reporting. It regulates how credit bureaus collect, maintain, and distribute consumer credit information and gives consumers specific rights to access, dispute, and correct inaccurate information on their credit reports. The three major credit bureaus, Equifax, Experian, and TransUnion, are all subject to the FCRA.
+
+Under the FCRA, consumers have the right to a free annual credit report from each bureau, the right to dispute inaccurate or incomplete information, and the right to be notified when information in their credit file is used against them, such as in a denial of credit or employment. Credit bureaus must investigate disputes within 30 days and correct or delete inaccurate information. Businesses that furnish information to credit bureaus also have obligations to report accurately and investigate disputes forwarded to them.
+
+Consumers can sue for violations of the FCRA, recovering actual damages for negligent violations and statutory damages of $100 to $1,000 per violation plus attorney fees for willful violations. A demand letter citing FCRA violations against a credit bureau or furnisher that has failed to correct inaccurate information can be particularly effective because of these statutory damage provisions.`,
+    relatedTerms: ["consumer-protection", "fdcpa", "damages", "evidence"],
+    category: "Federal Law",
+  },
+  {
+    term: "Telephone Consumer Protection Act",
+    slug: "tcpa",
+    shortDef: "A federal law restricting unsolicited telemarketing calls, text messages, and faxes, with statutory damages for violations.",
+    longDef: `The Telephone Consumer Protection Act is a federal law that restricts telemarketing calls, auto-dialed calls, pre-recorded or artificial voice messages, and unsolicited text messages and faxes. It requires telemarketers to maintain do-not-call lists, prohibits calls to numbers on the National Do Not Call Registry, and generally requires prior express consent before making automated or pre-recorded calls to cell phones.
+
+The TCPA provides a private right of action with statutory damages of $500 per violation, which can be tripled to $1,500 per violation for knowing or willful violations. Because each unwanted call or text can constitute a separate violation, damages can accumulate rapidly. This makes TCPA claims among the most commonly filed consumer protection lawsuits.
+
+If you are receiving unwanted robocalls, telemarketing calls, or automated text messages despite not having consented or after revoking your consent, documenting each instance with dates, times, phone numbers, and the content of the communication creates a strong foundation for a demand letter or TCPA lawsuit. Many TCPA cases settle for significant amounts due to the per-violation statutory damages.`,
+    relatedTerms: ["consumer-protection", "damages", "fdcpa", "class-action"],
+    category: "Federal Law",
+  },
+  {
+    term: "Health Insurance Portability and Accountability Act",
+    slug: "hipaa",
+    shortDef: "A federal law protecting the privacy and security of individuals' health information held by healthcare providers and insurers.",
+    longDef: `The Health Insurance Portability and Accountability Act is a federal law that establishes national standards for the protection of individually identifiable health information, commonly known as protected health information or PHI. HIPAA applies to covered entities, which include healthcare providers, health plans, and healthcare clearinghouses, as well as their business associates who handle PHI on their behalf.
+
+HIPAA's Privacy Rule gives patients the right to access their own medical records, request corrections, receive an accounting of disclosures, and restrict certain uses of their information. The Security Rule requires covered entities to implement safeguards to protect electronic PHI. Violations can result in civil penalties ranging from $100 to $50,000 per violation, up to $1.5 million per year for repeated violations of the same provision, as well as criminal penalties for knowing violations.
+
+It is important to note that HIPAA does not provide a private right of action, meaning individuals cannot directly sue for HIPAA violations. However, unauthorized disclosure of health information may support claims under state privacy laws, and the fact of a HIPAA violation can strengthen a demand letter or complaint in a related state-law privacy or negligence action.`,
+    relatedTerms: ["consumer-protection", "fcra", "damages", "negligence"],
+    category: "Federal Law",
+  },
+  {
+    term: "Americans with Disabilities Act",
+    slug: "ada",
+    shortDef: "A federal civil rights law prohibiting discrimination against individuals with disabilities in employment, public services, and public accommodations.",
+    longDef: `The Americans with Disabilities Act is a comprehensive federal civil rights law that prohibits discrimination against individuals with disabilities in several key areas of public life. Title I covers employment, requiring employers with 15 or more employees to provide reasonable accommodations and prohibiting discrimination in hiring, firing, promotion, and other terms of employment. Title II covers state and local government services and programs. Title III covers public accommodations, requiring businesses open to the public to be accessible to people with disabilities.
+
+The ADA defines disability broadly as a physical or mental impairment that substantially limits one or more major life activities, a record of such impairment, or being regarded as having such an impairment. Reasonable accommodations in employment can include modified work schedules, job restructuring, accessible equipment, and policy modifications, as long as they do not impose an undue hardship on the employer.
+
+Remedies for ADA violations include injunctive relief, compensatory damages, back pay in employment cases, and attorney fees. In employment cases, a charge must first be filed with the EEOC before a private lawsuit can be brought. In public accommodation cases, private plaintiffs can seek injunctive relief, and the Department of Justice can also pursue monetary damages.`,
+    relatedTerms: ["consumer-protection", "damages", "retaliation", "hostile-work-environment"],
+    category: "Federal Law",
+  },
+  {
+    term: "Freedom of Information Act",
+    slug: "foia",
+    shortDef: "A federal law giving the public the right to request access to records and documents held by federal government agencies.",
+    longDef: `The Freedom of Information Act is a federal law that gives any person the right to request access to records held by federal government agencies. Enacted in 1966, FOIA is based on the principle that the public has a right to know what its government is doing. Any person, including individuals, businesses, and organizations, can submit a FOIA request, and they do not need to provide a reason for requesting the records.
+
+Federal agencies must respond to FOIA requests within 20 business days, though extensions are common for complex requests. Agencies can withhold information under nine specific exemptions, including national security, personal privacy, law enforcement investigations, trade secrets, and internal deliberative processes. When an agency withholds records, it must specify which exemption applies and the requestor can appeal the decision.
+
+While FOIA applies only to federal agencies, every state has its own public records law, often called an open records act or sunshine law, that provides similar access to state and local government records. These laws can be useful tools when a dispute involves government agencies, regulated industries, or publicly funded programs.`,
+    relatedTerms: ["consumer-protection", "evidence", "discovery", "ada"],
+    category: "Federal Law",
+  },
+  {
+    term: "California Consumer Privacy Act",
+    slug: "ccpa",
+    shortDef: "A California state law giving residents the right to know, delete, and opt out of the sale of their personal information collected by businesses.",
+    longDef: `The California Consumer Privacy Act, as amended by the California Privacy Rights Act, is one of the most comprehensive consumer privacy laws in the United States. It gives California residents the right to know what personal information businesses collect about them, the right to delete that information, the right to opt out of the sale or sharing of their personal information, and the right to non-discrimination for exercising their privacy rights.
+
+The CCPA applies to for-profit businesses that do business in California and meet certain thresholds, including annual gross revenues over $25 million, buying or selling the personal information of 100,000 or more consumers or households, or deriving 50 percent or more of annual revenue from selling or sharing personal information. The law covers a broad range of personal information including names, addresses, browsing history, purchase history, geolocation data, and biometric information.
+
+The CCPA provides a limited private right of action specifically for data breaches resulting from a business's failure to implement reasonable security measures, with statutory damages ranging from $100 to $750 per consumer per incident. For other violations, enforcement is primarily through the California Attorney General and the newly established California Privacy Protection Agency.`,
+    relatedTerms: ["consumer-protection", "hipaa", "fcra", "damages"],
+    category: "Federal Law",
+  },
+  {
+    term: "Wrongful Termination",
+    slug: "wrongful-termination",
+    shortDef: "The illegal firing of an employee in violation of law, public policy, or the terms of an employment contract.",
+    longDef: `Wrongful termination occurs when an employer fires an employee for a reason that violates the law, an employment contract, or established public policy, even in an at-will employment state. Common categories include termination based on a protected characteristic such as race, sex, age, disability, or religion, retaliation for reporting illegal conduct or exercising a legal right, or termination that breaches an explicit or implied employment contract.
+
+Most U.S. employees are considered at-will, meaning they can generally be fired for any reason or no reason at all, but not for an illegal one. Determining whether a termination was wrongful usually requires looking at the stated reason, comparing treatment of similarly situated employees, and examining the timing relative to any protected activity, since close timing between a complaint and a firing can itself be evidence of retaliation.
+
+Before pursuing a wrongful termination claim, most employees must first file a charge with the EEOC or a state equivalent for discrimination claims within a strict deadline, often 180 to 300 days from the termination date, before they can sue in court. A demand letter to the former employer can be an effective first step, particularly when the facts strongly suggest illegal motivation.`,
+    relatedTerms: ["at-will-employment", "retaliation", "hostile-work-environment", "severance"],
+    category: "Employment",
+  },
+  {
+    term: "Wage Theft",
+    slug: "wage-theft",
+    shortDef: "An employer's failure to pay workers the full wages they are legally owed, including overtime, minimum wage, and earned commissions.",
+    longDef: `Wage theft occurs when an employer fails to pay an employee wages they are legally entitled to. Common forms include not paying overtime for hours worked beyond 40 in a week, paying less than minimum wage, requiring off-the-clock work, illegally deducting expenses from paychecks, misclassifying employees as independent contractors to avoid overtime and benefits, or simply not paying a final paycheck after termination.
+
+The federal Fair Labor Standards Act sets baseline wage and overtime protections, and most states have their own wage laws that can provide even stronger protections, including specific deadlines for final paycheck delivery and penalties for late payment. Wage theft is one of the most widespread labor violations, affecting millions of workers across all industries.
+
+Employees pursuing a wage theft claim should gather pay stubs, time records, and any employer communications about hours or pay before sending a demand letter. Many states allow recovery of not just unpaid wages but also liquidated damages, often doubling the amount owed, and attorney fees, which can substantially increase the value of a claim.`,
+    relatedTerms: ["wrongful-termination", "at-will-employment", "damages", "retaliation"],
+    category: "Employment",
+  },
+  {
+    term: "Workers' Compensation",
+    slug: "workers-compensation",
+    shortDef: "A state-mandated insurance system providing benefits to employees who are injured or become ill due to their job.",
+    longDef: `Workers' compensation is a state-mandated insurance program that provides medical benefits, wage replacement, and disability compensation to employees who suffer work-related injuries or illnesses, regardless of fault. In exchange for these guaranteed benefits, employees generally give up the right to sue their employer directly for workplace injuries, a tradeoff known as the workers' compensation bargain.
+
+Benefits typically include coverage of all reasonable and necessary medical treatment related to the injury, temporary disability payments replacing a portion of lost wages during recovery, permanent disability benefits if the injury causes lasting impairment, and vocational rehabilitation services if the employee cannot return to their previous job. Death benefits are available to dependents of workers killed on the job.
+
+Filing a workers' compensation claim requires prompt reporting of the injury to the employer, usually within a specific number of days. Employers are prohibited from retaliating against employees who file workers' compensation claims, and doing so may give rise to a separate wrongful termination claim. If a claim is denied or benefits are disputed, the employee can appeal through the state workers' compensation board or commission.`,
+    relatedTerms: ["wrongful-termination", "retaliation", "at-will-employment", "damages"],
+    category: "Employment",
+  },
+  {
+    term: "Unemployment Insurance",
+    slug: "unemployment-insurance",
+    shortDef: "A joint federal-state program providing temporary income to workers who lose their jobs through no fault of their own.",
+    longDef: `Unemployment insurance is a joint federal-state program that provides temporary financial assistance to workers who become unemployed through no fault of their own, such as through layoffs, company closures, or reductions in force. The program is funded primarily through employer payroll taxes and is administered by each state's unemployment agency under federal guidelines.
+
+To qualify for unemployment benefits, a worker generally must have earned enough wages during a defined base period, be able and available to work, and be actively seeking new employment. Workers who are fired for willful misconduct or who voluntarily quit without good cause are typically disqualified, though the specific rules vary by state and each case is evaluated individually.
+
+If an unemployment claim is denied, the worker has the right to appeal, usually through an administrative hearing where they can present evidence and testimony. Employers can also contest claims, but misrepresenting the circumstances of a termination to deny benefits may constitute a separate legal violation. Benefits typically last up to 26 weeks, though extensions may be available during periods of high unemployment.`,
+    relatedTerms: ["wrongful-termination", "at-will-employment", "severance", "wage-theft"],
+    category: "Employment",
+  },
+  {
+    term: "At-Will Employment",
+    slug: "at-will-employment",
+    shortDef: "The default employment relationship in most U.S. states where either party can end the job at any time for any legal reason.",
+    longDef: `At-will employment is the default legal presumption in nearly every U.S. state, with Montana being a notable exception after a probationary period. It means either the employer or the employee can end the working relationship at any time, for any reason, or no reason at all, and without advance notice, so long as the reason is not illegal.
+
+Even within an at-will relationship, employers cannot fire someone for reasons that violate anti-discrimination law, retaliate against protected activity, breach an implied contract created through employee handbooks or verbal promises, or violate public policy such as firing someone for refusing to do something illegal or for serving jury duty.
+
+Many employees mistakenly believe at-will status means they have no legal protection at all. In reality, it simply shifts the burden: the employee must show the termination falls into one of the recognized exceptions to at-will employment rather than assuming any firing without a stated reason is automatically wrongful. Understanding these exceptions is critical when evaluating a potential wrongful termination claim.`,
+    relatedTerms: ["wrongful-termination", "retaliation", "severance", "hostile-work-environment"],
+    category: "Employment",
+  },
+  {
+    term: "Hostile Work Environment",
+    slug: "hostile-work-environment",
+    shortDef: "A workplace made intolerable by severe or pervasive harassment or discrimination based on a protected characteristic.",
+    longDef: `A hostile work environment exists when unwelcome conduct based on a protected characteristic, such as race, sex, religion, national origin, age, or disability, is severe or pervasive enough to create a work environment that a reasonable person would consider intimidating, hostile, or abusive. This is a specific legal claim under anti-discrimination laws, not simply a generally unpleasant workplace.
+
+Courts consider several factors in evaluating hostile work environment claims, including the frequency of the discriminatory conduct, its severity, whether it is physically threatening or humiliating versus merely an offensive utterance, and whether it unreasonably interferes with the employee's work performance. A single incident may be sufficient if it is extremely severe, such as a physical assault, but most claims involve a pattern of behavior over time.
+
+Employees experiencing a hostile work environment should document each incident with dates, witnesses, and specific details, report the conduct through their employer's internal complaint procedures, and preserve any relevant communications. Filing an internal complaint creates a record and puts the employer on notice, which is important both for building a claim and for establishing potential employer liability.`,
+    relatedTerms: ["sexual-harassment", "retaliation", "wrongful-termination", "at-will-employment"],
+    category: "Employment",
+  },
+  {
+    term: "Sexual Harassment",
+    slug: "sexual-harassment",
+    shortDef: "Unwelcome sexual conduct in the workplace that creates a hostile environment or conditions job benefits on submission to the conduct.",
+    longDef: `Sexual harassment in the workplace generally falls into two legal categories. Quid pro quo harassment occurs when a job benefit such as hiring, promotion, or avoiding termination is conditioned on submitting to unwelcome sexual conduct. Hostile work environment harassment occurs when unwelcome sexual conduct, including comments, jokes, unwanted touching, or explicit materials, is severe or pervasive enough to alter the conditions of employment and create an abusive environment.
+
+Employers can be held liable for harassment by supervisors, and in many cases for harassment by coworkers or even non-employees like clients if the employer knew or should have known about it and failed to take corrective action. Most states require employers of a certain size to provide a reporting mechanism, and employees are generally expected to use it, though a strong claim can still exist even without a formal internal complaint in egregious cases.
+
+Documenting each incident with dates, witnesses, and direct quotes when possible, along with saving any relevant messages or emails, significantly strengthens both an internal complaint and any subsequent EEOC charge or demand letter. Time limits for filing are strict, so taking action promptly is important.`,
+    relatedTerms: ["hostile-work-environment", "retaliation", "wrongful-termination", "damages"],
+    category: "Employment",
+  },
+  {
+    term: "Retaliation",
+    slug: "retaliation",
+    shortDef: "Adverse action taken by an employer against an employee for engaging in legally protected activity such as reporting misconduct.",
+    longDef: `Retaliation occurs when an employer takes an adverse action, including termination, demotion, pay cut, negative reviews, or exclusion from projects, against an employee because they engaged in legally protected activity. Protected activity typically includes filing a discrimination or harassment complaint, participating in a workplace investigation, requesting a reasonable accommodation, reporting safety violations, or exercising rights like taking family medical leave.
+
+Retaliation claims are among the most commonly filed employment claims, in part because they can succeed even when the underlying complaint, for example, the original discrimination claim, does not, as long as the employee had a reasonable good-faith belief that they were reporting something unlawful. Close timing between the protected activity and the adverse action is often key evidence of retaliatory intent.
+
+Building a retaliation claim generally requires documenting the protected activity including the date and content of a complaint, the adverse action that followed, and the timeline connecting them, along with any shift in how the employee was treated after making the complaint. This documentation is essential for both a demand letter and any later EEOC filing or lawsuit.`,
+    relatedTerms: ["wrongful-termination", "hostile-work-environment", "whistleblower", "sexual-harassment"],
+    category: "Employment",
+  },
+  {
+    term: "Whistleblower",
+    slug: "whistleblower",
+    shortDef: "An employee or insider who reports illegal activity, fraud, or safety violations within their organization to authorities or the public.",
+    longDef: `A whistleblower is a person, typically an employee or insider, who reports illegal activity, fraud, safety violations, or other misconduct occurring within their organization to a government agency, law enforcement, or the public. Whistleblower protection laws at both the federal and state level shield these individuals from retaliation by their employers.
+
+Protections exist under numerous federal statutes covering specific areas such as securities fraud through the SEC whistleblower program, workplace safety through OSHA, healthcare fraud, government contracting through the False Claims Act, and environmental violations. Many state laws provide broader general whistleblower protections as well. Some programs, particularly the SEC and False Claims Act qui tam provisions, offer financial rewards to whistleblowers whose reports lead to successful enforcement actions.
+
+To qualify for protection, a whistleblower generally needs a good-faith, reasonable belief that the conduct they reported was actually illegal, even if they later turn out to have been mistaken. Employees considering making a report should understand which specific statute applies, since the protections, deadlines, and required reporting procedures vary significantly depending on the type of misconduct.`,
+    relatedTerms: ["retaliation", "wrongful-termination", "hostile-work-environment", "at-will-employment"],
+    category: "Employment",
+  },
+  {
+    term: "Non-Compete Agreement",
+    slug: "non-compete",
+    shortDef: "A contract restricting an employee from working for a competitor or starting a competing business for a defined time and area after leaving.",
+    longDef: `A non-compete agreement is a contract clause restricting a former employee from working for a competitor or starting a competing business within a defined geographic area and time period after leaving a job. Enforceability varies dramatically by state: some states, most notably California, generally void non-compete agreements entirely as against public policy, while others enforce them if the restrictions are reasonable in scope, duration, and geography.
+
+The FTC has moved to restrict non-compete agreements nationally in recent years, and many states have passed laws limiting or banning them for lower-wage workers, even where they remain enforceable for higher-level employees. Courts evaluating enforceability typically consider whether the restriction protects a legitimate business interest, whether the time and geographic limits are reasonable, and whether the restriction imposes an undue hardship on the employee.
+
+If you are bound by a non-compete and considering a new job or business, it is worth reviewing your specific state's law and the exact language of the agreement, since overly broad non-competes with unreasonable duration, unlimited geography, or overly broad restricted activities are often unenforceable even in states that generally allow them.`,
+    relatedTerms: ["severance", "breach-of-contract", "at-will-employment", "injunction"],
+    category: "Employment",
+  },
+  {
+    term: "Severance",
+    slug: "severance",
+    shortDef: "Compensation and benefits offered to a departing employee, typically in exchange for signing a release of legal claims against the employer.",
+    longDef: `Severance is compensation, usually a lump sum or continued salary payments, offered to an employee upon termination, typically in exchange for the employee agreeing to release the employer from potential legal claims. Severance is generally not legally required unless promised in an employment contract, offer letter, or established company policy, but many employers offer it as a standard practice, particularly during layoffs.
+
+Severance packages often include continued salary payments calculated based on years of service, continuation of health insurance coverage, outplacement services, and sometimes accelerated vesting of stock options or other equity. The critical component is almost always a release of claims, in which the employee agrees not to sue the employer for wrongful termination, discrimination, or other potential claims.
+
+Before signing a severance agreement, employees should carefully evaluate whether they may have legal claims worth more than the severance being offered. Federal law requires that employees age 40 and older be given at least 21 days to consider a severance agreement and 7 days to revoke after signing. Negotiating the terms of a severance package, either directly or through an attorney, is common and often results in improved terms.`,
+    relatedTerms: ["wrongful-termination", "release-of-claims", "at-will-employment", "non-compete"],
+    category: "Employment",
+  },
+  {
+    term: "Security Deposit",
+    slug: "security-deposit",
+    shortDef: "Money paid by a tenant to a landlord at the start of a lease as protection against unpaid rent or property damage.",
+    longDef: `A security deposit is a sum of money paid by a tenant to a landlord at the beginning of a tenancy, held as financial protection against unpaid rent, property damage beyond normal wear and tear, or other lease violations. Most states regulate security deposits, imposing limits on the maximum amount, usually one to two months' rent, and establishing specific requirements for how the deposit must be held and returned.
+
+At the end of a tenancy, landlords are required to return the security deposit within a specific time frame set by state law, typically 14 to 30 days, along with an itemized statement of any deductions. Deductions must be for actual damages, not normal wear and tear, which refers to the natural deterioration that occurs through ordinary use of the property over time. Common disputes arise over the distinction between damage and normal wear and tear.
+
+If a landlord fails to return a security deposit or makes improper deductions, tenants can often recover the deposit amount plus penalties, which may include double or triple the deposit amount plus attorney fees under many state laws. A demand letter documenting the lease dates, deposit amount, move-out condition, and applicable state law is typically the first step in recovering a wrongfully withheld security deposit.`,
+    relatedTerms: ["damages", "breach-of-contract", "small-claims-court", "demand-letter"],
+    category: "Housing",
   },
 ];
 
+// Backward compatibility alias
+export const GLOSSARY_TERMS = GLOSSARY;
+
 export function getTermBySlug(slug: string): GlossaryTerm | undefined {
-  return GLOSSARY_TERMS.find((t) => t.slug === slug);
+  return GLOSSARY.find((t) => t.slug === slug);
 }
 
 export function getAllTermSlugs(): string[] {
-  return GLOSSARY_TERMS.map((t) => t.slug);
+  return GLOSSARY.map((t) => t.slug);
 }
 
 export function getAllCategories(): string[] {
   const categories = new Set<string>();
-  for (const t of GLOSSARY_TERMS) {
+  for (const t of GLOSSARY) {
     categories.add(t.category);
   }
   return Array.from(categories);
 }
 
 export function getTermsByCategory(category: string): GlossaryTerm[] {
-  return GLOSSARY_TERMS.filter((t) => t.category === category);
+  return GLOSSARY.filter((t) => t.category === category);
 }

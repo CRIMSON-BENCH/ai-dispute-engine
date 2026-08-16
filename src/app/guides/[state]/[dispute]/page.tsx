@@ -588,8 +588,31 @@ export default async function StateDisputePage({
           </section>
         </div>
 
+        {/* Tool CTAs */}
+        <div className="mt-8 rounded-2xl border border-teal-200 bg-teal-50 p-6 dark:border-teal-800 dark:bg-teal-900/20">
+          <h2 className="mb-4 text-lg font-bold text-teal-900 dark:text-teal-100">Take action on your {dispute.shortTitle.toLowerCase()} dispute in {state.name}</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <Link href={`/disputes/${dispute.slug}`} className="rounded-lg border border-teal-200 bg-white p-3 text-center transition hover:shadow-sm dark:border-teal-800 dark:bg-slate-900">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">Demand Letter</p>
+              <p className="mt-1 text-xs font-semibold text-teal-600 dark:text-teal-400">$2</p>
+            </Link>
+            <Link href="/tools/follow-up-letter" className="rounded-lg border border-teal-200 bg-white p-3 text-center transition hover:shadow-sm dark:border-teal-800 dark:bg-slate-900">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">Follow-Up Letter</p>
+              <p className="mt-1 text-xs font-semibold text-teal-600 dark:text-teal-400">$2</p>
+            </Link>
+            <Link href="/tools/full-fight" className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-center transition hover:shadow-sm dark:border-amber-800 dark:bg-amber-900/20">
+              <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">Full Fight Bundle</p>
+              <p className="mt-1 text-xs font-semibold text-amber-600 dark:text-amber-400">$25</p>
+            </Link>
+            <Link href="/tools/small-claims-kit" className="rounded-lg border border-teal-200 bg-white p-3 text-center transition hover:shadow-sm dark:border-teal-800 dark:bg-slate-900">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">Small Claims Kit</p>
+              <p className="mt-1 text-xs font-semibold text-teal-600 dark:text-teal-400">$15</p>
+            </Link>
+          </div>
+        </div>
+
         {/* Disclaimer */}
-        <div className="border-t border-slate-200 pt-6 dark:border-slate-800">
+        <div className="mt-6 border-t border-slate-200 pt-6 dark:border-slate-800">
           <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-500">
             <strong>Disclaimer:</strong> AI Dispute Engine is not a law firm and
             does not provide legal advice. This information is for educational

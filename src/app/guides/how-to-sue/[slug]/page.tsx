@@ -605,8 +605,27 @@ export default async function HowToSueCompanyPage({
           </Link>
         </div>
 
+        {/* Tool CTAs */}
+        <div className="mt-8 rounded-2xl bg-slate-950 p-6 text-white sm:p-8 dark:border dark:border-slate-700 dark:bg-slate-900">
+          <h2 className="text-lg font-bold">Your next steps against {company.name}</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <Link href="/disputes" className="rounded-lg bg-teal-600 px-4 py-3 text-center text-sm font-semibold transition hover:bg-teal-500">
+              Demand Letter — $2
+            </Link>
+            <Link href="/tools/company-dossier" className="rounded-lg border border-slate-600 px-4 py-3 text-center text-sm font-semibold transition hover:bg-slate-800">
+              Company Dossier — $5
+            </Link>
+            <Link href="/tools/full-fight" className="rounded-lg border border-amber-500 px-4 py-3 text-center text-sm font-semibold text-amber-400 transition hover:bg-amber-500/10">
+              Full Fight Bundle — $25
+            </Link>
+            <Link href="/tools/attorney-review" className="rounded-lg border border-slate-600 px-4 py-3 text-center text-sm font-semibold transition hover:bg-slate-800">
+              Attorney Review — $65
+            </Link>
+          </div>
+        </div>
+
         {/* Disclaimer */}
-        <div className="border-t border-slate-200 pt-8 dark:border-slate-800">
+        <div className="mt-6 border-t border-slate-200 pt-8 dark:border-slate-800">
           <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-500">
             <strong>Disclaimer:</strong> AI Dispute Engine is not a law firm and
             does not provide legal advice. This information is for educational

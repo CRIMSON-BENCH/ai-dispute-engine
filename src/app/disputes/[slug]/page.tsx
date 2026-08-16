@@ -128,13 +128,61 @@ export default async function DisputePage({
           </div>
         )}
 
+        {/* Upsell: Related Tools */}
+        <div className="mt-12">
+          <h2 className="mb-6 text-xl font-bold">Make your case stronger</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/tools/follow-up-letter" className="group rounded-xl border border-slate-200 p-5 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-800 dark:hover:border-teal-800">
+              <p className="text-sm font-semibold text-slate-900 group-hover:text-teal-600 dark:text-white dark:group-hover:text-teal-400">Follow-Up Letter</p>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">No response? Turn up the pressure with a follow-up.</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$2 &rarr;</p>
+            </Link>
+            <Link href="/tools/evidence-toolkit" className="group rounded-xl border border-slate-200 p-5 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-800 dark:hover:border-teal-800">
+              <p className="text-sm font-semibold text-slate-900 group-hover:text-teal-600 dark:text-white dark:group-hover:text-teal-400">Evidence Toolkit</p>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Organize screenshots, receipts, and records for court.</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$3 &rarr;</p>
+            </Link>
+            <Link href="/tools/full-fight" className="group rounded-xl border border-amber-200 bg-amber-50/50 p-5 transition hover:border-amber-300 hover:shadow-sm dark:border-amber-800 dark:bg-amber-900/10 dark:hover:border-amber-700">
+              <p className="text-sm font-semibold text-amber-800 group-hover:text-amber-600 dark:text-amber-300 dark:group-hover:text-amber-400">Full Fight Bundle</p>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">6 letters + 30-day pressure campaign. Most popular.</p>
+              <p className="mt-2 text-xs font-semibold text-amber-600 dark:text-amber-400">$25 &rarr;</p>
+            </Link>
+            <Link href="/tools/escalation" className="group rounded-xl border border-slate-200 p-5 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-800 dark:hover:border-teal-800">
+              <p className="text-sm font-semibold text-slate-900 group-hover:text-teal-600 dark:text-white dark:group-hover:text-teal-400">Escalation Pack</p>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">File complaints with FTC, CFPB, and your state AG simultaneously.</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$5 &rarr;</p>
+            </Link>
+            <Link href="/tools/attorney-review" className="group rounded-xl border border-slate-200 p-5 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-800 dark:hover:border-teal-800">
+              <p className="text-sm font-semibold text-slate-900 group-hover:text-teal-600 dark:text-white dark:group-hover:text-teal-400">Attorney Review</p>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Have a real lawyer review your letter within 48 hours.</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$65 &rarr;</p>
+            </Link>
+            <Link href="/tools/court-filing" className="group rounded-xl border border-slate-200 p-5 transition hover:border-teal-300 hover:shadow-sm dark:border-slate-800 dark:hover:border-teal-800">
+              <p className="text-sm font-semibold text-slate-900 group-hover:text-teal-600 dark:text-white dark:group-hover:text-teal-400">Court Filing Kit</p>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Pre-filled court forms and step-by-step filing instructions.</p>
+              <p className="mt-2 text-xs font-semibold text-teal-600 dark:text-teal-400">$50 &rarr;</p>
+            </Link>
+          </div>
+        </div>
+
+        {/* Add-on banner */}
+        <div className="mt-8 rounded-xl border border-teal-200 bg-teal-50 p-5 dark:border-teal-800 dark:bg-teal-900/20">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold text-teal-900 dark:text-teal-100">Add Certified Mail — $8</p>
+              <p className="mt-1 text-xs text-teal-700 dark:text-teal-300">Send your letter via USPS Certified Mail with tracking. Creates a legal paper trail.</p>
+            </div>
+            <Link href="/tools/notarized-letter" className="text-xs font-medium text-teal-600 hover:text-teal-500 dark:text-teal-400">Or get it notarized — $15 &rarr;</Link>
+          </div>
+        </div>
+
         {/* Back link */}
         <div className="mt-12">
           <Link
             href="/disputes"
             className="text-sm font-medium text-teal-600 hover:text-teal-500 dark:text-teal-400"
           >
-            ← Browse all dispute templates
+            &larr; Browse all dispute templates
           </Link>
         </div>
       </div>
