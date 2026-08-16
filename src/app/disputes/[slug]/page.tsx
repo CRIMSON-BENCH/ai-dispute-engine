@@ -8,12 +8,13 @@ export function generateStaticParams() {
   return DISPUTES.map((d) => ({ slug: d.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const dispute = DISPUTES.find((d) => d.slug === params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const dispute = DISPUTES.find((d) => d.slug === slug);
   if (!dispute) return {};
   return {
     title: `${dispute.title} — Free AI Template`,
@@ -21,12 +22,13 @@ export function generateMetadata({
   };
 }
 
-export default function DisputePage({
+export default async function DisputePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const dispute = DISPUTES.find((d) => d.slug === params.slug);
+  const { slug } = await params;
+  const dispute = DISPUTES.find((d) => d.slug === slug);
   if (!dispute) notFound();
 
   return (

@@ -6,12 +6,12 @@ import { TestimonialCard } from "@/components/TestimonialCard";
 const FEATURED_SLUGS = [
   "security-deposit",
   "credit-report",
-  "dmca-takedown",
-  "medical-denial",
   "lemon-law",
   "car-accident-demand",
   "wrongful-termination",
   "insurance-denial",
+  "wage-theft",
+  "landlord-repair",
 ];
 
 const TESTIMONIALS = DISPUTES.filter((d) => d.testimonial).slice(0, 4);
@@ -34,7 +34,7 @@ const STEPS = [
   },
 ];
 
-const STATUTES = ["FCRA", "FDCPA", "DMCA", "HIPAA", "ADA", "TCPA", "CCPA", "FLSA"];
+const STATUTES = ["FCRA", "FDCPA", "DMCA", "HIPAA", "ADA", "TCPA", "CCPA", "FLSA", "UCC", "FOIA"];
 
 export default function HomePage() {
   const featured = FEATURED_SLUGS.map((slug) => DISPUTES.find((d) => d.slug === slug)!);
@@ -57,7 +57,7 @@ export default function HomePage() {
               <p className="mt-6 text-lg leading-relaxed text-slate-300 sm:text-xl">
                 Tell our AI what happened — in plain English. Get a professional
                 demand letter that cites the right statutes for your state.
-                Ready in 60 seconds.
+                Ready in 60 seconds. Starting at $2.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Link
@@ -73,13 +73,13 @@ export default function HomePage() {
                   href="/pricing"
                   className="inline-flex items-center justify-center rounded-lg border border-slate-600 px-6 py-3.5 text-base font-medium text-slate-300 transition hover:border-slate-500 hover:text-white"
                 >
-                  See pricing
+                  See pricing — $2/letter
                 </Link>
               </div>
               <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
                 <span className="flex items-center gap-1.5">
                   <svg className="h-4 w-4 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  20+ dispute types
+                  38 dispute types
                 </span>
                 <span className="flex items-center gap-1.5">
                   <svg className="h-4 w-4 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -87,7 +87,7 @@ export default function HomePage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <svg className="h-4 w-4 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  PDF &amp; DOCX download
+                  93% cheaper than competitors
                 </span>
               </div>
             </div>
@@ -124,10 +124,34 @@ export default function HomePage() {
               <p className="mt-3 text-center text-xs text-slate-500">
                 Or{" "}
                 <Link href="/disputes" className="text-teal-400 underline underline-offset-2">
-                  browse all dispute types
+                  browse all 38 dispute types
                 </Link>
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Price comparison banner */}
+      <section className="border-b border-slate-200 bg-teal-50 dark:border-slate-800 dark:bg-teal-950/30">
+        <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+            <span className="font-semibold text-slate-700 dark:text-slate-300">Compare our prices:</span>
+            <span className="flex items-center gap-2">
+              <span className="font-bold text-teal-600 dark:text-teal-400">Us: $2</span>
+              <span className="text-slate-400">vs</span>
+              <span className="text-slate-500 line-through">PettyLawsuit: $29</span>
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="font-bold text-teal-600 dark:text-teal-400">Us: $2</span>
+              <span className="text-slate-400">vs</span>
+              <span className="text-slate-500 line-through">Sue.com: $129</span>
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="font-bold text-teal-600 dark:text-teal-400">Us: $2</span>
+              <span className="text-slate-400">vs</span>
+              <span className="text-slate-500 line-through">Attorney: $300+</span>
+            </span>
           </div>
         </div>
       </section>
@@ -194,10 +218,10 @@ export default function HomePage() {
               href="/disputes"
               className="hidden text-sm font-semibold text-teal-600 hover:text-teal-500 sm:block dark:text-teal-400"
             >
-              Browse all →
+              Browse all 38 →
             </Link>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {featured.map((d) => (
               <DisputeCard
                 key={d.slug}
@@ -250,6 +274,52 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Full Fight Bundle spotlight */}
+      <section className="border-t border-slate-200 bg-amber-50 dark:border-slate-800 dark:bg-amber-950/20">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="grid items-center gap-8 lg:grid-cols-2">
+            <div>
+              <p className="text-sm font-semibold text-amber-600 dark:text-amber-400">New: Full Fight Bundle</p>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+                6 letters. 30 days. Total pressure.
+              </h2>
+              <p className="mt-4 text-slate-600 dark:text-slate-400">
+                PettyLawsuit charges $49 for their &ldquo;Go Full Petty&rdquo; package. Ours is $25 — and includes more letters.
+              </p>
+              <Link
+                href="/tools/full-fight"
+                className="mt-6 inline-flex items-center rounded-lg bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-500"
+              >
+                See the Full Fight Bundle
+                <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+            </div>
+            <div className="rounded-xl border border-amber-200 bg-white p-6 dark:border-amber-800 dark:bg-slate-900">
+              <div className="space-y-3">
+                {[
+                  { day: "Day 1", label: "Demand Letter", status: "Sent" },
+                  { day: "Day 10", label: "Follow-Up Letter", status: "Escalated" },
+                  { day: "Day 21", label: "Final Notice / Intent to Sue", status: "Final warning" },
+                  { day: "Day 30", label: "FTC + CFPB + State AG Complaints", status: "Regulatory" },
+                ].map((step) => (
+                  <div key={step.day} className="flex items-center gap-4 rounded-lg bg-slate-50 px-4 py-3 dark:bg-slate-800">
+                    <span className="w-16 text-xs font-bold text-amber-600 dark:text-amber-400">{step.day}</span>
+                    <span className="flex-1 text-sm font-medium">{step.label}</span>
+                    <span className="text-xs text-slate-500">{step.status}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 text-center">
+                <span className="text-2xl font-bold text-amber-600">$25</span>
+                <span className="ml-2 text-sm text-slate-400 line-through">$49 at PettyLawsuit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Tools & Add-ons */}
       <section className="bg-white dark:bg-slate-950">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
@@ -267,20 +337,48 @@ export default function HomePage() {
               <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Settlement Calculator</h3>
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Free — estimate what your case is worth</p>
             </Link>
-            <Link href="/tools/escalation" className="group rounded-2xl border border-slate-200 p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:hover:border-teal-500">
-              <span className="text-2xl">📈</span>
-              <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Escalation Pack</h3>
-              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">$5 — FTC, CFPB, &amp; State AG complaints</p>
+            <Link href="/tools/court-filing" className="group rounded-2xl border border-slate-200 p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:hover:border-teal-500">
+              <span className="text-2xl">📋</span>
+              <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Court Filing Kit</h3>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">$50 — pre-filled forms for your state</p>
             </Link>
-            <Link href="/tools/small-claims-kit" className="group rounded-2xl border border-slate-200 p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:hover:border-teal-500">
-              <span className="text-2xl">⚖️</span>
-              <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Small Claims Kit</h3>
-              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">$15 — file in court without a lawyer</p>
+            <Link href="/tools/attorney-review" className="group rounded-2xl border border-slate-200 p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:hover:border-teal-500">
+              <span className="text-2xl">👨‍⚖️</span>
+              <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Attorney Review</h3>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">$65 — real lawyer reviews your letter</p>
             </Link>
             <Link href="/business" className="group rounded-2xl border border-slate-200 p-6 transition-colors hover:border-teal-600 dark:border-slate-700 dark:hover:border-teal-500">
               <span className="text-2xl">🏢</span>
               <h3 className="mt-3 font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400">Business Plan</h3>
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">$49/mo — unlimited letters for your team</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO content links */}
+      <section className="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/50">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <h2 className="text-center text-2xl font-bold">Free resources</h2>
+          <p className="mx-auto mt-2 max-w-lg text-center text-sm text-slate-500 dark:text-slate-400">
+            Thousands of pages of free legal information to help you understand your rights.
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <Link href="/guides" className="rounded-xl border border-slate-200 bg-white p-5 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <h3 className="font-semibold">State Guides</h3>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Small claims court guides for all 50 states</p>
+            </Link>
+            <Link href="/guides/how-to-sue" className="rounded-xl border border-slate-200 bg-white p-5 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <h3 className="font-semibold">How to Sue Any Company</h3>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Step-by-step guides for 100+ companies</p>
+            </Link>
+            <Link href="/blog" className="rounded-xl border border-slate-200 bg-white p-5 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <h3 className="font-semibold">Blog &amp; Guides</h3>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Expert articles on disputes, rights, and legal tips</p>
+            </Link>
+            <Link href="/glossary" className="rounded-xl border border-slate-200 bg-white p-5 transition-colors hover:border-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-teal-500">
+              <h3 className="font-semibold">Legal Glossary</h3>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">100+ legal terms explained in plain English</p>
             </Link>
           </div>
         </div>
@@ -310,9 +408,19 @@ export default function HomePage() {
               href="/pricing"
               className="text-sm font-medium text-slate-400 underline underline-offset-4 transition hover:text-white"
             >
-              See pricing
+              See pricing — 93% cheaper than competitors
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Disclaimer */}
+      <section className="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/50">
+        <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6">
+          <p className="text-center text-xs text-slate-400">
+            AI Dispute Engine is not a law firm and does not provide legal advice. All documents are for informational
+            purposes only. For legal advice, consult a licensed attorney in your jurisdiction.
+          </p>
         </div>
       </section>
     </>
