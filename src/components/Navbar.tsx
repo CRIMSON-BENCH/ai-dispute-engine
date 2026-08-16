@@ -10,21 +10,95 @@ const navLinks = [
   { href: "/#how", label: "How It Works" },
 ] as const;
 
-const toolLinks = [
-  { href: "/tools/settlement-calculator", label: "Settlement Calculator", desc: "Free — estimate your case value" },
-  { href: "/tools/legal-checkup", label: "Legal Checkup", desc: "Free — check your rights" },
-  { href: "/tools/follow-up-letter", label: "Follow-Up Letter", desc: "$2 — escalate when ignored" },
-  { href: "/tools/response-letter", label: "Response Letter", desc: "$2 — draft a rebuttal" },
-  { href: "/tools/cease-desist", label: "Cease & Desist", desc: "$2 — stop harassment" },
-  { href: "/tools/complaint-letter", label: "Complaint Letter", desc: "$2 — file with BBB/FTC/AG" },
-  { href: "/tools/final-notice", label: "Final Notice", desc: "$3 — intent to sue" },
-  { href: "/tools/escalation", label: "Escalation Pack", desc: "$5 — FTC + CFPB + AG bundle" },
-  { href: "/tools/evidence-toolkit", label: "Evidence Toolkit", desc: "$3 — organize your case" },
-  { href: "/tools/skip-tracing", label: "Skip Tracing", desc: "$10 — find their address" },
-  { href: "/tools/small-claims-kit", label: "Small Claims Kit", desc: "$15 — file without a lawyer" },
-  { href: "/tools/notarized-letter", label: "Notarized Letter", desc: "$15 — add legal weight" },
-  { href: "/tools/process-serving", label: "Process Serving", desc: "$50 — in-person delivery" },
-] as const;
+const toolCategories = [
+  {
+    label: "Free Tools",
+    items: [
+      { href: "/tools/settlement-calculator", label: "Settlement Calculator", desc: "Estimate your case value" },
+      { href: "/tools/legal-checkup", label: "Legal Checkup", desc: "Check your rights" },
+      { href: "/tools/letter-tracker", label: "Letter Tracker", desc: "Track your dispute" },
+      { href: "/tools/statute-lookup", label: "Statute Lookup", desc: "$1 — filing deadlines" },
+    ],
+  },
+  {
+    label: "Letters & Documents",
+    items: [
+      { href: "/tools/follow-up-letter", label: "Follow-Up Letter", desc: "$2" },
+      { href: "/tools/response-letter", label: "Response Letter", desc: "$2" },
+      { href: "/tools/cease-desist", label: "Cease & Desist", desc: "$2" },
+      { href: "/tools/complaint-letter", label: "Complaint Letter", desc: "$2" },
+      { href: "/tools/debt-validation", label: "Debt Validation", desc: "$2" },
+      { href: "/tools/goodwill-letter", label: "Goodwill Letter", desc: "$2" },
+      { href: "/tools/hardship-letter", label: "Hardship Letter", desc: "$2" },
+      { href: "/tools/warranty-claim-letter", label: "Warranty Claim", desc: "$2" },
+      { href: "/tools/hoa-violation-response", label: "HOA Response", desc: "$2" },
+      { href: "/tools/subscription-cancellation", label: "Cancel Subscription", desc: "$2" },
+      { href: "/tools/rent-increase-dispute", label: "Rent Increase Dispute", desc: "$2" },
+      { href: "/tools/foia-request", label: "FOIA Request", desc: "$2" },
+      { href: "/tools/final-notice", label: "Final Notice", desc: "$3" },
+      { href: "/tools/wage-dispute-letter", label: "Wage Dispute", desc: "$3" },
+      { href: "/tools/insurance-denial-appeal", label: "Insurance Appeal", desc: "$3" },
+      { href: "/tools/medical-bill-dispute", label: "Medical Bill Dispute", desc: "$3" },
+      { href: "/tools/data-breach-demand", label: "Data Breach Demand", desc: "$3" },
+      { href: "/tools/chargeback-evidence", label: "Chargeback Evidence", desc: "$3" },
+      { href: "/tools/phone-script", label: "Phone Script", desc: "$3" },
+      { href: "/tools/lemon-law-demand", label: "Lemon Law Demand", desc: "$5" },
+      { href: "/tools/settlement-agreement", label: "Settlement Agreement", desc: "$5" },
+      { href: "/tools/affidavit-generator", label: "Affidavit Generator", desc: "$5" },
+      { href: "/tools/letter-translation", label: "Letter Translation", desc: "$5" },
+      { href: "/tools/witness-statement", label: "Witness Statement", desc: "$5" },
+    ],
+  },
+  {
+    label: "Bundles & Kits",
+    items: [
+      { href: "/tools/escalation", label: "Escalation Pack", desc: "$5" },
+      { href: "/tools/evidence-toolkit", label: "Evidence Toolkit", desc: "$3" },
+      { href: "/tools/bill-negotiation", label: "Bill Negotiation Pack", desc: "$10" },
+      { href: "/tools/credit-repair-bundle", label: "Credit Repair Bundle", desc: "$15" },
+      { href: "/tools/small-claims-kit", label: "Small Claims Kit", desc: "$15" },
+      { href: "/tools/court-prep", label: "Court Prep Kit", desc: "$15" },
+      { href: "/tools/full-fight", label: "Full Fight Bundle", desc: "$25" },
+      { href: "/tools/auto-campaign", label: "Pressure Campaign", desc: "$35" },
+      { href: "/tools/court-filing", label: "Court Filing Kit", desc: "$50" },
+    ],
+  },
+  {
+    label: "Premium Services",
+    items: [
+      { href: "/tools/dispute-strength-score", label: "Case Strength Score", desc: "$3" },
+      { href: "/tools/company-dossier", label: "Company Dossier", desc: "$5" },
+      { href: "/tools/landlord-report", label: "Landlord Report", desc: "$5" },
+      { href: "/tools/know-your-rights-guide", label: "Know Your Rights Guide", desc: "$5" },
+      { href: "/tools/rush-processing", label: "Rush Processing", desc: "$10 add-on" },
+      { href: "/tools/negotiation-coach", label: "AI Negotiation Coach", desc: "$10" },
+      { href: "/tools/skip-tracing", label: "Skip Tracing", desc: "$10" },
+      { href: "/tools/notarized-letter", label: "Notarized Letter", desc: "$15" },
+      { href: "/tools/lease-audit", label: "Lease Audit", desc: "$25" },
+      { href: "/tools/legal-research", label: "Legal Research", desc: "$25" },
+      { href: "/tools/contract-review", label: "Contract Review", desc: "$25" },
+      { href: "/tools/process-serving", label: "Process Serving", desc: "$50" },
+      { href: "/tools/attorney-review", label: "Attorney Review", desc: "$65" },
+      { href: "/tools/ai-mediation", label: "AI Mediation", desc: "$150" },
+      { href: "/tools/dispute-concierge", label: "Dispute Concierge", desc: "$199" },
+    ],
+  },
+  {
+    label: "Subscriptions",
+    items: [
+      { href: "/tools/dispute-vault", label: "Dispute Vault", desc: "$3/mo" },
+      { href: "/tools/dispute-tracker-extension", label: "Dispute Tracker", desc: "$3/mo" },
+      { href: "/tools/legal-shield", label: "Legal Shield", desc: "$5/mo" },
+      { href: "/tools/ai-dispute-chatbot", label: "AI Chatbot", desc: "$5/mo" },
+      { href: "/tools/evidence-organizer", label: "Evidence Organizer", desc: "$5/mo" },
+      { href: "/tools/family-plan", label: "Family Plan", desc: "$19/mo" },
+      { href: "/tools/landlord-plan", label: "Landlord Plan", desc: "$29/mo" },
+      { href: "/tools/annual-consumer-audit", label: "Consumer Audit", desc: "$25/yr" },
+    ],
+  },
+];
+
+const toolLinks = toolCategories.flatMap((c) => c.items);
 
 const resourceLinks = [
   { href: "/guides", label: "State Guides", desc: "Small claims in all 50 states" },
@@ -76,31 +150,26 @@ export function Navbar() {
               <svg className={`h-3.5 w-3.5 transition-transform ${toolsOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
             </button>
             {toolsOpen && (
-              <div className="absolute left-0 top-full mt-2 w-72 rounded-xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                <div className="max-h-80 overflow-y-auto">
-                  {toolLinks.map((tool) => (
-                    <Link key={tool.href} href={tool.href} className="block rounded-lg px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800">
-                      <span className="block text-sm font-medium text-slate-900 dark:text-white">{tool.label}</span>
-                      <span className="block text-xs text-slate-500 dark:text-slate-400">{tool.desc}</span>
-                    </Link>
+              <div className="absolute left-0 top-full mt-2 w-80 rounded-xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                <div className="max-h-96 overflow-y-auto">
+                  {toolCategories.map((cat) => (
+                    <div key={cat.label}>
+                      <p className="px-3 pb-1 pt-2 text-xs font-semibold uppercase tracking-wider text-slate-400">{cat.label}</p>
+                      {cat.items.slice(0, 6).map((tool) => (
+                        <Link key={tool.href} href={tool.href} className="block rounded-lg px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800">
+                          <span className="text-sm font-medium text-slate-900 dark:text-white">{tool.label}</span>
+                          <span className="ml-2 text-xs text-slate-400">{tool.desc}</span>
+                        </Link>
+                      ))}
+                      {cat.items.length > 6 && (
+                        <p className="px-3 py-1 text-xs text-teal-600 dark:text-teal-400">+ {cat.items.length - 6} more</p>
+                      )}
+                    </div>
                   ))}
                 </div>
                 <div className="mt-1 border-t border-slate-100 pt-1 dark:border-slate-800">
-                  <Link href="/tools/full-fight" className="block rounded-lg px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800">
-                    <span className="block text-sm font-medium text-amber-600 dark:text-amber-400">Full Fight Bundle</span>
-                    <span className="block text-xs text-slate-500 dark:text-slate-400">$25 — 6 letters, full pressure campaign</span>
-                  </Link>
-                  <Link href="/tools/court-filing" className="block rounded-lg px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800">
-                    <span className="block text-sm font-medium text-teal-600 dark:text-teal-400">Court Filing Kit</span>
-                    <span className="block text-xs text-slate-500 dark:text-slate-400">$50 — pre-filled court forms</span>
-                  </Link>
-                  <Link href="/tools/attorney-review" className="block rounded-lg px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800">
-                    <span className="block text-sm font-medium text-teal-600 dark:text-teal-400">Attorney Review</span>
-                    <span className="block text-xs text-slate-500 dark:text-slate-400">$65 — real lawyer reviews your letter</span>
-                  </Link>
-                  <Link href="/business" className="block rounded-lg px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800">
-                    <span className="block text-sm font-medium text-teal-600 dark:text-teal-400">Business Plan</span>
-                    <span className="block text-xs text-slate-500 dark:text-slate-400">$49/mo — unlimited for your team</span>
+                  <Link href="/pricing" className="block rounded-lg px-3 py-2 text-center text-sm font-semibold text-teal-600 hover:bg-slate-50 dark:text-teal-400 dark:hover:bg-slate-800">
+                    View all tools &amp; pricing &rarr;
                   </Link>
                 </div>
               </div>
@@ -188,38 +257,21 @@ export function Navbar() {
               </Link>
             ))}
 
-            <p className="mt-4 border-t border-slate-200 px-3 pt-3 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:border-slate-700">Tools</p>
-            {toolLinks.slice(0, 8).map((tool) => (
-              <Link
-                key={tool.href}
-                href={tool.href}
-                onClick={() => setMobileOpen(false)}
-                className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-teal-600 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-teal-400"
-              >
-                {tool.label}
-              </Link>
+            {toolCategories.map((cat) => (
+              <div key={cat.label}>
+                <p className="mt-4 border-t border-slate-200 px-3 pt-3 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:border-slate-700">{cat.label}</p>
+                {cat.items.slice(0, 5).map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-teal-600 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-teal-400"
+                  >
+                    {tool.label} <span className="text-sm text-slate-400">{tool.desc}</span>
+                  </Link>
+                ))}
+              </div>
             ))}
-            <Link
-              href="/tools/full-fight"
-              onClick={() => setMobileOpen(false)}
-              className="block rounded-md px-3 py-2 text-base font-medium text-amber-600 hover:bg-slate-100 dark:text-amber-400 dark:hover:bg-slate-800"
-            >
-              Full Fight Bundle — $25
-            </Link>
-            <Link
-              href="/tools/court-filing"
-              onClick={() => setMobileOpen(false)}
-              className="block rounded-md px-3 py-2 text-base font-medium text-teal-600 hover:bg-slate-100 dark:text-teal-400 dark:hover:bg-slate-800"
-            >
-              Court Filing Kit — $50
-            </Link>
-            <Link
-              href="/tools/attorney-review"
-              onClick={() => setMobileOpen(false)}
-              className="block rounded-md px-3 py-2 text-base font-medium text-teal-600 hover:bg-slate-100 dark:text-teal-400 dark:hover:bg-slate-800"
-            >
-              Attorney Review — $65
-            </Link>
 
             <p className="mt-4 border-t border-slate-200 px-3 pt-3 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:border-slate-700">Resources</p>
             {resourceLinks.map((link) => (

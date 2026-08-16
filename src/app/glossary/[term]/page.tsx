@@ -6,7 +6,6 @@ import {
   getTermBySlug,
   getAllTermSlugs,
 } from "@/lib/glossary";
-import { DISPUTES } from "@/lib/disputes";
 
 export function generateStaticParams() {
   return getAllTermSlugs().map((slug) => ({ term: slug }));
@@ -39,11 +38,6 @@ export default async function GlossaryTermPage({
   const relatedTermEntries = entry.relatedTerms
     .map((slug) => GLOSSARY_TERMS.find((t) => t.slug === slug))
     .filter(Boolean) as typeof GLOSSARY_TERMS;
-
-  /* Resolve related disputes */
-  const relatedDisputes = entry.relatedDisputes
-    .map((slug) => DISPUTES.find((d) => d.slug === slug))
-    .filter((d): d is (typeof DISPUTES)[number] => d !== undefined);
 
   /* Split long definition into paragraphs */
   const paragraphs = entry.longDef.split("\n\n").filter(Boolean);
@@ -129,35 +123,6 @@ export default async function GlossaryTermPage({
                   className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-teal-700 dark:hover:bg-teal-900/20 dark:hover:text-teal-400"
                 >
                   {t.term}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Related Dispute Types */}
-        {relatedDisputes.length > 0 && (
-          <div className="mt-12">
-            <h2 className="mb-4 text-xl font-bold">Related Dispute Types</h2>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedDisputes.map((d) => (
-                <Link
-                  key={d.slug}
-                  href={`/disputes/${d.slug}`}
-                  className="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 hover:bg-teal-50/50 dark:border-slate-800 dark:hover:border-teal-800 dark:hover:bg-teal-900/10"
-                >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-xl dark:bg-slate-800">
-                    {d.icon}
-                  </span>
-                  <div>
-                    <span className="text-sm font-semibold text-slate-900 dark:text-white">
-                      {d.shortTitle}
-                    </span>
-                    <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
-                      {d.description.slice(0, 80)}
-                      {d.description.length > 80 ? "..." : ""}
-                    </p>
-                  </div>
                 </Link>
               ))}
             </div>

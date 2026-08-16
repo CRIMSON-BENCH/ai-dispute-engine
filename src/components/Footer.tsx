@@ -14,16 +14,31 @@ const productLinks = [
 const toolLinks = [
   { href: "/tools/settlement-calculator", label: "Settlement Calculator" },
   { href: "/tools/legal-checkup", label: "Legal Checkup" },
-  { href: "/tools/full-fight", label: "Full Fight Bundle" },
   { href: "/tools/follow-up-letter", label: "Follow-Up Letter" },
-  { href: "/tools/response-letter", label: "Response Letter" },
   { href: "/tools/cease-desist", label: "Cease & Desist" },
-  { href: "/tools/escalation", label: "Escalation Pack" },
+  { href: "/tools/debt-validation", label: "Debt Validation" },
+  { href: "/tools/goodwill-letter", label: "Goodwill Letter" },
+  { href: "/tools/warranty-claim-letter", label: "Warranty Claim" },
+  { href: "/tools/insurance-denial-appeal", label: "Insurance Appeal" },
+  { href: "/tools/medical-bill-dispute", label: "Medical Bill Dispute" },
+  { href: "/tools/lemon-law-demand", label: "Lemon Law Demand" },
+  { href: "/tools/wage-dispute-letter", label: "Wage Dispute" },
+  { href: "/tools/full-fight", label: "Full Fight Bundle" },
+] as const;
+
+const moreToolLinks = [
   { href: "/tools/court-filing", label: "Court Filing Kit" },
   { href: "/tools/attorney-review", label: "Attorney Review" },
+  { href: "/tools/ai-mediation", label: "AI Mediation" },
   { href: "/tools/small-claims-kit", label: "Small Claims Kit" },
-  { href: "/tools/notarized-letter", label: "Notarized Letter" },
-  { href: "/tools/process-serving", label: "Process Serving" },
+  { href: "/tools/escalation", label: "Escalation Pack" },
+  { href: "/tools/credit-repair-bundle", label: "Credit Repair Bundle" },
+  { href: "/tools/lease-audit", label: "Lease Audit" },
+  { href: "/tools/contract-review", label: "Contract Review" },
+  { href: "/tools/dispute-concierge", label: "Dispute Concierge" },
+  { href: "/tools/legal-shield", label: "Legal Shield Plan" },
+  { href: "/tools/family-plan", label: "Family Plan" },
+  { href: "/tools/class-action-connector", label: "Class Action Connector" },
 ] as const;
 
 const resourceLinks = [
@@ -43,7 +58,7 @@ export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-7">
           {/* Brand column */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2">
@@ -53,12 +68,12 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-3 max-w-sm text-sm text-slate-600 dark:text-slate-400">
-              AI-powered demand letters starting at $2. 38 dispute types, all 50 states, 60 seconds. Not a law firm.
+              AI-powered demand letters starting at $2. 75+ tools, 38 dispute types, all 50 states. Not a law firm.
             </p>
             <div className="mt-4 flex items-center gap-4 text-xs text-slate-500">
-              <span>$2/letter</span>
+              <span>$1-$199</span>
               <span>•</span>
-              <span>93% cheaper</span>
+              <span>75+ tools</span>
               <span>•</span>
               <span>30,000+ pages</span>
             </div>
@@ -90,6 +105,25 @@ export function Footer() {
             </h3>
             <ul className="mt-3 space-y-2">
               {toolLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-600 transition-colors hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* More Tools */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+              More Tools
+            </h3>
+            <ul className="mt-3 space-y-2">
+              {moreToolLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
